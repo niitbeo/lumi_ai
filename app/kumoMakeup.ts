@@ -863,6 +863,8 @@ function resolveLayerBlend(layer: KumoMakeupLayer, pick: KumoMakeupPick): Global
       // Piecewise triangle mesh warping perfectly anchors eyelashes and eyeshadows
       // to the 106 facial landmarks, following eyelid curves and squints precisely.
       const useMeshWarp = ["eyeshadow", "eyesocket", "blush", "feature", "makeup_highlight"].includes(pick.partKey ?? "");
+      const isEyelash = pick.partKey === "eyelash" || pick.partKey === "eyeliner";
+      console.log(`[KumoMakeup] WARP BRANCH: partKey="${pick.partKey}", useMeshWarp=${useMeshWarp}, isEyelash=${isEyelash}, rect=[${layer.rect}]`);
       // After drawing layers, apply mesh warp if needed
       if (useMeshWarp) {
         if (!warpStage) {
@@ -888,12 +890,15 @@ function resolveLayerBlend(layer: KumoMakeupLayer, pick: KumoMakeupPick): Global
         context.setTransform(1, 0, 0, 1, 0, 0);
       } else {
         // Eyelash/Eyeliner: Piecewise eyelid mesh warp (Kumoo Step 2)
-        // Uses a mini-mesh of 14 triangles around the eye to bend the
+        // Uses a mini-mesh of 19 triangles around the eye to bend the
         // eyelash texture along the exact upper eyelid contour.
         const layerCenterX = layer.rect[0] + layer.rect[2] / 2;
         const isLeft = layerCenterX < canonical.axis;
         const tris = isLeft ? LEFT_EYELID_TRIS : RIGHT_EYELID_TRIS;
 
+        console.log(`[KumoMakeup] EYELID WARP: ${isLeft ? "LEFT" : "RIGHT"} eye, rect=[${layer.rect}], layerCenterX=${layerCenterX}, axis=${canonical.axis}, tris=${tris.length}`);
+
+        let triCount = 0;
         for (const [i0, i1, i2] of tris) {
           const p0 = CANONICAL_POINTS[i0];
           const p1 = CANONICAL_POINTS[i1];
@@ -901,13 +906,19 @@ function resolveLayerBlend(layer: KumoMakeupLayer, pick: KumoMakeupPick): Global
           const f0 = landmarks[i0];
           const f1 = landmarks[i1];
           const f2 = landmarks[i2];
-          if (!p0 || !p1 || !p2 || !f0 || !f1 || !f2) continue;
+          if (!p0 || !p1 || !p2 || !f0 || !f1 || !f2) {
+            console.warn(`[KumoMakeup] EYELID WARP: skip tri [${i0},${i1},${i2}] — missing point`, { p0, p1, p2, f0, f1, f2 });
+            continue;
+          }
 
           const mat = solveAffine(
             [p0[0], p0[1]], [p1[0], p1[1]], [p2[0], p2[1]],
             [f0[0], f0[1]], [f1[0], f1[1]], [f2[0], f2[1]],
           );
-          if (!mat) continue;
+          if (!mat) {
+            console.warn(`[KumoMakeup] EYELID WARP: degenerate tri [${i0},${i1},${i2}]`);
+            continue;
+          }
 
           context.save();
           context.beginPath();
@@ -919,7 +930,9 @@ function resolveLayerBlend(layer: KumoMakeupLayer, pick: KumoMakeupPick): Global
           context.setTransform(mat.a, mat.d, mat.b, mat.e, mat.c, mat.f);
           context.drawImage(stage, 0, 0);
           context.restore();
+          triCount++;
         }
+        console.log(`[KumoMakeup] EYELID WARP: drew ${triCount}/${tris.length} triangles`);
       }
       context.restore();
       painted = true;
