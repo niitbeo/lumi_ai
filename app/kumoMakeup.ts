@@ -228,27 +228,34 @@ export function makeupTransform(landmarks: number[][], canonical: KumoMakeupLibr
  *   Step 1: Similarity Transform (scale + rotate to eye width)
  *   Step 2: Piecewise Eyelid Mesh Warp (bend along upper lid contour)
  *
- * These triangles connect:
+ * These triangles connect 4 rows:
  *   Row 1 (eyebrow):    43,44,45,46,47  /  101,100,99,98,97
  *   Row 2 (upper lid):  35,41,40,42,39  /  93,96,94,95,89
  *   Row 3 (lower lid):  36,33,37        /  91,87,90
+ *   Row 4 (below eye):  9,75            /  25,81       (cheek/nose points for full coverage)
  */
 const LEFT_EYELID_TRIS: [number, number, number][] = [
-  // Eyebrow → Upper eyelid (covers area above eye where lash tips extend)
+  // Row 1 → Row 2: Eyebrow → Upper eyelid
   [43, 35, 44], [44, 35, 41], [44, 41, 45], [45, 41, 40],
   [45, 40, 46], [46, 40, 42], [46, 42, 47], [47, 42, 39],
-  // Upper eyelid → Lower eyelid (covers the eye aperture)
+  // Row 2 → Row 3: Upper eyelid → Lower eyelid
   [35, 41, 36], [41, 33, 36], [41, 40, 33],
   [40, 37, 33], [40, 42, 37], [42, 39, 37],
+  // Row 3 → Row 4: Lower eyelid → Below-eye (cheek/nose)
+  [35, 36, 9], [36, 33, 9], [33, 75, 9],
+  [33, 37, 75], [37, 39, 75],
 ];
 
 const RIGHT_EYELID_TRIS: [number, number, number][] = [
-  // Eyebrow → Upper eyelid
+  // Row 1 → Row 2: Eyebrow → Upper eyelid
   [101, 93, 100], [100, 93, 96], [100, 96, 99], [99, 96, 94],
   [99, 94, 98],   [98, 94, 95],  [98, 95, 97],  [97, 95, 89],
-  // Upper eyelid → Lower eyelid
+  // Row 2 → Row 3: Upper eyelid → Lower eyelid
   [93, 96, 91], [96, 87, 91], [96, 94, 87],
   [94, 90, 87], [94, 95, 90], [95, 89, 90],
+  // Row 3 → Row 4: Lower eyelid → Below-eye (cheek/nose)
+  [93, 91, 25], [91, 87, 25], [87, 81, 25],
+  [87, 90, 81], [90, 89, 81],
 ];
 
 function canonicalSource(
