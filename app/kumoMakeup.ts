@@ -222,24 +222,34 @@ export function makeupTransform(landmarks: number[][], canonical: KumoMakeupLibr
 }
 
 
-function localEyeTransform(isLeft: boolean, landmarks: number[][]) {
-  const p1 = isLeft ? 35 : 93; // Outer corner
-  const p2 = isLeft ? 39 : 89; // Inner corner
-  const p3 = isLeft ? 40 : 94; // Top center
+/**
+ * Eyelid mini-mesh triangles for piecewise eyelash warping.
+ * Kumoo anchors eyelashes in 2 steps:
+ *   Step 1: Similarity Transform (scale + rotate to eye width)
+ *   Step 2: Piecewise Eyelid Mesh Warp (bend along upper lid contour)
+ *
+ * These triangles connect:
+ *   Row 1 (eyebrow):    43,44,45,46,47  /  101,100,99,98,97
+ *   Row 2 (upper lid):  35,41,40,42,39  /  93,96,94,95,89
+ *   Row 3 (lower lid):  36,33,37        /  91,87,90
+ */
+const LEFT_EYELID_TRIS: [number, number, number][] = [
+  // Eyebrow → Upper eyelid (covers area above eye where lash tips extend)
+  [43, 35, 44], [44, 35, 41], [44, 41, 45], [45, 41, 40],
+  [45, 40, 46], [46, 40, 42], [46, 42, 47], [47, 42, 39],
+  // Upper eyelid → Lower eyelid (covers the eye aperture)
+  [35, 41, 36], [41, 33, 36], [41, 40, 33],
+  [40, 37, 33], [40, 42, 37], [42, 39, 37],
+];
 
-  const u0 = CANONICAL_POINTS[p1];
-  const u1 = CANONICAL_POINTS[p2];
-  const u2 = CANONICAL_POINTS[p3];
-
-  const x0 = landmarks[p1];
-  const x1 = landmarks[p2];
-  const x2 = landmarks[p3];
-
-  return solveAffine(
-    [u0[0], u0[1]], [u1[0], u1[1]], [u2[0], u2[1]],
-    [x0[0], x0[1]], [x1[0], x1[1]], [x2[0], x2[1]]
-  );
-}
+const RIGHT_EYELID_TRIS: [number, number, number][] = [
+  // Eyebrow → Upper eyelid
+  [101, 93, 100], [100, 93, 96], [100, 96, 99], [99, 96, 94],
+  [99, 94, 98],   [98, 94, 95],  [98, 95, 97],  [97, 95, 89],
+  // Upper eyelid → Lower eyelid
+  [93, 96, 91], [96, 87, 91], [96, 94, 87],
+  [94, 90, 87], [94, 95, 90], [95, 89, 90],
+];
 
 function canonicalSource(
   context: CanvasRenderingContext2D,
@@ -870,41 +880,39 @@ function resolveLayerBlend(layer: KumoMakeupLayer, pick: KumoMakeupPick): Global
         context.drawImage(stage, 0, 0);
         context.setTransform(1, 0, 0, 1, 0, 0);
       } else {
+        // Eyelash/Eyeliner: Piecewise eyelid mesh warp (Kumoo Step 2)
+        // Uses a mini-mesh of 14 triangles around the eye to bend the
+        // eyelash texture along the exact upper eyelid contour.
         const layerCenterX = layer.rect[0] + layer.rect[2] / 2;
         const isLeft = layerCenterX < canonical.axis;
-        
-        const p1 = isLeft ? 35 : 93; // Outer corner
-        const p2 = isLeft ? 39 : 89; // Inner corner
-        
-        const u0 = CANONICAL_POINTS[p1];
-        const u1 = CANONICAL_POINTS[p2];
-        const x0 = landmarks[p1];
-        const x1 = landmarks[p2];
-        
-        const du = [u1[0] - u0[0], u1[1] - u0[1]];
-        const dx = [x1[0] - x0[0], x1[1] - x0[1]];
-        
-        const lu = Math.hypot(du[0], du[1]);
-        const lx = Math.hypot(dx[0], dx[1]);
-        const scale = lx / lu;
-        
-        const angleU = Math.atan2(du[1], du[0]);
-        const angleX = Math.atan2(dx[1], dx[0]);
-        const angle = angleX - angleU;
-        
-        const cos = Math.cos(angle) * scale;
-        const sin = Math.sin(angle) * scale;
-        
-        const tx = x0[0] - (cos * u0[0] - sin * u0[1]);
-        const ty = x0[1] - (sin * u0[0] + cos * u0[1]);
-        
-        context.setTransform(
-          cos, sin,
-          -sin, cos,
-          tx, ty,
-        );
-        context.drawImage(stage, 0, 0);
-        context.setTransform(1, 0, 0, 1, 0, 0);
+        const tris = isLeft ? LEFT_EYELID_TRIS : RIGHT_EYELID_TRIS;
+
+        for (const [i0, i1, i2] of tris) {
+          const p0 = CANONICAL_POINTS[i0];
+          const p1 = CANONICAL_POINTS[i1];
+          const p2 = CANONICAL_POINTS[i2];
+          const f0 = landmarks[i0];
+          const f1 = landmarks[i1];
+          const f2 = landmarks[i2];
+          if (!p0 || !p1 || !p2 || !f0 || !f1 || !f2) continue;
+
+          const mat = solveAffine(
+            [p0[0], p0[1]], [p1[0], p1[1]], [p2[0], p2[1]],
+            [f0[0], f0[1]], [f1[0], f1[1]], [f2[0], f2[1]],
+          );
+          if (!mat) continue;
+
+          context.save();
+          context.beginPath();
+          context.moveTo(f0[0], f0[1]);
+          context.lineTo(f1[0], f1[1]);
+          context.lineTo(f2[0], f2[1]);
+          context.closePath();
+          context.clip();
+          context.setTransform(mat.a, mat.d, mat.b, mat.e, mat.c, mat.f);
+          context.drawImage(stage, 0, 0);
+          context.restore();
+        }
       }
       context.restore();
       painted = true;
