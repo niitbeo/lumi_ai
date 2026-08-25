@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist>
+	<array>
+		<dict>
+			<key>ResourceStruct</key>
+			<array>
+				<dict>
+					<key>ResourceType</key>
+					<string>Animation</string>
+					<key>ResourceTag</key>
+					<integer>1</integer>
+					<key>Path</key>
+					<string>mcpResource-3.plist</string>
+					<key>Rectangle</key>
+					<string>230,537,539,185</string>
+				</dict>
+				<dict>
+					<key>ResourceType</key>
+					<string>Animation</string>
+					<key>ResourceTag</key>
+					<integer>1</integer>
+					<key>Path</key>
+					<string>mcpResource-15.plist</string>
+					<key>Rectangle</key>
+					<string>102,179,805,873</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</plist>

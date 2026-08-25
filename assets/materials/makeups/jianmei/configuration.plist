@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string></string>
+			<key>AI</key>
+			<array>
+				<string>ai/configuration.json</string>
+			</array>
+			<key>CustomParamDict</key>
+			<dict>
+				<key>EyelidRealtimeModelType</key>
+				<integer>-1</integer>
+			</dict>
+			<key>SpecialMakeup</key>
+			<integer>1</integer>
+			<key>IsNeedResetSound</key>
+			<integer>0</integer>
+			<key>EnableReplaceSpecialFacelift</key>
+			<integer>0</integer>
+			<key>FacePart</key>
+			<array>
+				<dict>
+					<key>Type</key>
+					<string>S</string>
+					<key>Path</key>
+					<string>l.png</string>
+					<key>LocateMethod</key>
+					<integer>48</integer>
+					<key>FilterType</key>
+					<integer>3</integer>
+					<key>Rectangle</key>
+					<string>185,378,321,176</string>
+					<key>ORGBA</key>
+					<string>100,0,0,0,255</string>
+					<key>EyeBrowPoint</key>
+					<string>65,98,114,65,166,66,219,76,265,92,263,121,218,103,161,90,115,91</string>
+					<key>MUType</key>
+					<integer>2</integer>
+					<key>Operation</key>
+					<integer>0</integer>
+					<key>ID</key>
+					<string>105553209664000</string>
+					<key>Name</key>
+					<string></string>
+					<key>CustomName</key>
+					<string>MUFACE_EYEBROW</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</plist>

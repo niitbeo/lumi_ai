@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist>
+	<array>
+		<dict>
+			<!-- 这个字段可设置子项默认值，没有设置默认50的程度 -->
+        <key>MakeupAlpha</key>
+        <dict>
+        <key>DefualtTotalAlpha</key>
+            <integer>60</integer>
+        </dict>
+			<key>Name</key>
+			<string>Default</string>
+			<key>FacePart</key>
+			<array>
+				<dict>
+					<key>Type</key>
+					<string>S</string>
+					<key>Path</key>
+					<string>smt.png</string>
+					<key>LocateMethod</key>
+					<string>2</string>
+					<key>LockSource</key>
+					<string>0</string>
+					<key>FilterType</key>
+					<string>4</string>
+					<key>Rectangle</key>
+					<string>361,800,275,115</string>
+					<key>ORGBA</key>
+					<string>50,0,0,0,255</string>
+					<key>MUType</key>
+					<string>1</string>
+					<key>Operation</key>
+					<string>7</string>
+					<!-- 唇妆需要这个字段代表滑竿可调 -->
+                    <key>MakeupCustomName</key>
+                    <string>MUFACE_MOUTH</string>
+				</dict>
+				<dict>
+					<key>Type</key>
+					<string>MPLIPSTICK</string>
+					<key>ORGBA</key>
+					<string>100,188,77,81,150</string>
+					<key>LipstickMode</key>
+					<string>6</string>
+					<key>TeethWhiten</key>
+					<string>0</string>
+					<key>WhitenDegree</key>
+					<string>0.50</string>
+					<key>GlossAlpha</key>
+					<string>76</string>
+					<key>LightAlpha</key>
+					<string>100</string>
+					<key>LightColorRGBA</key>
+					<string>255,255,255,255</string>
+					<!-- 唇妆需要这个字段代表滑竿可调 -->
+                    <key>MakeupCustomName</key>
+                    <string>MUFACE_MOUTH</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</plist>

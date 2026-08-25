@@ -1,0 +1,43 @@
+{
+  "contract": "kumoo-colortransfer-v3-recovered-lut64-v1",
+  "lut_size": 64,
+  "tile_grid": 8,
+  "entries": {
+    "pk0_0.jpeg": {
+      "lut": "pk0_0.kumoo-v3-lut64.jpg",
+      "lut_sha256": "3ed82399d2d8aa85f7a40a7b92a331070d6afb1efb655aa6af9c5d0e5f7d8b97",
+      "reference_url": "https://mtyunxiu-static.meitudata.com/public/compos/pro/d5kdfqf8qdjvld08jai0.jpg",
+      "reference_asset": "pk0_0.jpeg",
+      "material_id": "92",
+      "capture": {
+        "source": "neutral_lut_512.png",
+        "source_size": [512, 512],
+        "task": "/v1/colortransfer_v3_async",
+        "algo_version": 2,
+        "pre_size": 2560,
+        "save_photo_format": 1,
+        "total_alpha": 100,
+        "tone_alpha": 100,
+        "lightness_alpha": 100,
+        "color_alpha": 100
+      }
+    },
+    "pk4_0.jpeg": {
+      "lut": "pk4_0.kumoo-v3-lut64.jpg",
+      "lut_sha256": "e9fd9a2109b9e32342e466df2e6fc9334ed1d5b7445ecb5844ff6146247b6e64",
+      "reference_url": "https://mtyunxiu-static.meitudata.com/public/20260331/ecd910a7-18a5-4171-935d-3c5ea2f71cf6.jpg",
+      "reference_asset": "pk4_0.jpeg",
+      "capture": {
+        "source": "neutral_lut_512.png",
+        "source_size": [512, 512],
+        "task": "/v1/colortransfer_v3_async",
+        "algo_version": 2,
+        "pre_size": 2560,
+        "save_photo_format": 1,
+        "total_alpha": 100,
+        "lightness_alpha": 100,
+        "color_alpha": 100
+      }
+    }
+  }
+}

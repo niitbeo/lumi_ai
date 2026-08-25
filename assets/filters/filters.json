@@ -1,0 +1,1103 @@
+{
+  "phobien": [
+    {
+      "id": "new",
+      "name": "🆕 New",
+      "filters": [
+        {
+          "id": "none",
+          "name": "Không",
+          "code": "none",
+          "detail": "Màu gốc",
+          "lut": "",
+          "thumbnail": "",
+          "default_alpha": 100,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000Hpx9vvGngd",
+          "name": "透亮",
+          "code": "P01",
+          "detail": "透亮 (P01)",
+          "lut": "Fa0000Hpx9vvGngd",
+          "thumbnail": "/filters/thumbs/Fa0000Hpx9vvGngd.jpg",
+          "default_alpha": 60,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000aPQLtBufth",
+          "name": "白皙I",
+          "code": "P05",
+          "detail": "白皙I (P05)",
+          "lut": "Fa0000aPQLtBufth",
+          "thumbnail": "/filters/thumbs/Fa0000aPQLtBufth.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000jIA9yz0wXt",
+          "name": "无尽夏",
+          "code": "O10",
+          "detail": "无尽夏 (O10)",
+          "lut": "Fa0000jIA9yz0wXt",
+          "thumbnail": "/filters/thumbs/Fa0000jIA9yz0wXt.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00008kCBX2bBc7",
+          "name": "焕彩假日",
+          "code": "O01",
+          "detail": "焕彩假日 (O01)",
+          "lut": "Fa00008kCBX2bBc7",
+          "thumbnail": "/filters/thumbs/Fa00008kCBX2bBc7.jpg",
+          "default_alpha": 60,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000yA1Lir2bdo",
+          "name": "黑金",
+          "code": "C01",
+          "detail": "黑金 (C01)",
+          "lut": "Fa0000yA1Lir2bdo",
+          "thumbnail": "/filters/thumbs/Fa0000yA1Lir2bdo.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        }
+      ]
+    },
+    {
+      "id": "portrait",
+      "name": "📸 Chân dung (P)",
+      "filters": [
+        {
+          "id": "none",
+          "name": "Không",
+          "code": "none",
+          "detail": "Màu gốc",
+          "lut": "",
+          "thumbnail": "",
+          "default_alpha": 100,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000ZO5eevvoev",
+          "name": "透亮",
+          "code": "P01",
+          "detail": "透亮 (P01)",
+          "lut": "Fa0000ZO5eevvoev",
+          "thumbnail": "/filters/thumbs/Fa0000ZO5eevvoev.jpg",
+          "default_alpha": 60,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000UGIBMahr3w",
+          "name": "暖意Ⅰ",
+          "code": "P02",
+          "detail": "暖意Ⅰ (P02)",
+          "lut": "Fa0000UGIBMahr3w",
+          "thumbnail": "/filters/thumbs/Fa0000UGIBMahr3w.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000sw8eCTX3AB",
+          "name": "暖意II",
+          "code": "P03",
+          "detail": "暖意II (P03)",
+          "lut": "Fa0000sw8eCTX3AB",
+          "thumbnail": "/filters/thumbs/Fa0000sw8eCTX3AB.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000BJzKzgEAJX",
+          "name": "质感人像",
+          "code": "P04",
+          "detail": "质感人像 (P04)",
+          "lut": "Fa0000BJzKzgEAJX",
+          "thumbnail": "/filters/thumbs/Fa0000BJzKzgEAJX.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000C0csBbBLGJ",
+          "name": "白皙I",
+          "code": "P06",
+          "detail": "白皙I (P06)",
+          "lut": "Fa0000C0csBbBLGJ",
+          "thumbnail": "/filters/thumbs/Fa0000C0csBbBLGJ.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000hsMOoC6wHx",
+          "name": "白皙II",
+          "code": "P07",
+          "detail": "白皙II (P07)",
+          "lut": "Fa0000hsMOoC6wHx",
+          "thumbnail": "/filters/thumbs/Fa0000hsMOoC6wHx.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000m2c3wcLMKe",
+          "name": "室内跟拍",
+          "code": "P08",
+          "detail": "室内跟拍 (P08)",
+          "lut": "Fa0000m2c3wcLMKe",
+          "thumbnail": "/filters/thumbs/Fa0000m2c3wcLMKe.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000UiikN0tEAN",
+          "name": "室外跟拍",
+          "code": "P09",
+          "detail": "室外跟拍 (P09)",
+          "lut": "Fa0000UiikN0tEAN",
+          "thumbnail": "/filters/thumbs/Fa0000UiikN0tEAN.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000Ly2xGD9OHh",
+          "name": "中式秀禾",
+          "code": "P10",
+          "detail": "中式秀禾 (P10)",
+          "lut": "Fa0000Ly2xGD9OHh",
+          "thumbnail": "/filters/thumbs/Fa0000Ly2xGD9OHh.jpg",
+          "default_alpha": 70,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000dWhwAG10Mt",
+          "name": "中式暖调",
+          "code": "P11",
+          "detail": "中式暖调 (P11)",
+          "lut": "Fa0000dWhwAG10Mt",
+          "thumbnail": "/filters/thumbs/Fa0000dWhwAG10Mt.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00009qkfva96ax",
+          "name": "烟雨江南",
+          "code": "P12",
+          "detail": "烟雨江南 (P12)",
+          "lut": "Fa00009qkfva96ax",
+          "thumbnail": "/filters/thumbs/Fa00009qkfva96ax.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        }
+      ]
+    },
+    {
+      "id": "outdoor",
+      "name": "🌿 Ngoài trời (O)",
+      "filters": [
+        {
+          "id": "none",
+          "name": "Không",
+          "code": "none",
+          "detail": "Màu gốc",
+          "lut": "",
+          "thumbnail": "",
+          "default_alpha": 100,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000yQvOJtTKWf",
+          "name": "花海",
+          "code": "O09",
+          "detail": "花海 (O09)",
+          "lut": "Fa0000yQvOJtTKWf",
+          "thumbnail": "/filters/thumbs/Fa0000yQvOJtTKWf.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000HxecTNSCnj",
+          "name": "无尽夏",
+          "code": "O10",
+          "detail": "无尽夏 (O10)",
+          "lut": "Fa0000HxecTNSCnj",
+          "thumbnail": "/filters/thumbs/Fa0000HxecTNSCnj.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00004WmU47xXrf",
+          "name": "蓝色大海",
+          "code": "O11",
+          "detail": "蓝色大海 (O11)",
+          "lut": "Fa00004WmU47xXrf",
+          "thumbnail": "/filters/thumbs/Fa00004WmU47xXrf.jpg",
+          "default_alpha": 70,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000nZwYBKbihl",
+          "name": "敦煌I",
+          "code": "O07",
+          "detail": "敦煌I (O07)",
+          "lut": "Fa0000nZwYBKbihl",
+          "thumbnail": "/filters/thumbs/Fa0000nZwYBKbihl.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000iDqHash0sP",
+          "name": "敦煌II",
+          "code": "O08",
+          "detail": "敦煌II (O08)",
+          "lut": "Fa0000iDqHash0sP",
+          "thumbnail": "/filters/thumbs/Fa0000iDqHash0sP.jpg",
+          "default_alpha": 70,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000skp99iK19d",
+          "name": "焕彩假日",
+          "code": "O01",
+          "detail": "焕彩假日 (O01)",
+          "lut": "Fa0000skp99iK19d",
+          "thumbnail": "/filters/thumbs/Fa0000skp99iK19d.jpg",
+          "default_alpha": 60,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000GwlRgJjWkp",
+          "name": "日系清新",
+          "code": "O02",
+          "detail": "日系清新 (O02)",
+          "lut": "Fa0000GwlRgJjWkp",
+          "thumbnail": "/filters/thumbs/Fa0000GwlRgJjWkp.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000VoJWMs5IDW",
+          "name": "法式油画",
+          "code": "O03",
+          "detail": "法式油画 (O03)",
+          "lut": "Fa0000VoJWMs5IDW",
+          "thumbnail": "/filters/thumbs/Fa0000VoJWMs5IDW.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00007cZB1m8CH3",
+          "name": "森系青调",
+          "code": "O04",
+          "detail": "森系青调 (O04)",
+          "lut": "Fa00007cZB1m8CH3",
+          "thumbnail": "/filters/thumbs/Fa00007cZB1m8CH3.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00002CFtLbdAsN",
+          "name": "青葱草地",
+          "code": "O05",
+          "detail": "青葱草地 (O05)",
+          "lut": "Fa00002CFtLbdAsN",
+          "thumbnail": "/filters/thumbs/Fa00002CFtLbdAsN.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000ngg7xDaVqe",
+          "name": "清冷江南",
+          "code": "O06",
+          "detail": "清冷江南 (O06)",
+          "lut": "Fa0000ngg7xDaVqe",
+          "thumbnail": "/filters/thumbs/Fa0000ngg7xDaVqe.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        }
+      ]
+    },
+    {
+      "id": "film",
+      "name": "🎞️ Film analog (F)",
+      "filters": [
+        {
+          "id": "none",
+          "name": "Không",
+          "code": "none",
+          "detail": "Màu gốc",
+          "lut": "",
+          "thumbnail": "",
+          "default_alpha": 100,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000GzfSGpFf4k",
+          "name": "粉胶",
+          "code": "F10",
+          "detail": "粉胶 (F10)",
+          "lut": "Fa0000GzfSGpFf4k",
+          "thumbnail": "/filters/thumbs/Fa0000GzfSGpFf4k.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000Yq5faQ9nQa",
+          "name": "日系",
+          "code": "F05",
+          "detail": "日系 (F05)",
+          "lut": "Fa0000Yq5faQ9nQa",
+          "thumbnail": "/filters/thumbs/Fa0000Yq5faQ9nQa.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000bqxcuYY5bb",
+          "name": "乐园",
+          "code": "F04",
+          "detail": "乐园 (F04)",
+          "lut": "Fa0000bqxcuYY5bb",
+          "thumbnail": "/filters/thumbs/Fa0000bqxcuYY5bb.jpg",
+          "default_alpha": 70,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000UpsemzyADt",
+          "name": "柯达金",
+          "code": "F03",
+          "detail": "柯达金 (F03)",
+          "lut": "Fa0000UpsemzyADt",
+          "thumbnail": "/filters/thumbs/Fa0000UpsemzyADt.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00005Pa1RiA2fF",
+          "name": "经典卷II",
+          "code": "F02",
+          "detail": "经典卷II (F02)",
+          "lut": "Fa00005Pa1RiA2fF",
+          "thumbnail": "/filters/thumbs/Fa00005Pa1RiA2fF.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000CWwYIyajdD",
+          "name": "经典卷I",
+          "code": "F01",
+          "detail": "经典卷I (F01)",
+          "lut": "Fa0000CWwYIyajdD",
+          "thumbnail": "/filters/thumbs/Fa0000CWwYIyajdD.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        }
+      ]
+    },
+    {
+      "id": "classic",
+      "name": "🎨 Cổ điển (C)",
+      "filters": [
+        {
+          "id": "none",
+          "name": "Không",
+          "code": "none",
+          "detail": "Màu gốc",
+          "lut": "",
+          "thumbnail": "",
+          "default_alpha": 100,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000hnu5fysSnw",
+          "name": "黑金",
+          "code": "C01",
+          "detail": "黑金 (C01)",
+          "lut": "Fa0000hnu5fysSnw",
+          "thumbnail": "/filters/thumbs/Fa0000hnu5fysSnw.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00006StiDCCXUQ",
+          "name": "夜景",
+          "code": "C02",
+          "detail": "夜景 (C02)",
+          "lut": "Fa00006StiDCCXUQ",
+          "thumbnail": "/filters/thumbs/Fa00006StiDCCXUQ.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000zPXcq6HaKm",
+          "name": "夜景蓝调",
+          "code": "C03",
+          "detail": "夜景蓝调 (C03)",
+          "lut": "Fa0000zPXcq6HaKm",
+          "thumbnail": "/filters/thumbs/Fa0000zPXcq6HaKm.jpg",
+          "default_alpha": 80,
+          "skin_protection": 0
+        }
+      ]
+    },
+    {
+      "id": "bw",
+      "name": "⬛ Đen trắng (B)",
+      "filters": [
+        {
+          "id": "none",
+          "name": "Không",
+          "code": "none",
+          "detail": "Màu gốc",
+          "lut": "",
+          "thumbnail": "",
+          "default_alpha": 100,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000EOz3ZOATjI",
+          "name": "质感黑白",
+          "code": "B01",
+          "detail": "质感黑白 (B01)",
+          "lut": "Fa0000EOz3ZOATjI",
+          "thumbnail": "/filters/thumbs/Fa0000EOz3ZOATjI.jpg",
+          "default_alpha": 100,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000wxCJsSmkr4",
+          "name": "60年代",
+          "code": "B02",
+          "detail": "60年代 (B02)",
+          "lut": "Fa0000wxCJsSmkr4",
+          "thumbnail": "/filters/thumbs/Fa0000wxCJsSmkr4.jpg",
+          "default_alpha": 100,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000dMNokcFbOP",
+          "name": "复古黑白",
+          "code": "B03",
+          "detail": "复古黑白 (B03)",
+          "lut": "Fa0000dMNokcFbOP",
+          "thumbnail": "/filters/thumbs/Fa0000dMNokcFbOP.jpg",
+          "default_alpha": 100,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000e02nxtPjgZ",
+          "name": "高对比",
+          "code": "B04",
+          "detail": "高对比 (B04)",
+          "lut": "Fa0000e02nxtPjgZ",
+          "thumbnail": "/filters/thumbs/Fa0000e02nxtPjgZ.jpg",
+          "default_alpha": 100,
+          "skin_protection": 0
+        }
+      ]
+    },
+    {
+      "id": "hald",
+      "name": "🎬 HALD Cinematic (H)",
+      "filters": [
+        {
+          "id": "none",
+          "name": "Không",
+          "code": "none",
+          "detail": "Màu gốc",
+          "lut": "",
+          "thumbnail": "",
+          "default_alpha": 100,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00004ZuQuHKGS8",
+          "name": "森系",
+          "code": "H01",
+          "detail": "森系 (H01)",
+          "lut": "Fa00004ZuQuHKGS8",
+          "thumbnail": "/filters/thumbs/Fa00004ZuQuHKGS8.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00005laGsjTUku",
+          "name": "日系",
+          "code": "H02",
+          "detail": "日系 (H02)",
+          "lut": "Fa00005laGsjTUku",
+          "thumbnail": "/filters/thumbs/Fa00005laGsjTUku.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "FakN7AwtNBuTbbAg",
+          "name": "寂忆",
+          "code": "H03",
+          "detail": "寂忆 (H03)",
+          "lut": "FakN7AwtNBuTbbAg",
+          "thumbnail": "/filters/thumbs/FakN7AwtNBuTbbAg.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00006fhJ3N39BW",
+          "name": "高级灰",
+          "code": "H04",
+          "detail": "高级灰 (H04)",
+          "lut": "Fa00006fhJ3N39BW",
+          "thumbnail": "/filters/thumbs/Fa00006fhJ3N39BW.jpg",
+          "default_alpha": 60,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000GIqjw2lTHs",
+          "name": "复古",
+          "code": "H05",
+          "detail": "复古 (H05)",
+          "lut": "Fa0000GIqjw2lTHs",
+          "thumbnail": "/filters/thumbs/Fa0000GIqjw2lTHs.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa5Ko6DFZ0M7LYq0",
+          "name": "多彩",
+          "code": "H06",
+          "detail": "多彩 (H06)",
+          "lut": "Fa5Ko6DFZ0M7LYq0",
+          "thumbnail": "/filters/thumbs/Fa5Ko6DFZ0M7LYq0.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "FaSIJM59R7eIQNdb",
+          "name": "静谧",
+          "code": "H07",
+          "detail": "静谧 (H07)",
+          "lut": "FaSIJM59R7eIQNdb",
+          "thumbnail": "/filters/thumbs/FaSIJM59R7eIQNdb.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "FaTrSSLhNVNl7fez",
+          "name": "清冷",
+          "code": "H08",
+          "detail": "清冷 (H08)",
+          "lut": "FaTrSSLhNVNl7fez",
+          "thumbnail": "/filters/thumbs/FaTrSSLhNVNl7fez.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "FaZQiqI8ivwXDO8V",
+          "name": "幽夜",
+          "code": "H09",
+          "detail": "幽夜 (H09)",
+          "lut": "FaZQiqI8ivwXDO8V",
+          "thumbnail": "/filters/thumbs/FaZQiqI8ivwXDO8V.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fam7OiW93OVqp7VZ",
+          "name": "黑白",
+          "code": "H10",
+          "detail": "黑白 (H10)",
+          "lut": "Fam7OiW93OVqp7VZ",
+          "thumbnail": "/filters/thumbs/Fam7OiW93OVqp7VZ.jpg",
+          "default_alpha": 100,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000AcP6k81I2p",
+          "name": "夜景",
+          "code": "H11",
+          "detail": "夜景 (H11)",
+          "lut": "Fa0000AcP6k81I2p",
+          "thumbnail": "/filters/thumbs/Fa0000AcP6k81I2p.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000RGuP61MarE",
+          "name": "园林",
+          "code": "H12",
+          "detail": "园林 (H12)",
+          "lut": "Fa0000RGuP61MarE",
+          "thumbnail": "/filters/thumbs/Fa0000RGuP61MarE.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000zZmwsM7Nfl",
+          "name": "东方",
+          "code": "H13",
+          "detail": "东方 (H13)",
+          "lut": "Fa0000zZmwsM7Nfl",
+          "thumbnail": "/filters/thumbs/Fa0000zZmwsM7Nfl.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000l4c2ZRdh74",
+          "name": "极简",
+          "code": "H14",
+          "detail": "极简 (H14)",
+          "lut": "Fa0000l4c2ZRdh74",
+          "thumbnail": "/filters/thumbs/Fa0000l4c2ZRdh74.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00006jrLeSJK8m",
+          "name": "中式韵味",
+          "code": "H15",
+          "detail": "中式韵味 (H15)",
+          "lut": "Fa00006jrLeSJK8m",
+          "thumbnail": "/filters/thumbs/Fa00006jrLeSJK8m.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00008Xh3vS8BsQ",
+          "name": "简约韩式",
+          "code": "H16",
+          "detail": "简约韩式 (H16)",
+          "lut": "Fa00008Xh3vS8BsQ",
+          "thumbnail": "/filters/thumbs/Fa00008Xh3vS8BsQ.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00008KUR0HiadL",
+          "name": "森系园林",
+          "code": "H17",
+          "detail": "森系园林 (H17)",
+          "lut": "Fa00008KUR0HiadL",
+          "thumbnail": "/filters/thumbs/Fa00008KUR0HiadL.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000epgjUhXLrB",
+          "name": "黑色内景",
+          "code": "H18",
+          "detail": "黑色内景 (H18)",
+          "lut": "Fa0000epgjUhXLrB",
+          "thumbnail": "/filters/thumbs/Fa0000epgjUhXLrB.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000wBVTX9Jt4h",
+          "name": "白色内景",
+          "code": "H19",
+          "detail": "白色内景 (H19)",
+          "lut": "Fa0000wBVTX9Jt4h",
+          "thumbnail": "/filters/thumbs/Fa0000wBVTX9Jt4h.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000KubcZugZ4e",
+          "name": "灰色内景",
+          "code": "H20",
+          "detail": "灰色内景 (H20)",
+          "lut": "Fa0000KubcZugZ4e",
+          "thumbnail": "/filters/thumbs/Fa0000KubcZugZ4e.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00001mDiwf1m6n",
+          "name": "白色教堂",
+          "code": "H21",
+          "detail": "白色教堂 (H21)",
+          "lut": "Fa00001mDiwf1m6n",
+          "thumbnail": "/filters/thumbs/Fa00001mDiwf1m6n.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000EzvY8aqbxR",
+          "name": "蓝色大海",
+          "code": "H22",
+          "detail": "蓝色大海 (H22)",
+          "lut": "Fa0000EzvY8aqbxR",
+          "thumbnail": "/filters/thumbs/Fa0000EzvY8aqbxR.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000LB7OThWMDo",
+          "name": "黑白质感",
+          "code": "H23",
+          "detail": "黑白质感 (H23)",
+          "lut": "Fa0000LB7OThWMDo",
+          "thumbnail": "/filters/thumbs/Fa0000LB7OThWMDo.jpg",
+          "default_alpha": 100,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa9EFqwgJB9SwW8d",
+          "name": "抹茶",
+          "code": "H24",
+          "detail": "抹茶 (H24)",
+          "lut": "Fa9EFqwgJB9SwW8d",
+          "thumbnail": "/filters/thumbs/Fa9EFqwgJB9SwW8d.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "FaFgP87DcDJGi4mI",
+          "name": "旧梦",
+          "code": "H26",
+          "detail": "旧梦 (H26)",
+          "lut": "FaFgP87DcDJGi4mI",
+          "thumbnail": "/filters/thumbs/FaFgP87DcDJGi4mI.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fai455PvRjZLgUas",
+          "name": "淅沥",
+          "code": "H28",
+          "detail": "淅沥 (H28)",
+          "lut": "Fai455PvRjZLgUas",
+          "thumbnail": "/filters/thumbs/Fai455PvRjZLgUas.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000ka4QT8K4qu",
+          "name": "宫廷",
+          "code": "H29",
+          "detail": "宫廷 (H29)",
+          "lut": "Fa0000ka4QT8K4qu",
+          "thumbnail": "/filters/thumbs/Fa0000ka4QT8K4qu.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000EymDnzj6NT",
+          "name": "奶牛宝宝",
+          "code": "H30",
+          "detail": "奶牛宝宝 (H30)",
+          "lut": "Fa0000EymDnzj6NT",
+          "thumbnail": "/filters/thumbs/Fa0000EymDnzj6NT.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00005HwwB7VhPZ",
+          "name": "黄牛宝宝",
+          "code": "H31",
+          "detail": "黄牛宝宝 (H31)",
+          "lut": "Fa00005HwwB7VhPZ",
+          "thumbnail": "/filters/thumbs/Fa00005HwwB7VhPZ.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000Actdx2USmT",
+          "name": "粉红宝宝",
+          "code": "H32",
+          "detail": "粉红宝宝 (H32)",
+          "lut": "Fa0000Actdx2USmT",
+          "thumbnail": "/filters/thumbs/Fa0000Actdx2USmT.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000WvV9T5NlWV",
+          "name": "白皙",
+          "code": "H33",
+          "detail": "白皙 (H33)",
+          "lut": "Fa0000WvV9T5NlWV",
+          "thumbnail": "/filters/thumbs/Fa0000WvV9T5NlWV.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000LKNAHh9PbV",
+          "name": "暖黄",
+          "code": "H34",
+          "detail": "暖黄 (H34)",
+          "lut": "Fa0000LKNAHh9PbV",
+          "thumbnail": "/filters/thumbs/Fa0000LKNAHh9PbV.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000Tm94bdbZCX",
+          "name": "喜庆",
+          "code": "H35",
+          "detail": "喜庆 (H35)",
+          "lut": "Fa0000Tm94bdbZCX",
+          "thumbnail": "/filters/thumbs/Fa0000Tm94bdbZCX.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00000crgokZT00",
+          "name": "秘密花园",
+          "code": "H36",
+          "detail": "秘密花园 (H36)",
+          "lut": "Fa00000crgokZT00",
+          "thumbnail": "/filters/thumbs/Fa00000crgokZT00.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000GoCAiFCxQy",
+          "name": "读书郎",
+          "code": "H37",
+          "detail": "读书郎 (H37)",
+          "lut": "Fa0000GoCAiFCxQy",
+          "thumbnail": "/filters/thumbs/Fa0000GoCAiFCxQy.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa00001gSzM52xQC",
+          "name": "薄荷绿",
+          "code": "H38",
+          "detail": "薄荷绿 (H38)",
+          "lut": "Fa00001gSzM52xQC",
+          "thumbnail": "/filters/thumbs/Fa00001gSzM52xQC.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000P2W1nfgpop",
+          "name": "白皙",
+          "code": "H39",
+          "detail": "白皙 (H39)",
+          "lut": "Fa0000P2W1nfgpop",
+          "thumbnail": "/filters/thumbs/Fa0000P2W1nfgpop.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000UksyrcZDzz",
+          "name": "温暖",
+          "code": "H40",
+          "detail": "温暖 (H40)",
+          "lut": "Fa0000UksyrcZDzz",
+          "thumbnail": "/filters/thumbs/Fa0000UksyrcZDzz.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000OyoLKHimmO",
+          "name": "复古",
+          "code": "H41",
+          "detail": "复古 (H41)",
+          "lut": "Fa0000OyoLKHimmO",
+          "thumbnail": "/filters/thumbs/Fa0000OyoLKHimmO.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000ujWq4h3s3j",
+          "name": "喜庆红",
+          "code": "H42",
+          "detail": "喜庆红 (H42)",
+          "lut": "Fa0000ujWq4h3s3j",
+          "thumbnail": "/filters/thumbs/Fa0000ujWq4h3s3j.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000pQAGXT1ZzH",
+          "name": "清新",
+          "code": "H43",
+          "detail": "清新 (H43)",
+          "lut": "Fa0000pQAGXT1ZzH",
+          "thumbnail": "/filters/thumbs/Fa0000pQAGXT1ZzH.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000cDzjDPwxmC",
+          "name": "温暖",
+          "code": "H44",
+          "detail": "温暖 (H44)",
+          "lut": "Fa0000cDzjDPwxmC",
+          "thumbnail": "/filters/thumbs/Fa0000cDzjDPwxmC.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000KmtNJgfmLO",
+          "name": "红妆",
+          "code": "H45",
+          "detail": "红妆 (H45)",
+          "lut": "Fa0000KmtNJgfmLO",
+          "thumbnail": "/filters/thumbs/Fa0000KmtNJgfmLO.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000rBAQvqB3eo",
+          "name": "唯美",
+          "code": "H46",
+          "detail": "唯美 (H46)",
+          "lut": "Fa0000rBAQvqB3eo",
+          "thumbnail": "/filters/thumbs/Fa0000rBAQvqB3eo.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000vKd89H9Kqv",
+          "name": "休闲",
+          "code": "H47",
+          "detail": "休闲 (H47)",
+          "lut": "Fa0000vKd89H9Kqv",
+          "thumbnail": "/filters/thumbs/Fa0000vKd89H9Kqv.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000l7dQAKzlCU",
+          "name": "清新",
+          "code": "H48",
+          "detail": "清新 (H48)",
+          "lut": "Fa0000l7dQAKzlCU",
+          "thumbnail": "/filters/thumbs/Fa0000l7dQAKzlCU.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000F1ce3gv5Jj",
+          "name": "暖意",
+          "code": "H49",
+          "detail": "暖意 (H49)",
+          "lut": "Fa0000F1ce3gv5Jj",
+          "thumbnail": "/filters/thumbs/Fa0000F1ce3gv5Jj.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "FaCDFG5M2NJDbzhE",
+          "name": "年华",
+          "code": "H50",
+          "detail": "年华 (H50)",
+          "lut": "FaCDFG5M2NJDbzhE",
+          "thumbnail": "/filters/thumbs/FaCDFG5M2NJDbzhE.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000fZrH9dDXNu",
+          "name": "花好月圆",
+          "code": "H51",
+          "detail": "花好月圆 (H51)",
+          "lut": "Fa0000fZrH9dDXNu",
+          "thumbnail": "/filters/thumbs/Fa0000fZrH9dDXNu.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        },
+        {
+          "id": "Fa0000FQIZ2ZxBdI",
+          "name": "明月清辉",
+          "code": "H52",
+          "detail": "明月清辉 (H52)",
+          "lut": "Fa0000FQIZ2ZxBdI",
+          "thumbnail": "/filters/thumbs/Fa0000FQIZ2ZxBdI.jpg",
+          "default_alpha": 50,
+          "skin_protection": 0
+        }
+      ]
+    }
+  ],
+  "ai": {
+    "themes": [
+      {
+        "id": "none",
+        "name": "Không",
+        "code": "none",
+        "detail": "Màu gốc",
+        "lut": "",
+        "thumbnail": "",
+        "default_alpha": 100,
+        "skin_protection": 0
+      },
+      {
+        "id": "Fa0000tJ6KxsAcfe",
+        "name": "Chân Dung",
+        "code": "pm5",
+        "detail": "Tự nhiên chân dung (pm5)",
+        "lut": "Fa0000tJ6KxsAcfe",
+        "thumbnail": "/filters/thumbs/Fa0000tJ6KxsAcfe.jpg",
+        "default_alpha": 100,
+        "skin_protection": 1
+      },
+      {
+        "id": "FaSIJM59R7eIQNdb",
+        "name": "Phim Điện Ảnh",
+        "code": "vcr02",
+        "detail": "Màu Film đậm đà (vcr02)",
+        "lut": "FaSIJM59R7eIQNdb",
+        "thumbnail": "/filters/thumbs/FaSIJM59R7eIQNdb.jpg",
+        "default_alpha": 100,
+        "skin_protection": 1
+      },
+      {
+        "id": "FaFgP87DcDJGi4mI",
+        "name": "Nghệ Thuật",
+        "code": "cn12",
+        "detail": "Cổ điển Retro (cn12)",
+        "lut": "FaFgP87DcDJGi4mI",
+        "thumbnail": "/filters/thumbs/FaFgP87DcDJGi4mI.jpg",
+        "default_alpha": 100,
+        "skin_protection": 1
+      }
+    ],
+    "filters": [
+      {
+        "id": "Fa0000dWhwAG10Mt",
+        "name": "Ôxy Tươi",
+        "code": "tr16",
+        "detail": "Trong trẻo tươi tắn (tr16)",
+        "lut": "Fa0000dWhwAG10Mt",
+        "thumbnail": "/filters/thumbs/Fa0000dWhwAG10Mt.jpg",
+        "default_alpha": 100,
+        "skin_protection": 1
+      },
+      {
+        "id": "Fa0000s2oLwiefuK",
+        "name": "Tươi Sáng",
+        "code": "ln03",
+        "detail": "Thanh khiết sáng rực (ln03)",
+        "lut": "Fa0000s2oLwiefuK",
+        "thumbnail": "/filters/thumbs/Fa0000s2oLwiefuK.jpg",
+        "default_alpha": 100,
+        "skin_protection": 1
+      },
+      {
+        "id": "Fa0000aPQLtBufth",
+        "name": "Tông Lạnh",
+        "code": "ln08",
+        "detail": "Tone lạnh Nhật Bản (ln08)",
+        "lut": "Fa0000aPQLtBufth",
+        "thumbnail": "/filters/thumbs/Fa0000aPQLtBufth.jpg",
+        "default_alpha": 100,
+        "skin_protection": 1
+      },
+      {
+        "id": "Fa00008e573MgZjy",
+        "name": "Tông Ấm",
+        "code": "ln10",
+        "detail": "Tone ấm vàng chanh (ln10)",
+        "lut": "Fa00008e573MgZjy",
+        "thumbnail": "/filters/thumbs/Fa00008e573MgZjy.jpg",
+        "default_alpha": 100,
+        "skin_protection": 1
+      }
+    ]
+  },
+  "total_luts": 97
+}

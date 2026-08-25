@@ -1,0 +1,123 @@
+{
+  "parts": [
+    {
+      "key": "eyelash",
+      "materials": [
+        {
+          "id": 219,
+          "name": "13",
+          "dir": "Mi00002I63gwAXR7",
+          "thumb": "/assets/makeup/tex/6c9fb1612b3d8d2f.png",
+          "alpha": 70,
+          "layers": [
+            {
+              "tex": "/assets/makeup/tex/6c9fb1612b3d8d2f.png",
+              "rect": [266, 481, 149, 124],
+              "flip": false,
+              "mask": false,
+              "clip": null,
+              "blend": "multiply",
+              "opacity": 90,
+              "tint": [108, 74, 41],
+              "partAlpha": 100,
+              "type": "EyeLash",
+              "originalPath": "1357-eyelash-2.plist",
+              "additionalTexture": null,
+              "addPath": null,
+              "locateMethod": 6,
+              "operation": 14,
+              "filterType": 4,
+              "muType": 3,
+              "needMask": false,
+              "needPupilHighlight": false,
+              "customName": "MUFACE_EYELASH",
+              "orgba": "90,108,74,41,255",
+              "originalBlendMode": "BlendMultiply"
+            },
+            {
+              "tex": "/assets/makeup/tex/6c9fb1612b3d8d2f.png",
+              "rect": [609, 481, 149, 124],
+              "flip": true,
+              "mask": false,
+              "clip": null,
+              "blend": "multiply",
+              "opacity": 60,
+              "tint": [108, 74, 41],
+              "partAlpha": 100,
+              "type": "EyeLash",
+              "originalPath": "1357-eyelash-2.plist",
+              "additionalTexture": null,
+              "addPath": null,
+              "locateMethod": 7,
+              "operation": 15,
+              "filterType": 4,
+              "muType": 3,
+              "needMask": false,
+              "needPupilHighlight": false,
+              "customName": "MUFACE_EYELASH",
+              "orgba": "60,108,74,41,255",
+              "originalBlendMode": "BlendMultiply"
+            }
+          ]
+        },
+        {
+          "id": 244,
+          "name": "15",
+          "dir": "Mi0000Q56zV1aamA",
+          "thumb": "/assets/makeup/tex/530c8cff981010a0.png",
+          "alpha": 70,
+          "layers": [
+            {
+              "tex": "/assets/makeup/tex/530c8cff981010a0.png",
+              "rect": [241, 479, 175, 132],
+              "flip": false,
+              "mask": false,
+              "clip": null,
+              "blend": "multiply",
+              "opacity": 90,
+              "tint": [108, 74, 41],
+              "partAlpha": 100,
+              "type": "EyeLash",
+              "originalPath": "jmz-22.plist",
+              "additionalTexture": null,
+              "addPath": null,
+              "locateMethod": 6,
+              "operation": 14,
+              "filterType": 4,
+              "muType": 3,
+              "needMask": false,
+              "needPupilHighlight": false,
+              "customName": "MUFACE_EYELASH",
+              "orgba": "90,108,74,41,255",
+              "originalBlendMode": "BlendMultiply"
+            },
+            {
+              "tex": "/assets/makeup/tex/530c8cff981010a0.png",
+              "rect": [608, 479, 175, 132],
+              "flip": true,
+              "mask": false,
+              "clip": null,
+              "blend": "multiply",
+              "opacity": 60,
+              "tint": [108, 74, 41],
+              "partAlpha": 100,
+              "type": "EyeLash",
+              "originalPath": "jmz-22.plist",
+              "additionalTexture": null,
+              "addPath": null,
+              "locateMethod": 7,
+              "operation": 15,
+              "filterType": 4,
+              "muType": 3,
+              "needMask": false,
+              "needPupilHighlight": false,
+              "customName": "MUFACE_EYELASH",
+              "orgba": "60,108,74,41,255",
+              "originalBlendMode": "BlendMultiply"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

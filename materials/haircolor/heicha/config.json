@@ -1,0 +1,14 @@
+{
+    "name":"黑色",
+    "type":"1",
+    "hexColor":"#000000",
+    "alpha":"1",
+    "colorType":"50030009",
+    "defaultAlpha":"50",
+    "lut":"0",
+    "blend":"1",
+    "sharpen":"2",
+    "sharpenAlpha":"0",
+    "maxAlphaRatio":"0.5",
+    "blendType":"3"
+}

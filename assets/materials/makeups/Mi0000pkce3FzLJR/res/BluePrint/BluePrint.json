@@ -1,0 +1,528 @@
+{
+    "centerPoint": {
+        "x": -601.9743743999999,
+        "y": 1178.8664831999998
+    },
+    "dataList": [
+        {
+            "id": 6,
+            "posX": -1539,
+            "posY": 784,
+            "dataType": "path",
+            "value": "unnamed-4.jpg"
+        },
+        {
+            "id": 9,
+            "posX": -1336,
+            "posY": 1624,
+            "dataType": "path",
+            "value": "lip_normal.png"
+        },
+        {
+            "id": 11,
+            "posX": -874,
+            "posY": 187,
+            "dataType": "path",
+            "value": "lipmask2d.png"
+        }
+    ],
+    "nodeList": [
+        {
+            "id": 1,
+            "module": "LuaScreen",
+            "version": "1.3.0.0",
+            "posX": 0,
+            "posY": 0,
+            "paramTable": [
+                {
+                    "param": "bp_setSkipFirstFrame",
+                    "dataType": "bool",
+                    "value": false
+                },
+                {
+                    "param": "bp_setClearColorEnable",
+                    "dataType": "bool",
+                    "value": false
+                },
+                {
+                    "param": "bp_setClearDepthEnable",
+                    "dataType": "bool",
+                    "value": true
+                },
+                {
+                    "param": "bp_setClearColor",
+                    "dataType": "vecf",
+                    "value": [
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.0
+                    ]
+                },
+                {
+                    "param": "bp_setClearDepth",
+                    "dataType": "float",
+                    "value": 1.0
+                },
+                {
+                    "param": "bp_setMsaaEnable",
+                    "dataType": "bool",
+                    "value": false
+                },
+                {
+                    "param": "bp_setClearAlpha",
+                    "dataType": "bool",
+                    "value": false
+                },
+                {
+                    "param": "bp_setPipeLine",
+                    "dataType": "LuaPipeLine",
+                    "value": null
+                },
+                {
+                    "param": "bp_setAfterEffect",
+                    "dataType": "LuaAfterEffect",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "module": "LuaLip3d",
+            "version": "1.1.1.0",
+            "posX": -385,
+            "posY": -299,
+            "paramTable": [
+                {
+                    "param": "bp_setEnableMSAA",
+                    "dataType": "bool",
+                    "value": false
+                },
+                {
+                    "param": "bp_enableDebugView",
+                    "dataType": "bool",
+                    "value": false
+                },
+                {
+                    "param": "bp_setOpacity",
+                    "dataType": "float",
+                    "value": 0.05999999865889549
+                },
+                {
+                    "param": "bp_setLuaMaterial",
+                    "dataType": "LuaMaterial",
+                    "value": null
+                },
+                {
+                    "param": "bp_setShadingType",
+                    "dataType": "string",
+                    "value": "Exponent"
+                },
+                {
+                    "param": "bp_setMaskFile",
+                    "dataType": "path",
+                    "value": "lipmask2d.png"
+                },
+                {
+                    "param": "bp_setLocateMethod",
+                    "dataType": "LocateMethod",
+                    "value": null
+                },
+                {
+                    "param": "bp_setBlendType",
+                    "dataType": "string",
+                    "value": "add"
+                },
+                {
+                    "param": "bp_setRotateStengthX",
+                    "dataType": "float",
+                    "value": 1.2599999904632569
+                },
+                {
+                    "param": "bp_setRotateStengthY",
+                    "dataType": "float",
+                    "value": 3.0899999141693117
+                },
+                {
+                    "param": "bp_setRotateStengthZ",
+                    "dataType": "float",
+                    "value": 2.690000057220459
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "module": "Lua3DFA",
+            "version": "1.1.1.0",
+            "posX": -688,
+            "posY": 856,
+            "paramTable": [
+                {
+                    "param": "bp_setDisableFaceIDs",
+                    "dataType": "bool",
+                    "value": false
+                },
+                {
+                    "param": "bp_setMaxSupportFace",
+                    "dataType": "float",
+                    "value": 5.0
+                },
+                {
+                    "param": "bp_setGenderFilter",
+                    "dataType": "string",
+                    "value": "BOTH"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "module": "LuaTexSampler",
+            "version": "1.1.1.0",
+            "posX": -1463,
+            "posY": 1049,
+            "paramTable": [
+                {
+                    "param": "bp_setFilePath",
+                    "dataType": "path",
+                    "value": "unnamed-4.jpg"
+                },
+                {
+                    "param": "bp_setMinFilter",
+                    "dataType": "string",
+                    "value": "LINEAR"
+                },
+                {
+                    "param": "bp_setMaxFilter",
+                    "dataType": "string",
+                    "value": "LINEAR"
+                },
+                {
+                    "param": "bp_setWrapS",
+                    "dataType": "string",
+                    "value": "CLAMP"
+                },
+                {
+                    "param": "bp_setWrapT",
+                    "dataType": "string",
+                    "value": "CLAMP"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "module": "LuaTexSampler",
+            "version": "1.1.1.0",
+            "posX": -1714,
+            "posY": 1476,
+            "paramTable": [
+                {
+                    "param": "bp_setFilePath",
+                    "dataType": "path",
+                    "value": "lip_normal.png"
+                },
+                {
+                    "param": "bp_setMinFilter",
+                    "dataType": "string",
+                    "value": "LINEAR"
+                },
+                {
+                    "param": "bp_setMaxFilter",
+                    "dataType": "string",
+                    "value": "LINEAR"
+                },
+                {
+                    "param": "bp_setWrapS",
+                    "dataType": "string",
+                    "value": "CLAMP"
+                },
+                {
+                    "param": "bp_setWrapT",
+                    "dataType": "string",
+                    "value": "CLAMP"
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "module": "LuaPBRMaterial",
+            "version": "1.4.2.0",
+            "posX": -1065,
+            "posY": 782,
+            "paramTable": [
+                {
+                    "param": "bp_setRoughness",
+                    "dataType": "float",
+                    "value": 0.2300000041723251
+                },
+                {
+                    "param": "bp_setMetallic",
+                    "dataType": "float",
+                    "value": 1.0
+                },
+                {
+                    "param": "bp_setOpacity",
+                    "dataType": "float",
+                    "value": 0.8399999737739563
+                },
+                {
+                    "param": "bp_setRefractStrong",
+                    "dataType": "float",
+                    "value": 1.0
+                },
+                {
+                    "param": "bp_setBasicCol",
+                    "dataType": "vecf",
+                    "value": [
+                        0.7254902124404907,
+                        0.5960784554481506,
+                        0.5372549295425415
+                    ]
+                },
+                {
+                    "param": "bp_setClearCoatStrong",
+                    "dataType": "float",
+                    "value": 0.0
+                },
+                {
+                    "param": "bp_setFabricF0",
+                    "dataType": "float",
+                    "value": 0.6700000166893005
+                },
+                {
+                    "param": "bp_setFabricF90",
+                    "dataType": "float",
+                    "value": 0.0
+                },
+                {
+                    "param": "bp_setDispersionStrong",
+                    "dataType": "float",
+                    "value": 0.0
+                },
+                {
+                    "param": "bp_setBSDFRefract",
+                    "dataType": "float",
+                    "value": 0.0
+                },
+                {
+                    "param": "bp_setIBLdiffuseStrong",
+                    "dataType": "float",
+                    "value": 0.3100000023841858
+                },
+                {
+                    "param": "bp_setReflectance",
+                    "dataType": "float",
+                    "value": 0.0
+                },
+                {
+                    "param": "bp_setAlphaCull",
+                    "dataType": "bool",
+                    "value": false
+                },
+                {
+                    "param": "bp_setDiscardVal",
+                    "dataType": "float",
+                    "value": 0.9
+                },
+                {
+                    "param": "bp_setOffsetScale",
+                    "dataType": "float",
+                    "value": 5.0
+                },
+                {
+                    "param": "bp_setOffsetTexture",
+                    "dataType": "LuaSampler",
+                    "value": null
+                },
+                {
+                    "param": "bp_setSupportMaxBoneNumber",
+                    "dataType": "string",
+                    "value": "36"
+                },
+                {
+                    "param": "bp_setDiffuseSampler",
+                    "dataType": "LuaSampler",
+                    "value": null
+                },
+                {
+                    "param": "bp_setEmissionTexture",
+                    "dataType": "LuaSampler",
+                    "value": null
+                },
+                {
+                    "param": "bp_setRoughnessMap",
+                    "dataType": "LuaSampler",
+                    "value": null
+                },
+                {
+                    "param": "bp_setMetallicMap",
+                    "dataType": "LuaSampler",
+                    "value": null
+                },
+                {
+                    "param": "bp_setAmbientOccludeMap",
+                    "dataType": "LuaSampler",
+                    "value": null
+                },
+                {
+                    "param": "bp_setNormalSpace",
+                    "dataType": "string",
+                    "value": "切线空间"
+                },
+                {
+                    "param": "bp_setNormalSampler",
+                    "dataType": "LuaSampler",
+                    "value": null
+                },
+                {
+                    "param": "bp_setBackGroundSampler",
+                    "dataType": "LuaSampler",
+                    "value": null
+                },
+                {
+                    "param": "bp_setLuaRenderState",
+                    "dataType": "LuaRenderState",
+                    "value": null
+                },
+                {
+                    "param": "bp_setIBLSampler",
+                    "dataType": "IBLSampler",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "module": "LuaIBLfactory",
+            "version": "1.2.0.0",
+            "posX": -988,
+            "posY": 1454,
+            "paramTable": [
+                {
+                    "param": "bp_setIBLRotateU",
+                    "dataType": "float",
+                    "value": 0.20000000298023225
+                },
+                {
+                    "param": "bp_setIBLRotateV",
+                    "dataType": "float",
+                    "value": 0.07000000029802323
+                },
+                {
+                    "param": "bp_setIBLRevese",
+                    "dataType": "bool",
+                    "value": false
+                }
+            ]
+        }
+    ],
+    "relations": [
+        {
+            "source_id": 13,
+            "module": "LuaPBRMaterial",
+            "param": "bp_getLuaMaterial",
+            "target": [
+                {
+                    "source_id": 2,
+                    "param": "bp_setLuaMaterial",
+                    "module": "LuaLip3d"
+                }
+            ]
+        },
+        {
+            "source_id": 2,
+            "module": "LuaLip3d",
+            "param": "bp_getPipeLine",
+            "target": [
+                {
+                    "source_id": 1,
+                    "param": "bp_setPipeLine",
+                    "module": "LuaScreen"
+                }
+            ]
+        },
+        {
+            "source_id": 10,
+            "module": "LuaTexSampler",
+            "param": "bp_getLuaTexSampler",
+            "target": [
+                {
+                    "source_id": 13,
+                    "param": "bp_setNormalSampler",
+                    "module": "LuaPBRMaterial"
+                }
+            ]
+        },
+        {
+            "source_id": 14,
+            "module": "LuaIBLfactory",
+            "param": "bp_getIBLSampler",
+            "target": [
+                {
+                    "source_id": 13,
+                    "param": "bp_setIBLSampler",
+                    "module": "LuaPBRMaterial"
+                }
+            ]
+        },
+        {
+            "source_id": 6,
+            "module": "path",
+            "param": "path",
+            "target": [
+                {
+                    "source_id": 7,
+                    "param": "bp_setFilePath",
+                    "module": "LuaTexSampler"
+                }
+            ]
+        },
+        {
+            "source_id": 5,
+            "module": "Lua3DFA",
+            "param": "bp_getLocateMethod",
+            "target": [
+                {
+                    "source_id": 2,
+                    "param": "bp_setLocateMethod",
+                    "module": "LuaLip3d"
+                }
+            ]
+        },
+        {
+            "source_id": 9,
+            "module": "path",
+            "param": "path",
+            "target": [
+                {
+                    "source_id": 10,
+                    "param": "bp_setFilePath",
+                    "module": "LuaTexSampler"
+                }
+            ]
+        },
+        {
+            "source_id": 11,
+            "module": "path",
+            "param": "path",
+            "target": [
+                {
+                    "source_id": 2,
+                    "param": "bp_setMaskFile",
+                    "module": "LuaLip3d"
+                }
+            ]
+        },
+        {
+            "source_id": 7,
+            "module": "LuaTexSampler",
+            "param": "bp_getLuaTexSampler",
+            "target": [
+                {
+                    "source_id": 13,
+                    "param": "bp_setDiffuseSampler",
+                    "module": "LuaPBRMaterial"
+                }
+            ]
+        }
+    ]
+}

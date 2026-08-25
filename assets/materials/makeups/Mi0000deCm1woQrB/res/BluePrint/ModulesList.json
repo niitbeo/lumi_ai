@@ -1,0 +1,52 @@
+{
+    "modules": [
+        {
+            "category": "Basical",
+            "name": "LuaTexSampler",
+            "path": "modules/Basical/LuaTexSampler/1.1.1.0/LuaTexSampler.json",
+            "version": "1.1.1.0"
+        },
+        {
+            "category": "Controller",
+            "name": "LuaMakeUpSlider",
+            "path": "modules/Controller/LuaMakeUpSlider/1.0.0.0/LuaMakeUpSlider.json",
+            "version": "1.0.0.0"
+        },
+        {
+            "category": "IBL",
+            "name": "LuaIBLfactory",
+            "path": "modules/IBL/LuaIBLfactory/1.2.0.0/LuaIBLfactory.json",
+            "version": "1.2.0.0"
+        },
+        {
+            "category": "LocateMethod",
+            "name": "Lua3DFA",
+            "path": "modules/LocateMethod/Lua3DFA/1.1.1.0/Lua3DFA.json",
+            "version": "1.1.1.0"
+        },
+        {
+            "category": "MakeUp3D",
+            "name": "LuaLip3d",
+            "path": "modules/MakeUp3D/LuaLip3d/1.1.1.0/LuaLip3d.json",
+            "version": "1.1.1.0"
+        },
+        {
+            "category": "Math",
+            "name": "LuaCalculater",
+            "path": "modules/Math/LuaCalculater/1.0.0.0/LuaCalculater.json",
+            "version": "1.0.0.0"
+        },
+        {
+            "category": "Output",
+            "name": "LuaScreen",
+            "path": "modules/Output/LuaScreen/1.3.0.0/LuaScreen.json",
+            "version": "1.3.0.0"
+        },
+        {
+            "category": "Material",
+            "name": "LuaPBRMaterial",
+            "path": "modules/Material/LuaPBRMaterial/1.4.2.0/LuaPBRMaterial.json",
+            "version": "1.4.2.0"
+        }
+    ]
+}

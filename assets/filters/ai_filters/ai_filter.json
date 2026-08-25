@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "自然人像",
+      "thumbnail": "PM05.png",
+      "identity_id": "pm5",
+      "default_value": 100
+    },
+    {
+      "id": 2,
+      "name": "浓郁胶片",
+      "thumbnail": "FD11.png",
+      "identity_id": "vcr02",
+      "default_value": 65
+    },
+    {
+      "id": 3,
+      "name": "复古文艺",
+      "thumbnail": "CN12.png",
+      "identity_id": "cn12",
+      "default_value": 100
+    },
+    {
+      "id": 4,
+      "name": "清透氧气",
+      "thumbnail": "TR16.png",
+      "identity_id": "tr16",
+      "default_value": 70
+    },
+    {
+      "id": 6,
+      "name": "清新明亮",
+      "thumbnail": "LN03.png",
+      "identity_id": "ln03",
+      "default_value": 60
+    },
+    {
+      "id": 7,
+      "name": "日式冷调",
+      "thumbnail": "LN08.png",
+      "identity_id": "ln08",
+      "default_value": 100
+    },
+    {
+      "id": 8,
+      "name": "柠黄暖调",
+      "thumbnail": "Ln10.png",
+      "identity_id": "ln10",
+      "default_value": 100
+    }
+  ]
+}

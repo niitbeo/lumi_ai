@@ -1,0 +1,58 @@
+[
+ {
+  "id": "01",
+  "cn": "黑茶",
+  "hue": -7,
+  "saturation": 9,
+  "lightness": 2
+ },
+ {
+  "id": "02",
+  "cn": "树莓红",
+  "hue": -41,
+  "saturation": 21,
+  "lightness": 29
+ },
+ {
+  "id": "03",
+  "cn": "海王红",
+  "hue": -28,
+  "saturation": 44,
+  "lightness": 32
+ },
+ {
+  "id": "04",
+  "cn": "灰棕",
+  "hue": -1,
+  "saturation": 11,
+  "lightness": 11
+ },
+ {
+  "id": "05",
+  "cn": "脏橘",
+  "hue": -8,
+  "saturation": 41,
+  "lightness": 38
+ },
+ {
+  "id": "06",
+  "cn": "自然黑",
+  "hue": 0,
+  "saturation": 0,
+  "lightness": 0
+ },
+ {
+  "id": "07",
+  "cn": "蓝紫",
+  "hue": -154,
+  "saturation": 14,
+  "lightness": 26
+ },
+ {
+  "id": "08",
+  "cn": "黑巧",
+  "hue": -9,
+  "saturation": 15,
+  "lightness": 22
+ }
+]

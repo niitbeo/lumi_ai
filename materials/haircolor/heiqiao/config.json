@@ -1,0 +1,22 @@
+{
+    "name": "黑巧",
+    "maxAlphaRatio": "0.85",
+    "whitenColorHair": "0",
+    "defaultAlpha": "65",
+    "MaterialData": [{
+            "lutPath": "lut1.png",
+            "materialPath": "material1.png",
+            "psPath": "ps1.png",
+            "blendType": "3",
+            "hexColor": "#160608",
+            "alpha": "1",
+            "colorType": "50030003",
+            "lut": "0",
+            "blend": "1",
+            "sharpen": "2",
+            "sharpenAlpha": "0",
+            "blendAlpha": "1"
+        }
+    ]
+
+}

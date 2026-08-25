@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist>
+	<dict>
+		<key>Tag</key>
+		<string>Normal</string>
+		<key>CustomAnimation</key>
+		<false />
+		<key>LoopCount</key>
+		<integer>1</integer>
+		<key>StopInLastFrame</key>
+		<false />
+		<key>Nodes</key>
+		<array>
+			<dict>
+				<key>Type</key>
+				<string>Image</string>
+				<key>LoopCount</key>
+				<integer>0</integer>
+				<key>Name</key>
+				<string></string>
+				<key>Path</key>
+				<string>1097.yyz-2.png</string>
+				<key>FPS</key>
+				<string>24.00</string>
+			</dict>
+		</array>
+		<key>DisplayName</key>
+		<string>1097.yyz.png</string>
+	</dict>
+</plist>

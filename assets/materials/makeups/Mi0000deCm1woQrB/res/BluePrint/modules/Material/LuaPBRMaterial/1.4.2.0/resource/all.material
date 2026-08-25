@@ -1,0 +1,46 @@
+material default
+{
+    technique
+    {
+        pass
+        {
+            resourcePath = true
+            vertexShader = ./vertex.vs
+            fragmentShader = ./fragment.fs
+        }
+    }
+
+    technique EnableShadow
+    {
+        pass
+        {
+            resourcePath = true
+            vertexShader = ./vertex.vs
+            fragmentShader = ./fragment.fs
+            defines = USE_SHADOW
+        }
+    }
+
+    technique ShadowCaster
+    {
+        renderState
+        {
+            cullFace = false
+            cullFaceSide = BACK
+            frontFace = CW
+            depthWrite = true
+            depthTest = true
+            depthFunc = LESS
+            blend = false
+            blendSrc = SRC_ALPHA
+            blendDst = ONE_MINUS_SRC_ALPHA
+        }  
+        
+        pass
+        {
+            resourcePath = true
+            vertexShader = ./shadow.vs
+            fragmentShader = ./shadow.fs
+        }
+    }
+}

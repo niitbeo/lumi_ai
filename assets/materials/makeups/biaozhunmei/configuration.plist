@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>Default</string>
+			<key>FacePart</key>
+			<array>
+				<dict>
+					<key>Type</key>
+					<string>S</string>
+					<key>Path</key>
+					<string>eyebrow01.png</string>
+					<key>LocateMethod</key>
+					<string>48</string>
+					<key>FilterType</key>
+					<string>3</string>
+					<key>Rectangle</key>
+					<string>217,427,257,97</string>
+					<key>ORGBA</key>
+					<string>55,86,54,0,255</string>
+					<key>EyeBrowPoint</key>
+					<string>31,54,75,22,128,14,177,26,217,39,216,73,176,60,124,45,79,44</string>
+					<key>MUType</key>
+					<string>2</string>
+					<key>Operation</key>
+					<string>0</string>
+					<key>CustomName</key>
+					<string>MUFACE_EYEBROW</string>
+					<key>EyeBrowPointDegree</key>
+                    <string>0.0</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</plist>

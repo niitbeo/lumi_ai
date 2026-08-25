@@ -1,0 +1,137 @@
+[
+ {
+  "id": "pk0",
+  "name": "Korean Spring Editorial",
+  "items": [
+   "/assets/color_ref/pk0_0.jpeg",
+   "/assets/color_ref/pk0_1.jpeg",
+   "/assets/color_ref/pk0_2.jpeg",
+   "/assets/color_ref/pk0_3.jpeg"
+  ],
+  "count": 4,
+  "cover": "/assets/color_ref/pk0_0.jpeg"
+ },
+ {
+  "id": "pk1",
+  "name": "Vintage Film",
+  "items": [
+   "/assets/color_ref/pk1_0.jpeg",
+   "/assets/color_ref/pk1_1.jpeg",
+   "/assets/color_ref/pk1_2.jpeg",
+   "/assets/color_ref/pk1_3.jpeg",
+   "/assets/color_ref/pk1_4.jpeg"
+  ],
+  "count": 5,
+  "cover": "/assets/color_ref/pk1_0.jpeg"
+ },
+ {
+  "id": "pk2",
+  "name": "Neo-Chinese Family Portrait",
+  "items": [
+   "/assets/color_ref/pk2_0.jpeg",
+   "/assets/color_ref/pk2_1.jpeg",
+   "/assets/color_ref/pk2_2.jpeg",
+   "/assets/color_ref/pk2_3.jpeg"
+  ],
+  "count": 4,
+  "cover": "/assets/color_ref/pk2_0.jpeg"
+ },
+ {
+  "id": "pk3",
+  "name": "Beige Family Portrait",
+  "items": [
+   "/assets/color_ref/pk3_0.jpeg",
+   "/assets/color_ref/pk3_1.jpeg",
+   "/assets/color_ref/pk3_2.jpeg",
+   "/assets/color_ref/pk3_3.jpeg"
+  ],
+  "count": 4,
+  "cover": "/assets/color_ref/pk3_0.jpeg"
+ },
+ {
+  "id": "pk4",
+  "name": "Retro Whimsy",
+  "items": [
+   "/assets/color_ref/pk4_0.jpeg",
+   "/assets/color_ref/pk4_1.jpeg",
+   "/assets/color_ref/pk4_2.jpeg",
+   "/assets/color_ref/pk4_3.jpeg"
+  ],
+  "count": 4,
+  "cover": "/assets/color_ref/pk4_0.jpeg"
+ },
+ {
+  "id": "pk5",
+  "name": "Creamy",
+  "items": [
+   "/assets/color_ref/pk5_0.jpeg",
+   "/assets/color_ref/pk5_1.jpeg"
+  ],
+  "count": 2,
+  "cover": "/assets/color_ref/pk5_0.jpeg"
+ },
+ {
+  "id": "pk6",
+  "name": "Japanese Homely",
+  "items": [
+   "/assets/color_ref/pk6_0.jpeg",
+   "/assets/color_ref/pk6_1.jpeg",
+   "/assets/color_ref/pk6_2.jpeg",
+   "/assets/color_ref/pk6_3.jpeg",
+   "/assets/color_ref/pk6_4.jpeg"
+  ],
+  "count": 5,
+  "cover": "/assets/color_ref/pk6_0.jpeg"
+ },
+ {
+  "id": "pk7",
+  "name": "Fujifilm",
+  "items": [
+   "/assets/color_ref/pk7_0.jpeg",
+   "/assets/color_ref/pk7_1.jpeg",
+   "/assets/color_ref/pk7_2.jpeg",
+   "/assets/color_ref/pk7_3.jpeg"
+  ],
+  "count": 4,
+  "cover": "/assets/color_ref/pk7_0.jpeg"
+ },
+ {
+  "id": "pk8",
+  "name": "Minimalist Korean",
+  "items": [
+   "/assets/color_ref/pk8_0.jpeg",
+   "/assets/color_ref/pk8_1.jpeg",
+   "/assets/color_ref/pk8_2.jpeg",
+   "/assets/color_ref/pk8_3.jpeg"
+  ],
+  "count": 4,
+  "cover": "/assets/color_ref/pk8_0.jpeg"
+ },
+ {
+  "id": "pk9",
+  "name": "Vintage French Light",
+  "items": [
+   "/assets/color_ref/pk9_0.jpeg",
+   "/assets/color_ref/pk9_1.jpeg",
+   "/assets/color_ref/pk9_2.jpeg",
+   "/assets/color_ref/pk9_3.jpeg",
+   "/assets/color_ref/pk9_4.jpeg"
+  ],
+  "count": 5,
+  "cover": "/assets/color_ref/pk9_0.jpeg"
+ },
+ {
+  "id": "pk10",
+  "name": "Miao Village Travel",
+  "items": [
+   "/assets/color_ref/pk10_0.jpeg",
+   "/assets/color_ref/pk10_1.jpeg",
+   "/assets/color_ref/pk10_2.jpeg",
+   "/assets/color_ref/pk10_3.jpeg",
+   "/assets/color_ref/pk10_4.jpeg",
+   "/assets/color_ref/pk10_5.jpeg"
+  ],
+  "count": 6,
+  "cover": "/assets/color_ref/pk10_0.jpeg"
+ }
+]

@@ -1,0 +1,15 @@
+{
+    "name":"冷粽",
+    "type":"1",
+    "hexColor":"#675a4a",
+    "alpha":"1",
+    "colorType":"23050006",
+    "defaultAlpha":"80",
+    "lut":"0",
+    "blend":"1",
+    "sharpen":"2",
+    "sharpenAlpha":"0",
+    "maxAlphaRatio":"1",
+    "blendType":"3"
+}
+

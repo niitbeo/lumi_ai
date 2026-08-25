@@ -1,0 +1,22 @@
+{
+    "name": "海王红",
+    "maxAlphaRatio": "0.88",
+    "whitenColorHair": "0",
+    "defaultAlpha": "70",
+    "MaterialData": [{
+            "lutPath": "lut1.png",
+            "materialPath": "material1.png",
+            "psPath": "ps1.png",
+            "blendType": "3",
+            "hexColor": "#160608",
+            "alpha": "1",
+            "colorType": "50030003",
+            "lut": "0",
+            "blend": "1",
+            "sharpen": "2",
+            "sharpenAlpha": "0",
+            "blendAlpha": "1"
+        }
+    ]
+
+}

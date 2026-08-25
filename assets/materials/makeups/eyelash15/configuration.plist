@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>Default</string>
+			<key>FacePart</key>
+			<array>
+				<dict>
+					<key>Type</key>
+					<string>S</string>
+					<key>Path</key>
+					<string>jmy.png</string>
+					<key>LocateMethod</key>
+					<integer>39</integer>
+					<key>FilterType</key>
+					<integer>106</integer>
+					<key>Rectangle</key>
+					<string>592,473,168,153</string>
+					<key>ORGBA</key>
+					<string>100,78,30,28,255</string>
+					<key>MUType</key>
+					<integer>3</integer>
+					<key>Operation</key>
+					<integer>15</integer>
+					<key>UseNewModel</key>
+					<integer>1</integer>
+					<key>MakeupCustomName</key>
+					<string>MUFACE_EYELASH</string>
+				</dict>
+				<dict>
+					<key>Type</key>
+					<string>S</string>
+					<key>Path</key>
+					<string>jmz.png</string>
+					<key>LocateMethod</key>
+					<integer>38</integer>
+					<key>FilterType</key>
+					<integer>106</integer>
+					<key>Rectangle</key>
+					<string>245,473,168,153</string>
+					<key>ORGBA</key>
+					<string>100,78,30,28,255</string>
+					<key>MUType</key>
+					<integer>3</integer>
+					<key>Operation</key>
+					<integer>14</integer>
+					<key>UseNewModel</key>
+					<integer>1</integer>
+					<key>MakeupCustomName</key>
+					<string>MUFACE_EYELASH</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</plist>

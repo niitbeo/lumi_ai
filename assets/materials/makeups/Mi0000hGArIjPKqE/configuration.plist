@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string></string>
+			<key>AI</key>
+			<array>
+				<string>ai/configuration.json</string>
+			</array>
+			<key>CustomParamDict</key>
+			<dict>
+				<key>EyelidRealtimeModelType</key>
+				<integer>-1</integer>
+			</dict>
+			<key>SpecialMakeup</key>
+			<integer>1</integer>
+			<key>IsNeedResetSound</key>
+			<integer>0</integer>
+			<key>EnableReplaceSpecialFacelift</key>
+			<integer>0</integer>
+			<key>FacePart</key>
+			<array>
+				<dict>
+					<key>Type</key>
+					<string>S</string>
+					<key>Path</key>
+					<string>siwumei.png</string>
+					<key>LocateMethod</key>
+					<integer>48</integer>
+					<key>FilterType</key>
+					<integer>3</integer>
+					<key>Rectangle</key>
+					<string>177,373,343,189</string>
+					<key>ORGBA</key>
+					<string>80,0,0,0,255</string>
+					<key>MUType</key>
+					<integer>2</integer>
+					<key>Operation</key>
+					<integer>0</integer>
+					<key>ID</key>
+					<string>52086973504</string>
+					<key>Name</key>
+					<string></string>
+					<key>UseNewModel</key>
+					<integer>1</integer>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</plist>

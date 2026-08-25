@@ -1,0 +1,124 @@
+material filament
+{
+    model = WORLD_MATRIX
+    normalMatrix = INVERSE_TRANSPOSE_WORLD_MATRIX
+    
+    sampler u_MaskTexture
+    {
+        path = ../jelly/ao4.png
+        mipmap = false
+        wrapS = REPEAT
+        wrapT = REPEAT
+        minFilter = LINEAR
+        magFilter = LINEAR
+    }
+
+    sampler u_DFGTexture
+    {
+        path = dfg_mult.png
+        mipmap = false
+        wrapS = REPEAT
+        wrapT = REPEAT
+        minFilter = LINEAR
+        magFilter = LINEAR
+    }
+
+    u_baseColor = 0.0,0.0,0.0,1.0
+    
+    u_reflectance = 0.5
+
+    sampler u_paramAOTexture
+    {
+        path = ../jelly/ao5.png
+        mipmap = false
+        wrapS = CLAMP
+        wrapT = CLAMP
+        minFilter = LINEAR
+        magFilter = LINEAR
+    }
+
+    sampler u_paramAOBumpTexture
+    {
+        path = ../jelly/ao3.png
+        mipmap = false
+        wrapS = CLAMP
+        wrapT = CLAMP
+        minFilter = LINEAR
+        magFilter = LINEAR
+    }
+
+    u_roughness = 0.0
+    u_matallic = 0.0
+    // bump
+    
+    sampler u_tangentTexture
+    {
+        path = ../jelly/tangent.png
+        mipmap = false
+        wrapS = CLAMP
+        wrapT = CLAMP
+        minFilter = LINEAR
+        magFilter = LINEAR
+    }
+    
+    sampler u_bumpTexture
+    {
+        path = ../jelly/bumpMap.png
+        mipmap = false
+        wrapS = CLAMP
+        wrapT = CLAMP
+        minFilter = LINEAR
+        magFilter = LINEAR
+    }
+
+    sampler u_prefilterHighLightEnvMap
+    {
+        path = ../changeHdr/lcxTest 2.png
+        mipmap = false
+        wrapS = REPEAT
+        wrapT = REPEAT
+        minFilter = LINEAR
+        magFilter = LINEAR
+    }
+
+    sampler u_prefilterEnvMap
+    {
+        path = ../changeHdr/ibl_source.png
+        mipmap = false
+        wrapS = REPEAT
+        wrapT = REPEAT
+        minFilter = LINEAR
+        magFilter = LINEAR
+    }
+
+    u_iblSH[0] = 0.393370270729065,  0.361000478267670,  0.302989244461060
+    u_iblSH[1] = 0.264368176460266,  0.273482084274292,  0.269346177577972
+    u_iblSH[2] = 0.350851893424988,  0.318418473005295,  0.225889652967453
+    u_iblSH[3] = -0.219932749867439, -0.209002971649170, -0.150825008749962
+    u_iblSH[4] = -0.210189893841743, -0.191403761506081, -0.134625479578972
+    u_iblSH[5] = 0.259581625461578,  0.246126055717468,  0.184928804636002
+    u_iblSH[6] = 0.032298423349857,  0.026117423549294,  0.010773590765893
+    u_iblSH[7] = -0.311333984136581, -0.274428993463516, -0.183793157339096
+    u_iblSH[8] = -0.013979790732265, -0.020203823223710, -0.031224306672812
+
+    u_fIBLLuminance = 1.0
+
+    renderState
+    {
+        depthTest = true
+        blend = true
+        blendSrc = SRC_ALPHA
+        blendDst = ONE_MINUS_SRC_ALPHA
+    }
+    
+    technique
+    {
+        pass 
+        {
+            resourcePath = true
+            vertexShader = filament.vs
+            fragmentShader = filament.fs
+            defines = GAMMA_CORRECTION;NEED_IBL;IBL_MAX_MIP_LEVEL 8.0;NEED_AO_TEXTURE;NEED_BUMP
+        }
+    }
+}
