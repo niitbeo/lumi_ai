@@ -648,9 +648,7 @@ export default function Home() {
         let rendered = await preparePhotoPreview(baseBlob);
         if (requestId !== makeupRenderRequest.current) return;
 
-        const faceSelections = faces.map((face) => (
-          (face.selectedProfile === "woman" || face.selectedProfile === "oldwoman") ? effectiveSelection : {}
-        ));
+        const faceSelections = faces.map(() => effectiveSelection);
         if (faceSelections.some((faceSelection) => Object.keys(faceSelection).length > 0)) {
           rendered = await renderKumoMakeup(
             rendered,
