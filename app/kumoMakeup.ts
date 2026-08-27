@@ -923,30 +923,34 @@ export function similarityEyeTransform(landmarks: number[][], isLeft: boolean, g
   const dxC = cInner[0] - cOuter[0]; const dyC = cInner[1] - cOuter[1];
   const dxR = rInner[0] - rOuter[0]; const dyR = rInner[1] - rOuter[1];
   
-  // Calculate X-scale and rotation from the two eye corners (35 and 39)
   const scaleX = Math.sqrt(dxR*dxR + dyR*dyR) / Math.sqrt(dxC*dxC + dyC*dyC);
   const angle = Math.atan2(dyR, dxR) - Math.atan2(dyC, dxC);
-  
-  // The fatal flaw of a 2D similarity transform on a 3D face is that head yaw 
-  // compresses dxR, which shrinks both X and Y uniformly, turning eyelashes into tiny smudges.
-  // A 3-point affine transform on the eye corners (35, 39, 40) is too flat and explodes (spider legs).
-  // The mathematically perfect C++ LocateMethod 6/7 MUST calculate X-scale from the corners,
-  // but BORROW the Y-scale from the global face transform to prevent Y-collapse!
   const scaleY = Math.sqrt(globalTransform.d * globalTransform.d + globalTransform.e * globalTransform.e);
   
   const cos = Math.cos(angle);
   const sin = Math.sin(angle);
   
-  const m11 = cos * scaleX;
-  const m12 = -sin * scaleY; // Canvas b (skew Y on X) - Wait!
-  const m21 = sin * scaleX;  // Canvas c (skew X on Y)
-  const m22 = cos * scaleY;
+  // To rotate AFTER non-uniform scaling:
+  // x' = x * scaleX * cos - y * scaleY * sin
+  // y' = x * scaleX * sin + y * scaleY * cos
+  const a = cos * scaleX;
+  const c_canvas = -sin * scaleY;
+  const b_canvas = sin * scaleX;
+  const d = cos * scaleY;
   
-  // Translation guarantees exact alignment of cOuter to rOuter
-  const tx = rOuter[0] - (m11 * cOuter[0] + m12 * cOuter[1]);
-  const ty = rOuter[1] - (m21 * cOuter[0] + m22 * cOuter[1]);
+  // Translation to lock outer corner
+  const tx = rOuter[0] - (a * cOuter[0] + c_canvas * cOuter[1]);
+  const ty = rOuter[1] - (b_canvas * cOuter[0] + d * cOuter[1]);
   
-  // Canvas setTransform expects (m11, m12, m21, m22, dx, dy) which maps to (a, d, b, e, c, f) in our object layout
-  // So a = m11, d = m12, b = m21, e = m22, c = tx, f = ty
-  return { a: m11, b: m21, c: tx, d: m12, e: m22, f: ty };
+  // The kumoMakeup.ts setTransform call is:
+  // context.setTransform(obj.a, obj.d, obj.b, obj.e, obj.c, obj.f);
+  // Which maps to Canvas: (a, b, c, d, dx, dy)
+  // So:
+  // obj.a = a
+  // obj.d = b_canvas
+  // obj.b = c_canvas
+  // obj.e = d
+  // obj.c = tx
+  // obj.f = ty
+  return { a: a, b: c_canvas, c: tx, d: b_canvas, e: d, f: ty };
 }
