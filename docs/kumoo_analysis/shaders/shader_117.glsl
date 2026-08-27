@@ -1,0 +1,1 @@
+varying highp vec2 textureCoordinate; varying highp vec2 textureCoordinate2; uniform sampler2D faceMaskTexture; uniform highp float blurAlpha; void main() { lowp vec3 faceMask = texture2D(faceMaskTexture, textureCoordinate2).rgb; float alpha = blurAlpha*step(0.0001, max(max(faceMask.r,faceMask.g),faceMask.b)); gl_FragColor = vec4(faceMask, alpha); }

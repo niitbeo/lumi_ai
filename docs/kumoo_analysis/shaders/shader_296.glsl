@@ -1,0 +1,1 @@
+attribute vec4 position; attribute vec4 inputTextureCoordinate; attribute vec4 biasTextureCoordinate; varying vec2 textureCoordinate; varying vec2 biasCoordinate; void main() { gl_Position = position; textureCoordinate = inputTextureCoordinate.xy; biasCoordinate = biasTextureCoordinate.xy; }

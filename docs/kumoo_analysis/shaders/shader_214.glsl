@@ -1,0 +1,1 @@
+attribute vec2 position; uniform highp float pointSize; void main() { gl_PointSize = pointSize; gl_Position = vec4(position.xy * 2.0 - 1.0, 0.0, 1.0); }

@@ -1,0 +1,1 @@
+attribute vec4 position; attribute vec4 inputTextureCoordinate; attribute vec4 currentInstanceCoordinate; varying vec2 textureCoordinate; varying vec2 instanceCoordinate; void main() { gl_Position = position; textureCoordinate = inputTextureCoordinate.xy; instanceCoordinate = currentInstanceCoordinate.xy; }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string></string>
+			<key>SpecialMakeup</key>
+			<integer>1</integer>
+			<key>FacePart</key>
+			<array>
+				<dict>
+					<key>Type</key>
+					<string>S</string>
+					<key>Path</key>
+					<string>eye_mask_right.png</string>
+					<key>AdditionalTexture</key>
+					<string>blue.png</string>
+					<key>LocateMethod</key>
+					<integer>7</integer>
+					<key>FilterType</key>
+					<integer>2</integer>
+					<key>NeedMask</key>
+					<integer>1</integer>
+					<key>Rectangle</key>
+					<string>566,487,198,116</string>
+					<key>ORGBA</key>
+					<string>100,0,0,0,255</string>
+					<key>MUType</key>
+					<integer>3</integer>
+					<key>Operation</key>
+					<integer>17</integer>
+					<key>NeedPupilHighLight</key>
+					<!-- 新增字段，需要眼瞳透高光 -->
+					<integer>1</integer>
+					<key>CustomName</key>
+					<string>MUFACE_EYEPUPIL</string>
+				</dict>
+				<dict>
+					<key>Type</key>
+					<string>S</string>
+					<key>Path</key>
+					<string>eye_mask_left.png</string>
+					<key>AdditionalTexture</key>
+					<string>blue.png</string>
+					<key>LocateMethod</key>
+					<integer>6</integer>
+					<key>FilterType</key>
+					<integer>2</integer>
+					<key>NeedMask</key>
+					<integer>1</integer>
+					<key>Rectangle</key>
+					<string>241,494,207,119</string>
+					<key>ORGBA</key>
+					<string>100,0,0,0,255</string>
+					<key>MUType</key>
+					<integer>3</integer>
+					<key>Operation</key>
+					<integer>16</integer>
+					<key>NeedPupilHighLight</key>
+					<!-- 新增字段，需要眼瞳透高光 -->
+					<integer>1</integer>
+					<key>CustomName</key>
+					<string>MUFACE_EYEPUPIL</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</plist>

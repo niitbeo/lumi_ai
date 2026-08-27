@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<!-- 这个字段可设置子项默认值，没有设置默认50的程度 -->
+        <key>MakeupAlpha</key>
+        <dict>
+        <key>DefualtTotalAlpha</key>
+            <integer>60</integer>
+        </dict>
+		<key>Action</key>
+		<integer>0</integer>
+		<key>FacePart</key>
+		<array>
+				<dict>
+					<key>Type</key>
+					<string>S</string>
+					<key>Path</key>
+					<string>zc.png</string>
+					<key>AddPath</key>
+					<string>zc.png</string>
+					<key>LocateMethod</key>
+					<integer>2</integer>
+					<key>FilterType</key>
+					<integer>4</integer>
+					<key>Rectangle</key>
+					<string>343,803,327,127</string>
+					<key>ORGBA</key>
+					<string>67,0,0,0,255</string>
+					<key>MUType</key>
+					<integer>1</integer>
+					<key>Operation</key>
+					<integer>7</integer>
+					<key>SupportOpenMouth</key>
+					<integer>1</integer>
+					<key>UseNewModel</key>
+					<integer>1</integer>
+					<!-- 唇妆需要这个字段代表滑竿可调 -->
+                    <key>MakeupCustomName</key>
+                    <string>MUFACE_MOUTH</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</plist>

@@ -1,0 +1,13 @@
+varying highp vec2 textureCoordinate; varying highp vec2 textureCoordinate2; uniform highp vec2 center; uniform highp vec2 move; uniform highp float strength; uniform highp float radius; uniform highp vec2 offsetSize; uniform highp vec2 sourceSize; uniform sampler2D inputOffsetTexture; const float PI = 3.141592653589; uniform float offsetCoef; uniform float offsetBase; uniform sampler2D fullMaskTexture; uniform sampler2D silkWormMasktexture; uniform sampler2D glassesMaskTexture; void main() { highp float fullMaskColor = texture2D(fullMaskTexture, textureCoordinate2).r; highp float silkWormMaskColor = texture2D(silkWormMasktexture, textureCoordinate2).r; fullMaskColor = clamp(fullMaskColor - silkWormMaskColor, 0.0, 1.0); highp float glassesMaskColor = 1.0 - texture2D(glassesMaskTexture, textureCoordinate2).r; fullMaskColor = min(fullMaskColor, glassesMaskColor); highp vec4 endcolor = texture2D(inputOffsetTexture, textureCoordinate); highp vec2 offset = vec2(0.0); 
+#if defined FLOATTOBYTE
+ offset.x = 0.25 * (endcolor.r + endcolor.g / offsetCoef - offsetBase); offset.y = 0.25 * (endcolor.b + endcolor.a / offsetCoef - offsetBase); 
+#else
+ offset.xy = endcolor.xy; 
+#endif
+ highp int dist_x = int((textureCoordinate.x + offset.x) * offsetSize.x - center.x); highp int dist_y = int((textureCoordinate.y + offset.y) * offsetSize.y - center.y); highp float Ld = float(dist_x * dist_x + dist_y * dist_y); highp float L = sqrt(Ld); if( L > 10.0 * radius ){ gl_FragColor = endcolor; return; } int length = int(radius); int length2 = int(Ld / radius); highp vec2 delta = vec2(0.0); if (length2 < length && Ld > 1e-3) { highp float weight1 = float(length2) / float(length); highp float weight = pow((cos(sqrt(weight1) * PI) + 1.0) * 0.5, 0.7); delta = (strength * weight) * move * fullMaskColor; delta.x /= sourceSize.x; delta.y /= sourceSize.y; 
+#if defined FLOATTOBYTE
+ vec4 addcolor = texture2D(inputOffsetTexture, textureCoordinate + delta); vec2 newoffset = vec2(0.0); newoffset.x = addcolor.r + addcolor.g / offsetCoef + delta.x * 4.0; newoffset.y = addcolor.b + addcolor.a / offsetCoef + delta.y * 4.0; float x_tmp = floor(newoffset.x * offsetCoef); float y_tmp = floor(newoffset.y * offsetCoef); endcolor.r = x_tmp / offsetCoef; endcolor.g = newoffset.x * offsetCoef - x_tmp; endcolor.b = y_tmp / offsetCoef; endcolor.a = newoffset.y * offsetCoef - y_tmp; 
+#else
+ endcolor.xy = delta + texture2D(inputOffsetTexture, textureCoordinate + delta).xy; 
+#endif
+ } gl_FragColor = endcolor; }

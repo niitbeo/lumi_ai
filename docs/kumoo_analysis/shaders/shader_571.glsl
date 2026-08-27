@@ -1,0 +1,1 @@
+varying highp vec2 textureCoordinate; uniform sampler2D inputImageTexture; uniform float fAverageColor; void main() { highp vec3 iColor = texture2D(inputImageTexture, textureCoordinate).rgb; lowp float grayColor = dot(iColor, vec3(0.2989, 0.5870, 0.1140)); grayColor = (grayColor - fAverageColor) * 2.0; gl_FragColor = vec4(iColor, grayColor); }

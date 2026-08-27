@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string></string>
+			<key>AI</key>
+			<array>
+				<string>ai/configuration.json</string>
+			</array>
+			<key>CustomParamDict</key>
+			<dict>
+				<key>EyelidRealtimeModelType</key>
+				<integer>-1</integer>
+			</dict>
+			<key>SpecialMakeup</key>
+			<integer>1</integer>
+			<key>IsNeedResetSound</key>
+			<integer>0</integer>
+			<key>EnableReplaceSpecialFacelift</key>
+			<integer>0</integer>
+			<key>FacePart</key>
+			<array>
+				<dict>
+					<key>Type</key>
+					<string>ReconstructorV2p5D</string>
+					<key>BlendMode</key>
+					<string>BLEND_MODE_MULTIPLY</string>
+					<key>Path</key>
+					<string>queban.png</string>
+					<key>AddPath</key>
+					<string>ContourAlpha.png</string>
+					<key>EnableMSAA</key>
+					<integer>0</integer>
+					<key>ORGBA</key>
+					<string>80,0,0,0,255</string>
+					<key>ID</key>
+					<string>105553145831232</string>
+					<key>Name</key>
+					<string></string>
+					<key>CustomName</key>
+					<string>MUFACE_HIGHLIGHT</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</plist>

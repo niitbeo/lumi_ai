@@ -1,0 +1,1 @@
+varying highp vec2 textureCoordinate; uniform sampler2D inputImageTexture; uniform sampler2D inputImageTexture2; void main() { highp float srcDetail = texture2D(inputImageTexture, textureCoordinate).b; highp float gaussDetail = texture2D(inputImageTexture2, textureCoordinate).b; highp float highpassDetail = srcDetail - gaussDetail + 0.5; gl_FragColor = vec4(highpassDetail); }

@@ -1,0 +1,1 @@
+attribute vec2 position; attribute vec2 inputTextureCoordinate; varying vec2 textureCoordinate; uniform lowp float stepSize1; uniform lowp float stepSize2; void main() { gl_Position = vec4(2.0*position-1.0,0.0,1.0); textureCoordinate = inputTextureCoordinate.xy; }

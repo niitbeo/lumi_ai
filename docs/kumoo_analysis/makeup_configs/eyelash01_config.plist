@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+                <!-- 这个字段可设置子项默认值，没有设置默认50的程度 -->
+        <key>MakeupAlpha</key>
+        <dict>
+            <key>DefualtTotalAlpha</key>
+            <integer>60</integer>
+        </dict>
+		<key>Action</key>
+		<integer>0</integer>
+		<key>SpecialStaticeMakeup</key>
+		<integer>0</integer>
+		<key>FacePart</key>
+		<array>
+
+
+
+	
+				<dict>
+				<key>Type</key>
+				<string>S</string>
+				<key>LocateMethod</key>
+				<integer>7</integer>
+				<key>Path</key>
+				<string>jmy.png</string>
+				<key>ORGBA</key>
+				<string>100,0,0,0,255</string>
+				<key>Rectangle</key>
+				<string>583,482,172,139</string>
+				<key>FilterType</key>
+				<integer>4</integer>
+				<key>MUType</key>
+				<integer>3</integer>
+				<key>Operation</key>
+				<integer>15</integer>
+					<!-- 睫毛-->
+  
+				<key>MakeupCustomName</key>
+				<string>MUFACE_EYELASH</string>
+				</dict>
+				<dict>
+				<key>Type</key>
+				<string>S</string>
+				<key>LocateMethod</key>
+				<integer>6</integer>
+				<key>Path</key>
+				<string>jmz.png</string>
+				<key>ORGBA</key>
+				<string>100,0,0,0,255</string>
+				<key>Rectangle</key>
+				<string>260,485,174,141</string>
+				<key>FilterType</key>
+				<integer>4</integer>
+				<key>MUType</key>
+				<integer>3</integer>
+				<key>Operation</key>
+				<integer>14</integer>
+					<!-- 睫毛-->
+  
+				<key>MakeupCustomName</key>
+				<string>MUFACE_EYELASH</string>
+				</dict>
+
+
+		</array>
+	</dict>
+</array>
+</plist>

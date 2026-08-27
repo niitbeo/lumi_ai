@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string></string>
+			<key>AI</key>
+			<array>
+				<string>ai/configuration.json</string>
+			</array>
+			<key>CustomParamDict</key>
+			<dict>
+				<key>EyelidRealtimeModelType</key>
+				<integer>-1</integer>
+			</dict>
+			<key>SpecialMakeup</key>
+			<integer>1</integer>
+			<key>IsNeedResetSound</key>
+			<integer>0</integer>
+			<key>EnableReplaceSpecialFacelift</key>
+			<integer>0</integer>
+			<key>FacePart</key>
+			<array>
+				<dict>
+					<key>Type</key>
+					<string>FaceMask</string>
+					<key>Path</key>
+					<string>freckle-7.plist</string>
+					<key>MaskPath</key>
+					<string>mask.plist</string>
+					<key>EnableMSAA</key>
+					<integer>1</integer>
+					<key>SupportMaskProtection</key>
+					<integer>1</integer>
+					<key>ORGBA</key>
+					<string>100,0,0,0,255</string>
+					<key>Rectangle</key>
+					<string>0,2,960,960</string>
+					<key>BlendMode</key>
+					<string>BlendMultiply</string>
+					<key>ID</key>
+					<string>105553199186496</string>
+					<key>Name</key>
+					<string></string>
+					<key>CustomParamDict</key>
+					<dict>
+						<key>IsMakeup</key>
+						<string>1</string>
+					</dict>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</plist>

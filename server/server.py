@@ -2,6 +2,7 @@
 """Local portrait-beauty API backed by the recovered independent ONNX models."""
 
 from __future__ import annotations
+from eye_segment import EyeSegmenter
 
 import io
 import base64
@@ -3491,9 +3492,19 @@ async def portrait_analyze(image: UploadFile = File(...)) -> dict[str, object]:
     rgb = decode_image(payload)
     source_key = hashlib.sha256(payload).hexdigest()
     _, _, cached_faces, landmarks, _, _, _, _ = _portrait_analysis(rgb, source_key)
+    es = EyeSegmenter.get_instance()
     faces = [dict(face) for face in cached_faces]
     for face, points in zip(faces, landmarks):
         face["landmarks"] = np.round(points, 3).tolist()
+        if es:
+            try:
+                face["eye_segments"] = {
+                    "left_curve": es.segment(rgb, points, True),
+                    "right_curve": es.segment(rgb, points, False)
+                }
+            except Exception as e:
+                print("EyeSegmenter error:", e)
+                face["eye_segments"] = None
     return {
         "face_count": len(faces),
         "faces": faces,

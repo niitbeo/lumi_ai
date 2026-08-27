@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>Default</string>
+			<key>FacePart</key>
+			<array>
+				<dict>
+					<key>Type</key>
+					<string>S</string>
+					<key>Path</key>
+					<string>01.png</string>
+					<key>LocateMethod</key>
+					<string>7</string>
+					<key>LockSource</key>
+					<string>0</string>
+					<key>FilterType</key>
+					<string>4</string>
+					<key>Rectangle</key>
+					<string>503,423,308,214</string>
+					<key>ORGBA</key>
+					<string>100,0,0,0,255</string>
+					<key>MUType</key>
+					<string>3</string>
+					<key>Operation</key>
+					<string>11</string>
+					<!-- 眼影 -->
+                    <key>MakeupCustomName</key>
+                    <string>MUFACE_EYESHADOW</string>
+				</dict>
+				<dict>
+					<key>Type</key>
+					<string>S</string>
+					<key>Path</key>
+					<string>01_2.png</string>
+					<key>LocateMethod</key>
+					<string>6</string>
+					<key>LockSource</key>
+					<string>0</string>
+					<key>FilterType</key>
+					<string>4</string>
+					<key>Rectangle</key>
+					<string>197,428,308,214</string>
+					<key>ORGBA</key>
+					<string>100,0,0,0,255</string>
+					<key>MUType</key>
+					<string>3</string>
+					<key>Operation</key>
+					<string>10</string>
+					<!-- 眼影 -->
+                    <key>MakeupCustomName</key>
+                    <string>MUFACE_EYESHADOW</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</plist>

@@ -1,0 +1,1 @@
+attribute vec2 userTextureCoordinate; attribute vec2 standTextureCoordinate; varying highp vec2 userCoord; varying highp vec2 standCoord; void main() { userCoord = userTextureCoordinate.xy; standCoord = standTextureCoordinate.xy; gl_Position = vec4(userCoord.x * 2.0 - 1.0, userCoord.y * 2.0 - 1.0, 0.0, 1.0); }

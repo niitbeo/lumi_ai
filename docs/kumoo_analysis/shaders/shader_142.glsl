@@ -1,0 +1,1 @@
+varying highp vec2 textureCoordinate; uniform sampler2D cheekMaskTexture; uniform sampler2D noseMaskTexture; void main() { lowp float cheekMask = texture2D(cheekMaskTexture, textureCoordinate).r; lowp float noseMask = texture2D(noseMaskTexture, textureCoordinate).r; gl_FragColor = vec4(cheekMask, noseMask, 0.0, 1.0); }

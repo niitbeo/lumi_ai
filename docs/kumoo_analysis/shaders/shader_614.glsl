@@ -1,0 +1,1 @@
+attribute vec2 inputTextureCoordinate; attribute vec2 inputTextureCoordinate2; varying vec2 textureCoordinate; uniform mat4 modelView; void main() { vec4 coord = modelView * vec4(inputTextureCoordinate2.xy, 0.0, 1.0); textureCoordinate = coord.xy; gl_Position = vec4(inputTextureCoordinate.x * 2.0 - 1.0, inputTextureCoordinate.y * 2.0 - 1.0, 0.0, 1.0); }

@@ -1,0 +1,3130 @@
+{
+  "atol": 0.0001,
+  "compared_tensors": 103,
+  "first_mismatch": {
+    "close": false,
+    "cosine_similarity": 0.983434329764574,
+    "element_count_equal": true,
+    "finite_mizar": true,
+    "finite_onnx": true,
+    "max_abs": 1.4044830799102783,
+    "max_rel": 87599205.97076416,
+    "mean_abs": 0.11245886483018097,
+    "mizar_max": 5.276285171508789,
+    "mizar_min": 0.0,
+    "mizar_shape": [
+      4096
+    ],
+    "onnx_max": 5.055768013000488,
+    "onnx_min": 0.0,
+    "onnx_shape": [
+      1,
+      32,
+      8,
+      16
+    ],
+    "op_index": 47,
+    "op_name": 2584036189,
+    "op_type": 960768420,
+    "output_index": 0,
+    "rmse": 0.1968914596141988,
+    "shape_equal": false,
+    "tensor_id": 3073204267
+  },
+  "model": "eye_segment",
+  "passed_tensors": 42,
+  "rtol": 0.0001,
+  "seed": 20260818,
+  "tensors": [
+    {
+      "close": true,
+      "cosine_similarity": 0.99999999999998,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 8.106231689453125e-06,
+      "max_rel": 3.528208023145045e-05,
+      "mean_abs": 3.1307523992533484e-06,
+      "mizar_max": 0.6137421131134033,
+      "mizar_min": -1.6094611883163452,
+      "mizar_shape": [
+        24576
+      ],
+      "onnx_max": 0.613739013671875,
+      "onnx_min": -1.6094532012939453,
+      "onnx_shape": [
+        1,
+        3,
+        64,
+        128
+      ],
+      "op_index": 1,
+      "op_name": 2675017554,
+      "op_type": 2378844304,
+      "output_index": 0,
+      "rmse": 3.81994385791589e-06,
+      "shape_equal": false,
+      "tensor_id": 144299910
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999999787,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.24249267578125e-05,
+      "max_rel": 3.528208023145045e-05,
+      "mean_abs": 1.316045779731212e-05,
+      "mizar_max": 2.8145830631256104,
+      "mizar_min": -6.355389595031738,
+      "mizar_shape": [
+        24576
+      ],
+      "onnx_max": 2.8145687580108643,
+      "onnx_min": -6.355357646942139,
+      "onnx_shape": [
+        1,
+        3,
+        64,
+        128
+      ],
+      "op_index": 2,
+      "op_name": 1388384503,
+      "op_type": 1945033328,
+      "output_index": 0,
+      "rmse": 1.5999628446134678e-05,
+      "shape_equal": false,
+      "tensor_id": 1388384503
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999999792,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.24249267578125e-05,
+      "max_rel": 3.528208023145045e-05,
+      "mean_abs": 1.2283293867560771e-05,
+      "mizar_max": 2.8145830631256104,
+      "mizar_min": -6.355389595031738,
+      "mizar_shape": [
+        26331
+      ],
+      "onnx_max": 2.8145687580108643,
+      "onnx_min": -6.355357646942139,
+      "onnx_shape": [
+        1,
+        3,
+        67,
+        131
+      ],
+      "op_index": 4,
+      "op_name": 4084331866,
+      "op_type": 2906278341,
+      "output_index": 0,
+      "rmse": 1.5457235365947758e-05,
+      "shape_equal": false,
+      "tensor_id": 4125131088
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999996687,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.337860107421875e-05,
+      "max_rel": 0.20241691842900303,
+      "mean_abs": 7.32060763652953e-06,
+      "mizar_max": 5.799008369445801,
+      "mizar_min": -4.232450008392334,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 5.798974990844727,
+      "onnx_min": -4.232427597045898,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 5,
+      "op_name": 2010236859,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 8.467250035424504e-06,
+      "shape_equal": false,
+      "tensor_id": 4192556108
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999999792,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.24249267578125e-05,
+      "max_rel": 3.528208023145045e-05,
+      "mean_abs": 1.2283293867560771e-05,
+      "mizar_max": 2.8145830631256104,
+      "mizar_min": -6.355389595031738,
+      "mizar_shape": [
+        26331
+      ],
+      "onnx_max": 2.8145687580108643,
+      "onnx_min": -6.355357646942139,
+      "onnx_shape": [
+        1,
+        3,
+        67,
+        131
+      ],
+      "op_index": 6,
+      "op_name": 4271129028,
+      "op_type": 2906278341,
+      "output_index": 0,
+      "rmse": 1.5457235365947758e-05,
+      "shape_equal": false,
+      "tensor_id": 2118755720
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.999999999999759,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.000335693359375,
+      "max_rel": 0.05324074074074074,
+      "mean_abs": 2.692485713851056e-05,
+      "mizar_max": 54.170799255371094,
+      "mizar_min": -66.0377426147461,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 54.170536041259766,
+      "onnx_min": -66.03740692138672,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 7,
+      "op_name": 2162362950,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 3.999686097570347e-05,
+      "shape_equal": false,
+      "tensor_id": 561697194
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999960736,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.8623809814453125e-05,
+      "max_rel": 0.028083989501312336,
+      "mean_abs": 4.778698666996206e-06,
+      "mizar_max": 6.0,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 6.0,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 8,
+      "op_name": 3690658592,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 9.587863919726235e-06,
+      "shape_equal": false,
+      "tensor_id": 3434726812
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.999999999983296,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 6.103515625e-05,
+      "max_rel": 0.19412381951731375,
+      "mean_abs": 1.8339806672429404e-05,
+      "mizar_max": 17.919479370117188,
+      "mizar_min": -20.204538345336914,
+      "mizar_shape": [
+        16384
+      ],
+      "onnx_max": 17.919443130493164,
+      "onnx_min": -20.20453643798828,
+      "onnx_shape": [
+        1,
+        8,
+        32,
+        64
+      ],
+      "op_index": 9,
+      "op_name": 2010236861,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 2.0965403905177218e-05,
+      "shape_equal": false,
+      "tensor_id": 3781757481
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999858745,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 5.078315734863281e-05,
+      "max_rel": 0.19412381951731375,
+      "mean_abs": 1.2137428882397217e-05,
+      "mizar_max": 6.0,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        16384
+      ],
+      "onnx_max": 6.0,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        8,
+        32,
+        64
+      ],
+      "op_index": 10,
+      "op_name": 2956858653,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 1.7953007298544858e-05,
+      "shape_equal": false,
+      "tensor_id": 330088624
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999709319,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 5.53131103515625e-05,
+      "max_rel": 0.2791488114563415,
+      "mean_abs": 1.5118818975590198e-05,
+      "mizar_max": 3.701404094696045,
+      "mizar_min": -7.7505083084106445,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 3.7013964653015137,
+      "onnx_min": -7.75051736831665,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 11,
+      "op_name": 2010236858,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 1.8317919967904893e-05,
+      "shape_equal": false,
+      "tensor_id": 701994286
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999728281,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 5.0067901611328125e-05,
+      "max_rel": 0.1013157894736842,
+      "mean_abs": 1.065350215867511e-05,
+      "mizar_max": 5.644396781921387,
+      "mizar_min": -9.455427169799805,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 5.644375801086426,
+      "onnx_min": -9.455426216125488,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 12,
+      "op_name": 4216411282,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 1.3740234316070587e-05,
+      "shape_equal": false,
+      "tensor_id": 657321698
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999611489,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 4.267692565917969e-05,
+      "max_rel": 0.0362400906002265,
+      "mean_abs": 3.954028898078832e-06,
+      "mizar_max": 5.644396781921387,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 5.644375801086426,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 13,
+      "op_name": 1893601005,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 7.690064797752592e-06,
+      "shape_equal": false,
+      "tensor_id": 1770167159
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999611484,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 4.267692565917969e-05,
+      "max_rel": 0.0362400906002265,
+      "mean_abs": 3.4532414427571204e-06,
+      "mizar_max": 5.644396781921387,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        37520
+      ],
+      "onnx_max": 5.644375801086426,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        35,
+        67
+      ],
+      "op_index": 15,
+      "op_name": 2120052590,
+      "op_type": 2906278341,
+      "output_index": 0,
+      "rmse": 7.186601304119768e-06,
+      "shape_equal": false,
+      "tensor_id": 835834318
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999807595,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.9577484130859375e-05,
+      "max_rel": 0.023695479354136188,
+      "mean_abs": 6.153584976686943e-06,
+      "mizar_max": 2.4641759395599365,
+      "mizar_min": -6.378811836242676,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 2.464162588119507,
+      "onnx_min": -6.378793716430664,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 16,
+      "op_name": 2010235975,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 7.558496846009465e-06,
+      "shape_equal": false,
+      "tensor_id": 3202013513
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999611484,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 4.267692565917969e-05,
+      "max_rel": 0.0362400906002265,
+      "mean_abs": 3.4532414427571204e-06,
+      "mizar_max": 5.644396781921387,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        37520
+      ],
+      "onnx_max": 5.644375801086426,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        35,
+        67
+      ],
+      "op_index": 17,
+      "op_name": 256344462,
+      "op_type": 2906278341,
+      "output_index": 0,
+      "rmse": 7.186601304119768e-06,
+      "shape_equal": false,
+      "tensor_id": 1657532099
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999638144,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 8.687376976013184e-05,
+      "max_rel": 0.16609046249629159,
+      "mean_abs": 1.4532949961676422e-05,
+      "mizar_max": 6.029994964599609,
+      "mizar_min": -9.241556167602539,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 6.029942035675049,
+      "onnx_min": -9.241523742675781,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 18,
+      "op_name": 2010236856,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 1.846040845116244e-05,
+      "shape_equal": false,
+      "tensor_id": 962360712
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999449481,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 8.687376976013184e-05,
+      "max_rel": 0.02009463732887303,
+      "mean_abs": 4.2494603462728264e-06,
+      "mizar_max": 6.0,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 6.0,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 19,
+      "op_name": 974049109,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 9.910086376821367e-06,
+      "shape_equal": false,
+      "tensor_id": 3184932009
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999643471,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 9.441375732421875e-05,
+      "max_rel": 0.03780020217247177,
+      "mean_abs": 1.3310069789440604e-05,
+      "mizar_max": 3.477344274520874,
+      "mizar_min": -8.024998664855957,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 3.4773340225219727,
+      "onnx_min": -8.024930953979492,
+      "onnx_shape": [
+        1,
+        8,
+        16,
+        32
+      ],
+      "op_index": 20,
+      "op_name": 2010236857,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 1.801236511042788e-05,
+      "shape_equal": false,
+      "tensor_id": 3665435911
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999541249,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 5.2809715270996094e-05,
+      "max_rel": 0.03225806451612903,
+      "mean_abs": 4.855490487898351e-06,
+      "mizar_max": 3.477344274520874,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 3.4773340225219727,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        8,
+        16,
+        32
+      ],
+      "op_index": 21,
+      "op_name": 4056924246,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 8.619040843262181e-06,
+      "shape_equal": false,
+      "tensor_id": 4145252384
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999239977,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.0413269996643066e-05,
+      "max_rel": 0.09232940305295846,
+      "mean_abs": 2.6411335416476334e-06,
+      "mizar_max": 2.010246992111206,
+      "mizar_min": -1.6978962421417236,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 2.010258197784424,
+      "onnx_min": -1.697889804840088,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 22,
+      "op_name": 2010235974,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 3.994619999004998e-06,
+      "shape_equal": false,
+      "tensor_id": 3077714938
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999754057,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 4.169344902038574e-05,
+      "max_rel": 0.04140570633263744,
+      "mean_abs": 7.024005810762901e-06,
+      "mizar_max": 2.8803529739379883,
+      "mizar_min": -6.577106952667236,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 2.8803396224975586,
+      "onnx_min": -6.577112674713135,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 23,
+      "op_name": 1244768028,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 8.803865244912151e-06,
+      "shape_equal": false,
+      "tensor_id": 1557819494
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999659618,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 4.169344902038574e-05,
+      "max_rel": 0.016296473291679166,
+      "mean_abs": 2.349320851635639e-06,
+      "mizar_max": 2.8803529739379883,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 2.8803396224975586,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 24,
+      "op_name": 2923976337,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 4.495754759533125e-06,
+      "shape_equal": false,
+      "tensor_id": 3525793704
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999659623,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 4.169344902038574e-05,
+      "max_rel": 0.016296473291679166,
+      "mean_abs": 1.8088004150939055e-06,
+      "mizar_max": 2.8803529739379883,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        10640
+      ],
+      "onnx_max": 2.8803396224975586,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        19,
+        35
+      ],
+      "op_index": 26,
+      "op_name": 56836867,
+      "op_type": 2906278341,
+      "output_index": 0,
+      "rmse": 3.9448161776601136e-06,
+      "shape_equal": false,
+      "tensor_id": 4175153825
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999602442,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 4.458427429199219e-05,
+      "max_rel": 0.010068535993166578,
+      "mean_abs": 8.588920195506944e-06,
+      "mizar_max": 3.784712076187134,
+      "mizar_min": -3.9371426105499268,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 3.784679412841797,
+      "onnx_min": -3.9371225833892822,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 27,
+      "op_name": 3343654052,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 1.1266501599872884e-05,
+      "shape_equal": false,
+      "tensor_id": 420731456
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999659623,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 4.169344902038574e-05,
+      "max_rel": 0.016296473291679166,
+      "mean_abs": 1.8088004150939055e-06,
+      "mizar_max": 2.8803529739379883,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        10640
+      ],
+      "onnx_max": 2.8803396224975586,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        19,
+        35
+      ],
+      "op_index": 28,
+      "op_name": 1088193306,
+      "op_type": 2906278341,
+      "output_index": 0,
+      "rmse": 3.9448161776601136e-06,
+      "shape_equal": false,
+      "tensor_id": 1205805595
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.99999999996006,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 5.078315734863281e-05,
+      "max_rel": 0.10152311487718546,
+      "mean_abs": 9.399514908636775e-06,
+      "mizar_max": 3.4238994121551514,
+      "mizar_min": -3.90458345413208,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 3.4238851070404053,
+      "onnx_min": -3.904585599899292,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 29,
+      "op_name": 2010235972,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 1.1850499761093054e-05,
+      "shape_equal": false,
+      "tensor_id": 3570630318
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999048199,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.6716461181640625e-05,
+      "max_rel": 0.006818260478316547,
+      "mean_abs": 2.06637758992656e-06,
+      "mizar_max": 3.4238994121551514,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 3.4238851070404053,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 30,
+      "op_name": 3564006605,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 5.274378920057484e-06,
+      "shape_equal": false,
+      "tensor_id": 2095341405
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999040372,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.3855438232421875e-05,
+      "max_rel": 0.22990975504941985,
+      "mean_abs": 7.1600873070565285e-06,
+      "mizar_max": 2.3071749210357666,
+      "mizar_min": -2.456270217895508,
+      "mizar_shape": [
+        2048
+      ],
+      "onnx_max": 2.307166576385498,
+      "onnx_min": -2.456254482269287,
+      "onnx_shape": [
+        1,
+        16,
+        8,
+        16
+      ],
+      "op_index": 31,
+      "op_name": 2010235973,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 9.056610477578785e-06,
+      "shape_equal": false,
+      "tensor_id": 846821565
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999222302,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.3855438232421875e-05,
+      "max_rel": 0.010182333529785424,
+      "mean_abs": 4.682972530645202e-06,
+      "mizar_max": 2.3071749210357666,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        2048
+      ],
+      "onnx_max": 2.307166576385498,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        8,
+        16
+      ],
+      "op_index": 32,
+      "op_name": 3122198979,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 7.294801025930186e-06,
+      "shape_equal": false,
+      "tensor_id": 1960682506
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999998216447,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 7.343292236328125e-05,
+      "max_rel": 0.03359614557752986,
+      "mean_abs": 8.324495478717608e-06,
+      "mizar_max": 2.142566204071045,
+      "mizar_min": -2.3590211868286133,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 2.1425795555114746,
+      "onnx_min": -2.359006881713867,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 33,
+      "op_name": 3343654053,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 1.1122858081589388e-05,
+      "shape_equal": false,
+      "tensor_id": 2541788769
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999404108,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 7.778406143188477e-05,
+      "max_rel": 0.1052393516773464,
+      "mean_abs": 1.2148238965892233e-05,
+      "mizar_max": 4.012508392333984,
+      "mizar_min": -4.969923973083496,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 4.012506008148193,
+      "onnx_min": -4.969934463500977,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 34,
+      "op_name": 1244768029,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 1.552312281951255e-05,
+      "shape_equal": false,
+      "tensor_id": 3573646070
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999373685,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 7.778406143188477e-05,
+      "max_rel": 0.011552995441601611,
+      "mean_abs": 4.770412942889379e-06,
+      "mizar_max": 4.012508392333984,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 4.012506008148193,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 35,
+      "op_name": 1115969726,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 9.452777049377366e-06,
+      "shape_equal": false,
+      "tensor_id": 4222728145
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999373679,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 7.778406143188477e-05,
+      "max_rel": 0.011552995441601611,
+      "mean_abs": 2.921592615740864e-06,
+      "mizar_max": 4.012508392333984,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        6688
+      ],
+      "onnx_max": 4.012506008148193,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        11,
+        19
+      ],
+      "op_index": 37,
+      "op_name": 2743981823,
+      "op_type": 2906278341,
+      "output_index": 0,
+      "rmse": 7.397607018033213e-06,
+      "shape_equal": false,
+      "tensor_id": 3640001580
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999330835,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 4.649162292480469e-05,
+      "max_rel": 0.03645283002492965,
+      "mean_abs": 8.315420927829109e-06,
+      "mizar_max": 2.1735081672668457,
+      "mizar_min": -4.191105365753174,
+      "mizar_shape": [
+        1024
+      ],
+      "onnx_max": 2.173488140106201,
+      "onnx_min": -4.191079616546631,
+      "onnx_shape": [
+        1,
+        32,
+        4,
+        8
+      ],
+      "op_index": 38,
+      "op_name": 3343654048,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 1.05485983770236e-05,
+      "shape_equal": false,
+      "tensor_id": 1273230857
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999373679,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 7.778406143188477e-05,
+      "max_rel": 0.011552995441601611,
+      "mean_abs": 2.921592615740864e-06,
+      "mizar_max": 4.012508392333984,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        6688
+      ],
+      "onnx_max": 4.012506008148193,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        11,
+        19
+      ],
+      "op_index": 39,
+      "op_name": 4065621813,
+      "op_type": 2906278341,
+      "output_index": 0,
+      "rmse": 7.397607018033213e-06,
+      "shape_equal": false,
+      "tensor_id": 3104914794
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999463179,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 5.888938903808594e-05,
+      "max_rel": 0.003049352943459521,
+      "mean_abs": 9.583865676177084e-06,
+      "mizar_max": 2.579254388809204,
+      "mizar_min": -3.7150838375091553,
+      "mizar_shape": [
+        1024
+      ],
+      "onnx_max": 2.5792460441589355,
+      "onnx_min": -3.715087413787842,
+      "onnx_shape": [
+        1,
+        32,
+        4,
+        8
+      ],
+      "op_index": 40,
+      "op_name": 3343654055,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 1.2699073260705678e-05,
+      "shape_equal": false,
+      "tensor_id": 36499336
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999039834,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 4.220008850097656e-05,
+      "max_rel": 0.0010554750683355156,
+      "mean_abs": 2.8782487788703293e-06,
+      "mizar_max": 2.579254388809204,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        1024
+      ],
+      "onnx_max": 2.5792460441589355,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        4,
+        8
+      ],
+      "op_index": 41,
+      "op_name": 33919629,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 6.3033787540665415e-06,
+      "shape_equal": false,
+      "tensor_id": 226212688
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999629494,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 2.5741755962371826e-05,
+      "max_rel": 0.0013775369639085315,
+      "mean_abs": 6.827262041042559e-06,
+      "mizar_max": 2.535390853881836,
+      "mizar_min": -1.8331722021102905,
+      "mizar_shape": [
+        512
+      ],
+      "onnx_max": 2.53538179397583,
+      "onnx_min": -1.833163857460022,
+      "onnx_shape": [
+        1,
+        16,
+        4,
+        8
+      ],
+      "op_index": 42,
+      "op_name": 3343654054,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 8.668187266060903e-06,
+      "shape_equal": false,
+      "tensor_id": 88071046
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999699755,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 2.5510787963867188e-05,
+      "max_rel": 0.0013775369639085315,
+      "mean_abs": 5.192505341256037e-06,
+      "mizar_max": 2.535390853881836,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        512
+      ],
+      "onnx_max": 2.53538179397583,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        4,
+        8
+      ],
+      "op_index": 43,
+      "op_name": 1567777263,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 7.530236661834531e-06,
+      "shape_equal": false,
+      "tensor_id": 1385722720
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999400667,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 4.1171908378601074e-05,
+      "max_rel": 0.0024837544930676877,
+      "mean_abs": 8.468573469144758e-06,
+      "mizar_max": 3.9162473678588867,
+      "mizar_min": -3.5294504165649414,
+      "mizar_shape": [
+        1024
+      ],
+      "onnx_max": 3.9162354469299316,
+      "onnx_min": -3.529452323913574,
+      "onnx_shape": [
+        1,
+        32,
+        4,
+        8
+      ],
+      "op_index": 44,
+      "op_name": 3343654049,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 1.0832835953133205e-05,
+      "shape_equal": false,
+      "tensor_id": 508368853
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.9999999999491942,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 5.6743621826171875e-05,
+      "max_rel": 0.004439043170506571,
+      "mean_abs": 1.2102183973183855e-05,
+      "mizar_max": 5.276285171508789,
+      "mizar_min": -4.558602333068848,
+      "mizar_shape": [
+        1024
+      ],
+      "onnx_max": 5.276270866394043,
+      "onnx_min": -4.558586120605469,
+      "onnx_shape": [
+        1,
+        32,
+        4,
+        8
+      ],
+      "op_index": 45,
+      "op_name": 1244768002,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 1.5290566296436486e-05,
+      "shape_equal": false,
+      "tensor_id": 3435808052
+    },
+    {
+      "close": true,
+      "cosine_similarity": 0.999999999949944,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 5.6743621826171875e-05,
+      "max_rel": 0.004439043170506571,
+      "mean_abs": 6.915990525158122e-06,
+      "mizar_max": 5.276285171508789,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        1024
+      ],
+      "onnx_max": 5.276270866394043,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        4,
+        8
+      ],
+      "op_index": 46,
+      "op_name": 3023930107,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 1.1551414835799307e-05,
+      "shape_equal": false,
+      "tensor_id": 2508858675
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.983434329764574,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.4044830799102783,
+      "max_rel": 87599205.97076416,
+      "mean_abs": 0.11245886483018097,
+      "mizar_max": 5.276285171508789,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 5.055768013000488,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 47,
+      "op_name": 2584036189,
+      "op_type": 960768420,
+      "output_index": 0,
+      "rmse": 0.1968914596141988,
+      "shape_equal": false,
+      "tensor_id": 3073204267
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9774711559140798,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.8701446814229712,
+      "max_rel": 1063.319731720561,
+      "mean_abs": 0.1214036354275656,
+      "mizar_max": 2.7677130699157715,
+      "mizar_min": -2.3635547161102295,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 2.5725202560424805,
+      "onnx_min": -2.216860055923462,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 49,
+      "op_name": 3343654044,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.17062766646983865,
+      "shape_equal": false,
+      "tensor_id": 3825917324
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9788257248722154,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.9201786518096924,
+      "max_rel": 748.8810592796475,
+      "mean_abs": 0.15480301999767931,
+      "mizar_max": 3.241952896118164,
+      "mizar_min": -2.7016170024871826,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 3.2156922817230225,
+      "onnx_min": -2.6331982612609863,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 50,
+      "op_name": 3343654051,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.21766809869711762,
+      "shape_equal": false,
+      "tensor_id": 2005969095
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9827214664216894,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.915684163570404,
+      "max_rel": 50929737.09106445,
+      "mean_abs": 0.07017355153896432,
+      "mizar_max": 3.241952896118164,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 3.2156922817230225,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 51,
+      "op_name": 3430030280,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.14279679726055117,
+      "shape_equal": false,
+      "tensor_id": 3526456390
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9750219310668407,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.2624540328979492,
+      "max_rel": 732.329272941986,
+      "mean_abs": 0.17782397079645307,
+      "mizar_max": 4.2208099365234375,
+      "mizar_min": -3.0559942722320557,
+      "mizar_shape": [
+        2048
+      ],
+      "onnx_max": 4.0349626541137695,
+      "onnx_min": -2.985405683517456,
+      "onnx_shape": [
+        1,
+        16,
+        8,
+        16
+      ],
+      "op_index": 52,
+      "op_name": 3343654050,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.24158361336476053,
+      "shape_equal": false,
+      "tensor_id": 1245235551
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9762018945740935,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.2624540328979492,
+      "max_rel": 68479728.69873047,
+      "mean_abs": 0.07843979194694839,
+      "mizar_max": 4.2208099365234375,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        2048
+      ],
+      "onnx_max": 4.0349626541137695,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        8,
+        16
+      ],
+      "op_index": 53,
+      "op_name": 2339001140,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.16166113163193935,
+      "shape_equal": false,
+      "tensor_id": 2186505242
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9606853295837746,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.174078106880188,
+      "max_rel": 1069.6166896117625,
+      "mean_abs": 0.14711164834912793,
+      "mizar_max": 3.2569758892059326,
+      "mizar_min": -2.189786195755005,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 3.2464065551757812,
+      "onnx_min": -2.111173629760742,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 54,
+      "op_name": 3343654045,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.20488912637572215,
+      "shape_equal": false,
+      "tensor_id": 1074674163
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9741593686606531,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.3952895998954773,
+      "max_rel": 780.069099087842,
+      "mean_abs": 0.20434277172989823,
+      "mizar_max": 4.65302848815918,
+      "mizar_min": -3.638157606124878,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 4.5669121742248535,
+      "onnx_min": -3.280606269836426,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 55,
+      "op_name": 1244768003,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 0.2770586387724802,
+      "shape_equal": false,
+      "tensor_id": 1500972511
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9779757617200577,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.0718560218811035,
+      "max_rel": 68214374.7806549,
+      "mean_abs": 0.1018531550798798,
+      "mizar_max": 4.65302848815918,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 4.5669121742248535,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 56,
+      "op_name": 3428832772,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.19368372672069722,
+      "shape_equal": false,
+      "tensor_id": 425811142
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9905553431998584,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.0718560218811035,
+      "max_rel": 68214374.7806549,
+      "mean_abs": 0.10185548446088433,
+      "mizar_max": 5.625391006469727,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 5.7093634605407715,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 57,
+      "op_name": 1244768000,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 0.19368385894050372,
+      "shape_equal": false,
+      "tensor_id": 2204843465
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9875563281147574,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.8236371874809265,
+      "max_rel": 392.64500134269707,
+      "mean_abs": 0.1200890853597798,
+      "mizar_max": 2.9143173694610596,
+      "mizar_min": -3.9973185062408447,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 2.837796211242676,
+      "onnx_min": -3.6832592487335205,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 59,
+      "op_name": 3343654381,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.16522258672453466,
+      "shape_equal": false,
+      "tensor_id": 3166973495
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9771914535141861,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.7920330762863159,
+      "max_rel": 43236500.02479553,
+      "mean_abs": 0.03805833200959796,
+      "mizar_max": 2.9143173694610596,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 2.837796211242676,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 60,
+      "op_name": 1976365838,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.09513534245670481,
+      "shape_equal": false,
+      "tensor_id": 1557309041
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9671251858665026,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.6532799825072289,
+      "max_rel": 1129.4937298459333,
+      "mean_abs": 0.10048012865354394,
+      "mizar_max": 1.8493043184280396,
+      "mizar_min": -1.6313565969467163,
+      "mizar_shape": [
+        2048
+      ],
+      "onnx_max": 1.877929449081421,
+      "onnx_min": -1.512622594833374,
+      "onnx_shape": [
+        1,
+        16,
+        8,
+        16
+      ],
+      "op_index": 61,
+      "op_name": 3343654370,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.13601058637665112,
+      "shape_equal": false,
+      "tensor_id": 1144202573
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9715948503022064,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.6248233318328857,
+      "max_rel": 41670024.39498901,
+      "mean_abs": 0.048377644953689014,
+      "mizar_max": 1.8493043184280396,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        2048
+      ],
+      "onnx_max": 1.877929449081421,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        8,
+        16
+      ],
+      "op_index": 62,
+      "op_name": 3559439333,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.0926467505625255,
+      "shape_equal": false,
+      "tensor_id": 1578734352
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9707654939268051,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.6874320805072784,
+      "max_rel": 2044.06642418772,
+      "mean_abs": 0.09011871028247054,
+      "mizar_max": 1.4015434980392456,
+      "mizar_min": -1.9139702320098877,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 1.4453034400939941,
+      "onnx_min": -1.7856109142303467,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 63,
+      "op_name": 3343654371,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.12378555169838111,
+      "shape_equal": false,
+      "tensor_id": 418130310
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9884896383519345,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.0254857540130615,
+      "max_rel": 398.6696492855879,
+      "mean_abs": 0.15858788663196766,
+      "mizar_max": 6.724192142486572,
+      "mizar_min": -1.4745540618896484,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 6.760824203491211,
+      "onnx_min": -1.4845497608184814,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 64,
+      "op_name": 1244768001,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 0.22944350121990328,
+      "shape_equal": false,
+      "tensor_id": 3613698235
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9901346352285291,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.0254857540130615,
+      "max_rel": 52186203.00292969,
+      "mean_abs": 0.12673270734218978,
+      "mizar_max": 6.0,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 6.0,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        8,
+        16
+      ],
+      "op_index": 65,
+      "op_name": 2912718645,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.2088792015050168,
+      "shape_equal": false,
+      "tensor_id": 3333442745
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9758597919430875,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.7618294656276703,
+      "max_rel": 139058184.62371826,
+      "mean_abs": 0.2024429985842056,
+      "mizar_max": 6.0,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        16384
+      ],
+      "onnx_max": 6.0,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        32,
+        16,
+        32
+      ],
+      "op_index": 66,
+      "op_name": 3691831644,
+      "op_type": 960768420,
+      "output_index": 0,
+      "rmse": 0.3206346058973044,
+      "shape_equal": false,
+      "tensor_id": 1416038025
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9623340632588803,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.9048507213592529,
+      "max_rel": 1587.9700611512578,
+      "mean_abs": 0.1661259386284213,
+      "mizar_max": 2.5597612857818604,
+      "mizar_min": -2.163822889328003,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 2.412125587463379,
+      "onnx_min": -2.0905449390411377,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 68,
+      "op_name": 3343654375,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.22645183970830907,
+      "shape_equal": false,
+      "tensor_id": 2952314720
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9587383305530564,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.1079645454883575,
+      "max_rel": 2286.383486592908,
+      "mean_abs": 0.1657020905865746,
+      "mizar_max": 2.1863763332366943,
+      "mizar_min": -2.0803616046905518,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 2.232299327850342,
+      "onnx_min": -2.093247890472412,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 69,
+      "op_name": 3343654368,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.22545338449322,
+      "shape_equal": false,
+      "tensor_id": 3168009967
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9585188716240106,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.1077291369438171,
+      "max_rel": 87515431.64253235,
+      "mean_abs": 0.06834050404174796,
+      "mizar_max": 2.1863763332366943,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 2.232299327850342,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 70,
+      "op_name": 1502487281,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.1475378296248441,
+      "shape_equal": false,
+      "tensor_id": 3461139214
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.944690398562478,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.9499927759170532,
+      "max_rel": 864.3720206714346,
+      "mean_abs": 0.1236027747923032,
+      "mizar_max": 1.9311434030532837,
+      "mizar_min": -1.1587504148483276,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 1.8456026315689087,
+      "onnx_min": -1.0636885166168213,
+      "onnx_shape": [
+        1,
+        8,
+        16,
+        32
+      ],
+      "op_index": 71,
+      "op_name": 3343654369,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.17326377902045642,
+      "shape_equal": false,
+      "tensor_id": 1766395551
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9497059339506696,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.7992660999298096,
+      "max_rel": 79926609.99298096,
+      "mean_abs": 0.08468229788253723,
+      "mizar_max": 1.9311434030532837,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 1.8456026315689087,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        8,
+        16,
+        32
+      ],
+      "op_index": 72,
+      "op_name": 445037246,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.1426969842840746,
+      "shape_equal": false,
+      "tensor_id": 1641125167
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9651327055270178,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.865096241235733,
+      "max_rel": 24003.112075600908,
+      "mean_abs": 0.08958473187016913,
+      "mizar_max": 1.5580098628997803,
+      "mizar_min": -1.2705647945404053,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 1.5581449270248413,
+      "onnx_min": -1.0107520818710327,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 73,
+      "op_name": 3343654374,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.13461241641458116,
+      "shape_equal": false,
+      "tensor_id": 3656527616
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9576457843851338,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.2782773971557617,
+      "max_rel": 1783.8306199123356,
+      "mean_abs": 0.19600379447371097,
+      "mizar_max": 3.7259883880615234,
+      "mizar_min": -2.2316133975982666,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 3.5035691261291504,
+      "onnx_min": -1.9659699201583862,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 74,
+      "op_name": 1244768006,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 0.26939304077346915,
+      "shape_equal": false,
+      "tensor_id": 905840085
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9670065160408648,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.2782773971557617,
+      "max_rel": 83346319.1986084,
+      "mean_abs": 0.11713959872571422,
+      "mizar_max": 3.7259883880615234,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 3.5035691261291504,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 75,
+      "op_name": 249605221,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.2029033781886469,
+      "shape_equal": false,
+      "tensor_id": 316762508
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9815010927272202,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.2782773971557617,
+      "max_rel": 83346319.1986084,
+      "mean_abs": 0.11714017555166834,
+      "mizar_max": 4.009490013122559,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 3.958744764328003,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 76,
+      "op_name": 1244768007,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 0.20290330091874106,
+      "shape_equal": false,
+      "tensor_id": 2859345505
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.982698982336739,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.9779089093208313,
+      "max_rel": 777.5778547140173,
+      "mean_abs": 0.143525454869458,
+      "mizar_max": 3.5321319103240967,
+      "mizar_min": -3.472731590270996,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 3.4927759170532227,
+      "onnx_min": -3.5793800354003906,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 78,
+      "op_name": 3343654372,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.1978465081438439,
+      "shape_equal": false,
+      "tensor_id": 753279454
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9776684582611863,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.7294530421495438,
+      "max_rel": 47124534.84535217,
+      "mean_abs": 0.049136298058510164,
+      "mizar_max": 3.5321319103240967,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 3.4927759170532227,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 79,
+      "op_name": 1778174989,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.1090764624866807,
+      "shape_equal": false,
+      "tensor_id": 1971189577
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9600207468779349,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.8868273198604584,
+      "max_rel": 201.90556565054152,
+      "mean_abs": 0.1163927469458983,
+      "mizar_max": 1.8528399467468262,
+      "mizar_min": -2.1438028812408447,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 1.7253055572509766,
+      "onnx_min": -1.9163453578948975,
+      "onnx_shape": [
+        1,
+        8,
+        16,
+        32
+      ],
+      "op_index": 80,
+      "op_name": 3343654373,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.16093630961490255,
+      "shape_equal": false,
+      "tensor_id": 1408192602
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9604841140123443,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.7384510040283203,
+      "max_rel": 73845100.40283203,
+      "mean_abs": 0.07412888262000905,
+      "mizar_max": 1.8528399467468262,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        4096
+      ],
+      "onnx_max": 1.7253055572509766,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        8,
+        16,
+        32
+      ],
+      "op_index": 81,
+      "op_name": 1949680512,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.12274118139601596,
+      "shape_equal": false,
+      "tensor_id": 3058194940
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9579626313722572,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.6466832160949707,
+      "max_rel": 575.8189627744193,
+      "mean_abs": 0.07685938505786538,
+      "mizar_max": 1.3661166429519653,
+      "mizar_min": -1.365546703338623,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 1.407710075378418,
+      "onnx_min": -1.3539408445358276,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 82,
+      "op_name": 3343654362,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.10639823205260605,
+      "shape_equal": false,
+      "tensor_id": 3349423363
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9828252835018939,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.2382048964500427,
+      "max_rel": 593.5565633660872,
+      "mean_abs": 0.15818914028973197,
+      "mizar_max": 4.327069282531738,
+      "mizar_min": -1.2568567991256714,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 4.607558727264404,
+      "onnx_min": -1.267339825630188,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 83,
+      "op_name": 1244768004,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 0.2317115050221637,
+      "shape_equal": false,
+      "tensor_id": 841126248
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9845843819071819,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.2382048964500427,
+      "max_rel": 109494388.1034851,
+      "mean_abs": 0.13470873690795315,
+      "mizar_max": 4.327069282531738,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        8192
+      ],
+      "onnx_max": 4.607558727264404,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "op_index": 84,
+      "op_name": 1830051701,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.2180455180659425,
+      "shape_equal": false,
+      "tensor_id": 2943561241
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9763947459410441,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.4772064089775085,
+      "max_rel": 132863891.12472534,
+      "mean_abs": 0.17570313145729888,
+      "mizar_max": 4.327069282531738,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 4.570984840393066,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 85,
+      "op_name": 3691831647,
+      "op_type": 960768420,
+      "output_index": 0,
+      "rmse": 0.26696532272835843,
+      "shape_equal": false,
+      "tensor_id": 1991947864
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9727650773031817,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.4691272974014282,
+      "max_rel": 467874.97311454464,
+      "mean_abs": 0.17581279845135583,
+      "mizar_max": 2.806126594543457,
+      "mizar_min": -2.6331405639648438,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 2.8089261054992676,
+      "onnx_min": -2.503206491470337,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 87,
+      "op_name": 3343654177,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.2514616224506373,
+      "shape_equal": false,
+      "tensor_id": 2205067388
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9591285783729352,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.6762744784355164,
+      "max_rel": 20055.345989773723,
+      "mean_abs": 0.1886462679625447,
+      "mizar_max": 2.601367235183716,
+      "mizar_min": -3.7464022636413574,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 2.6102476119995117,
+      "onnx_min": -3.584425926208496,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 88,
+      "op_name": 3343654188,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.25437307899769546,
+      "shape_equal": false,
+      "tensor_id": 3080092519
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9520462008398827,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.1510895490646362,
+      "max_rel": 108161449.43237305,
+      "mean_abs": 0.10151523960902042,
+      "mizar_max": 2.601367235183716,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 2.6102476119995117,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 89,
+      "op_name": 394531205,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.1801436376011667,
+      "shape_equal": false,
+      "tensor_id": 410514371
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9203876308865507,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.6333494782447815,
+      "max_rel": 2502.6905026064474,
+      "mean_abs": 0.21401857573961625,
+      "mizar_max": 2.669959306716919,
+      "mizar_min": -2.453005790710449,
+      "mizar_shape": [
+        16384
+      ],
+      "onnx_max": 2.47361421585083,
+      "onnx_min": -2.3763716220855713,
+      "onnx_shape": [
+        1,
+        8,
+        32,
+        64
+      ],
+      "op_index": 90,
+      "op_name": 3343654179,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.2853024297725753,
+      "shape_equal": false,
+      "tensor_id": 2080496884
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9321976414534343,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.3485409021377563,
+      "max_rel": 107147872.44796753,
+      "mean_abs": 0.12254755485999524,
+      "mizar_max": 2.669959306716919,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        16384
+      ],
+      "onnx_max": 2.47361421585083,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        8,
+        32,
+        64
+      ],
+      "op_index": 91,
+      "op_name": 396378262,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.2033885888960797,
+      "shape_equal": false,
+      "tensor_id": 3699995586
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9309481475867429,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.9432392120361328,
+      "max_rel": 1889.8369187987114,
+      "mean_abs": 0.1880388237547364,
+      "mizar_max": 3.837226629257202,
+      "mizar_min": -1.6370686292648315,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 3.5529680252075195,
+      "onnx_min": -1.5881487131118774,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 92,
+      "op_name": 3343654178,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.27471542374719254,
+      "shape_equal": false,
+      "tensor_id": 3514326728
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9649105998715232,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 2.777296721935272,
+      "max_rel": 26402.976,
+      "mean_abs": 0.2853420579687551,
+      "mizar_max": 5.281543254852295,
+      "mizar_min": -3.1242432594299316,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 4.3160905838012695,
+      "onnx_min": -3.330258846282959,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 93,
+      "op_name": 1998327212,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 0.4071678279481562,
+      "shape_equal": false,
+      "tensor_id": 361136238
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9771856045821814,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 2.661888837814331,
+      "max_rel": 148075401.7829895,
+      "mean_abs": 0.15784987419193186,
+      "mizar_max": 5.281543254852295,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 4.3160905838012695,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 94,
+      "op_name": 3614878356,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.2916977380050328,
+      "shape_equal": false,
+      "tensor_id": 3597483857
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9865504006006364,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 2.6618707180023193,
+      "max_rel": 148075401.7829895,
+      "mean_abs": 0.15785150710927098,
+      "mizar_max": 7.815770149230957,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 7.777962684631348,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 95,
+      "op_name": 1998327213,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 0.29169747538992635,
+      "shape_equal": false,
+      "tensor_id": 3188370083
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.980442329747233,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.6653818488121033,
+      "max_rel": 1065.070371607653,
+      "mean_abs": 0.13176197587307392,
+      "mizar_max": 5.915288925170898,
+      "mizar_min": -6.335443019866943,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 5.589537143707275,
+      "onnx_min": -6.246297836303711,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 97,
+      "op_name": 3343654176,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.18869178172692086,
+      "shape_equal": false,
+      "tensor_id": 1460367787
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9758412786217328,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.431328296661377,
+      "max_rel": 75257515.9072876,
+      "mean_abs": 0.060147159279487994,
+      "mizar_max": 5.915288925170898,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 5.589537143707275,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 98,
+      "op_name": 2359717402,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.12834801084749106,
+      "shape_equal": false,
+      "tensor_id": 1804604490
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9730469193006657,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.2223260402679443,
+      "max_rel": 11193.138934269818,
+      "mean_abs": 0.12966294237528192,
+      "mizar_max": 4.309427738189697,
+      "mizar_min": -3.801863670349121,
+      "mizar_shape": [
+        16384
+      ],
+      "onnx_max": 4.300877571105957,
+      "onnx_min": -3.552826404571533,
+      "onnx_shape": [
+        1,
+        8,
+        32,
+        64
+      ],
+      "op_index": 99,
+      "op_name": 3343654183,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.18195098701866017,
+      "shape_equal": false,
+      "tensor_id": 3887688811
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9739238454959095,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 1.173536866903305,
+      "max_rel": 80400663.61427307,
+      "mean_abs": 0.05969372899372466,
+      "mizar_max": 4.309427738189697,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        16384
+      ],
+      "onnx_max": 4.300877571105957,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        8,
+        32,
+        64
+      ],
+      "op_index": 100,
+      "op_name": 3096445572,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.11120835180826315,
+      "shape_equal": false,
+      "tensor_id": 4280880449
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9774797117055634,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 2.3952327370643616,
+      "max_rel": 5577.934914839112,
+      "mean_abs": 0.11322159105137886,
+      "mizar_max": 2.3743896484375,
+      "mizar_min": -4.238968372344971,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 2.3293890953063965,
+      "onnx_min": -4.3712592124938965,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 101,
+      "op_name": 3343654182,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.18880670370590252,
+      "shape_equal": false,
+      "tensor_id": 4216673959
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9862488129041083,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.6378729343414307,
+      "max_rel": 1016.4070740082151,
+      "mean_abs": 0.24236229014671196,
+      "mizar_max": 8.399693489074707,
+      "mizar_min": -4.149412155151367,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 8.102595329284668,
+      "onnx_min": -4.3712592124938965,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 102,
+      "op_name": 1998327214,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 0.3930214516443066,
+      "shape_equal": false,
+      "tensor_id": 58461840
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9878362358435767,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.5320231914520264,
+      "max_rel": 145694541.93115234,
+      "mean_abs": 0.20958677351482802,
+      "mizar_max": 6.0,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        32768
+      ],
+      "onnx_max": 6.0,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        32,
+        64
+      ],
+      "op_index": 103,
+      "op_name": 2864071757,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.3648274922125457,
+      "shape_equal": false,
+      "tensor_id": 1827058561
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9774920921253708,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 4.649675786495209,
+      "max_rel": 208945274.35302734,
+      "mean_abs": 0.32436759982442953,
+      "mizar_max": 6.0,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        131072
+      ],
+      "onnx_max": 6.0,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        64,
+        128
+      ],
+      "op_index": 104,
+      "op_name": 3691831646,
+      "op_type": 960768420,
+      "output_index": 0,
+      "rmse": 0.48667150399487397,
+      "shape_equal": false,
+      "tensor_id": 2320151732
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9169252039022568,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 3.048898220062256,
+      "max_rel": 12176.577775597281,
+      "mean_abs": 0.24462899926108106,
+      "mizar_max": 3.8032562732696533,
+      "mizar_min": -4.267965793609619,
+      "mizar_shape": [
+        131072
+      ],
+      "onnx_max": 3.6824653148651123,
+      "onnx_min": -3.908097982406616,
+      "onnx_shape": [
+        1,
+        16,
+        64,
+        128
+      ],
+      "op_index": 106,
+      "op_name": 3343654181,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.34965201609874197,
+      "shape_equal": false,
+      "tensor_id": 3664528275
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.8810872343317273,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 2.8998076915740967,
+      "max_rel": 157816171.64611816,
+      "mean_abs": 0.08327322800214776,
+      "mizar_max": 3.8032562732696533,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        131072
+      ],
+      "onnx_max": 3.6824653148651123,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        64,
+        128
+      ],
+      "op_index": 107,
+      "op_name": 1551062584,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.1881372281661663,
+      "shape_equal": false,
+      "tensor_id": 1742280008
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9340061978662874,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 2.0443546772003174,
+      "max_rel": 107329.0841214887,
+      "mean_abs": 0.18110406913919394,
+      "mizar_max": 2.80132794380188,
+      "mizar_min": -2.255892515182495,
+      "mizar_shape": [
+        65536
+      ],
+      "onnx_max": 2.511166572570801,
+      "onnx_min": -2.1986119747161865,
+      "onnx_shape": [
+        1,
+        8,
+        64,
+        128
+      ],
+      "op_index": 108,
+      "op_name": 3343654180,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.2636489442461776,
+      "shape_equal": false,
+      "tensor_id": 4161699056
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9574432015919467,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 2.043749451637268,
+      "max_rel": 135686922.07336426,
+      "mean_abs": 0.11013889001321027,
+      "mizar_max": 2.80132794380188,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        65536
+      ],
+      "onnx_max": 2.511166572570801,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        8,
+        64,
+        128
+      ],
+      "op_index": 109,
+      "op_name": 2597162581,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.19263840255500622,
+      "shape_equal": false,
+      "tensor_id": 3547942498
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9279299106359165,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 2.770076274871826,
+      "max_rel": 8337.625927023402,
+      "mean_abs": 0.17693933603075251,
+      "mizar_max": 3.621563196182251,
+      "mizar_min": -4.124655246734619,
+      "mizar_shape": [
+        131072
+      ],
+      "onnx_max": 3.4320924282073975,
+      "onnx_min": -4.1826910972595215,
+      "onnx_shape": [
+        1,
+        16,
+        64,
+        128
+      ],
+      "op_index": 110,
+      "op_name": 3343654171,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 0.2624429526106408,
+      "shape_equal": false,
+      "tensor_id": 3861105236
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9729074756185921,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 6.195569813251495,
+      "max_rel": 14530.953616786306,
+      "mean_abs": 0.4026950689279509,
+      "mizar_max": 7.291416168212891,
+      "mizar_min": -3.0142650604248047,
+      "mizar_shape": [
+        131072
+      ],
+      "onnx_max": 7.1726179122924805,
+      "onnx_min": -2.939420461654663,
+      "onnx_shape": [
+        1,
+        16,
+        64,
+        128
+      ],
+      "op_index": 111,
+      "op_name": 1998327215,
+      "op_type": 2417120655,
+      "output_index": 0,
+      "rmse": 0.5831681400546095,
+      "shape_equal": false,
+      "tensor_id": 962217571
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9759691579655164,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 5.566022872924805,
+      "max_rel": 252337932.58666992,
+      "mean_abs": 0.3459156492318298,
+      "mizar_max": 6.0,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        131072
+      ],
+      "onnx_max": 6.0,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        16,
+        64,
+        128
+      ],
+      "op_index": 112,
+      "op_name": 3934130677,
+      "op_type": 1332249153,
+      "output_index": 0,
+      "rmse": 0.5412637453952941,
+      "shape_equal": false,
+      "tensor_id": 3851086293
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.9814122625282112,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 6.9259912967681885,
+      "max_rel": 1353.6563010889834,
+      "mean_abs": 0.9077927037010198,
+      "mizar_max": 2.4840662479400635,
+      "mizar_min": -13.5437593460083,
+      "mizar_shape": [
+        24576
+      ],
+      "onnx_max": 1.9493358135223389,
+      "onnx_min": -12.463340759277344,
+      "onnx_shape": [
+        1,
+        3,
+        64,
+        128
+      ],
+      "op_index": 113,
+      "op_name": 3343654511,
+      "op_type": 1332722206,
+      "output_index": 0,
+      "rmse": 1.2075323601954067,
+      "shape_equal": false,
+      "tensor_id": 3815353003
+    },
+    {
+      "close": false,
+      "cosine_similarity": 0.859600140940214,
+      "element_count_equal": true,
+      "finite_mizar": true,
+      "finite_onnx": true,
+      "max_abs": 0.556146502494812,
+      "max_rel": 996.5865809648664,
+      "mean_abs": 0.02412072075628502,
+      "mizar_max": 0.923015832901001,
+      "mizar_min": 0.0,
+      "mizar_shape": [
+        24576
+      ],
+      "onnx_max": 0.8753741979598999,
+      "onnx_min": 0.0,
+      "onnx_shape": [
+        1,
+        3,
+        64,
+        128
+      ],
+      "op_index": 114,
+      "op_name": 3247005056,
+      "op_type": 513875291,
+      "output_index": 0,
+      "rmse": 0.06319482627122071,
+      "shape_equal": false,
+      "tensor_id": 2457006848
+    }
+  ]
+}

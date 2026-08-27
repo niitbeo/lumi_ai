@@ -1,0 +1,1 @@
+varying highp vec2 textureCoordinate; uniform vec2 inputSize; uniform sampler2D inputImageTexture; uniform vec2 sourceSize; void main() { vec2 pos = fract(textureCoordinate.xy * inputSize / sourceSize); gl_FragColor = texture2D(inputImageTexture, pos); }

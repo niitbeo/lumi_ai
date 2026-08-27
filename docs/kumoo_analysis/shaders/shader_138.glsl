@@ -1,0 +1,1 @@
+uniform sampler2D inputImageTexture; uniform sampler2D inputImageTexture2; varying highp vec2 textureCoordinate; uniform lowp float eyeSocketsFillAlpha; void main() { lowp vec4 iColor = texture2D(inputImageTexture, textureCoordinate); lowp vec4 blurColor = texture2D(inputImageTexture2, textureCoordinate); gl_FragColor = vec4(mix(iColor, blurColor, eyeSocketsFillAlpha)); }

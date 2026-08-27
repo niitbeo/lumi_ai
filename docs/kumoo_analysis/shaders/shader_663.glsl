@@ -1,0 +1,1 @@
+attribute vec2 inputTextureCoordinate; attribute vec2 inputTextureCoordinate2; varying vec4 textureCoordinate2; uniform mat4 stdMvpMatrix; void main() { textureCoordinate2 = stdMvpMatrix * vec4(inputTextureCoordinate2.xy, 0.0, 1.0); gl_Position = vec4(inputTextureCoordinate.x * 2.0 - 1.0, (inputTextureCoordinate.y * 2.0 - 1.0), 0.0, 1.0); }

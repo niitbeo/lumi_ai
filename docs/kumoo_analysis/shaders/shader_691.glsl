@@ -1,0 +1,1 @@
+uniform sampler2D inputImageTexture; uniform sampler2D biasTexture; uniform vec4 param; varying highp vec2 textureCoordinate; varying highp vec2 biasCoordinate; void main() { vec2 bias = texture2D(biasTexture, biasCoordinate).rg; vec2 coor = vec2(textureCoordinate.r + bias.r*param.b, textureCoordinate.g + bias.g*param.a); gl_FragColor = texture2D(inputImageTexture, coor); }

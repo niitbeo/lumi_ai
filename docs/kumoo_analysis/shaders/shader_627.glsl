@@ -1,0 +1,1 @@
+varying vec2 texcoordOut; uniform highp float hardness; void main() { highp float r = (0.5 - distance(texcoordOut, vec2(0.5, 0.5))) * 2.0; highp float alpha = smoothstep(0.0, 1.0, r); if (r > 0.0) { gl_FragColor = vec4(vec3(1.0), alpha * hardness); } else { gl_FragColor = vec4(0.0); } }

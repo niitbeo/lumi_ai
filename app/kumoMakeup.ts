@@ -221,6 +221,31 @@ export function makeupTransform(landmarks: number[][], canonical: KumoMakeupLibr
   return { a, b, c, d, e, f };
 }
 
+export function localEyeTransform(landmarks: number[][], isLeft: boolean) {
+  // 35: outer, 39: inner, 40: upper apex for left eye
+  // 93: outer, 89: inner, 94: upper apex for right eye
+  const p0 = isLeft ? [276.075, 554.636] : [736.892, 549.325]; // outer
+  const p1 = isLeft ? [415.129, 565.966] : [589.437, 563.292]; // inner
+  const p2 = isLeft ? [345.994, 529.088] : [663.164, 523.380]; // top
+  
+  const f0 = landmarks[isLeft ? 35 : 93];
+  const f1 = landmarks[isLeft ? 39 : 89];
+  const f2 = landmarks[isLeft ? 40 : 94];
+  
+  if (!f0 || !f1 || !f2) return null;
+
+  const determinant = (p1[0] - p0[0]) * (p2[1] - p0[1]) - (p2[0] - p0[0]) * (p1[1] - p0[1]);
+  if (Math.abs(determinant) < 1e-6) return null;
+
+  const solve = (axis: number) => {
+    const a = ((f1[axis] - f0[axis]) * (p2[1] - p0[1]) - (f2[axis] - f0[axis]) * (p1[1] - p0[1])) / determinant;
+    const b = ((f2[axis] - f0[axis]) * (p1[0] - p0[0]) - (f1[axis] - f0[axis]) * (p2[0] - p0[0])) / determinant;
+    return [a, b, f0[axis] - a * p0[0] - b * p0[1]];
+  };
+  const [a, b, c] = solve(0);
+  const [d, e, f] = solve(1);
+  return { a, b, c, d, e, f };
+}
 
 /**
  * Eyelid mini-mesh triangles for piecewise eyelash warping.
@@ -433,62 +458,6 @@ function makeupLayerAnchorOffset(
   landmarks: number[][],
   transform: NonNullable<ReturnType<typeof makeupTransform>>,
 ): [number, number] {
-  const layerCenterX = rect[0] + rect[2] / 2;
-  const isLeft = layerCenterX < canonical.axis;
-
-  const materialDir = pick.dir;
-  if (materialDir === "tangguo") {
-    if (rect[2] > canonical.w * 0.55) return [0, 0];
-    return isLeft ? [-10.5, -3] : [17, -7.7];
-  }
-  if (materialDir === "Mi0000BF9UTcGbc0") {
-    return isLeft ? [-11.5, 0] : [11, -4.7];
-  }
-  if (materialDir === "Mi0000bqyVE4oJcV") {
-    return isLeft ? [10.5, -0.5] : [-11, -5.2];
-  }
-
-  // General spatial alignment: shift layers by the offset between user's features and template's features
-  const det = transform.a * transform.e - transform.b * transform.d;
-  if (!det) return [0, 0];
-  
-  const invA = transform.e / det;
-  const invB = -transform.b / det;
-  const invC = (transform.b * transform.f - transform.c * transform.e) / det;
-  const invD = -transform.d / det;
-  const invE = transform.a / det;
-  const invF = (transform.c * transform.d - transform.a * transform.f) / det;
-
-  const toCanonical = (pt: number[]) => [
-    pt[0] * invA + pt[1] * invB + invC,
-    pt[0] * invD + pt[1] * invE + invF
-  ];
-
-  if (pick.partKey === "eyebrow") {
-    const browGroup = isLeft ? landmarks.slice(43, 52) : landmarks.slice(97, 106);
-    const browCanon = browGroup.map(toCanonical);
-    const browCx = browCanon.reduce((sum, p) => sum + p[0], 0) / browCanon.length;
-    const browCy = browCanon.reduce((sum, p) => sum + p[1], 0) / browCanon.length;
-    const templateBrowCx = isLeft ? 305 : 695;
-    const templateBrowCy = 475;
-    return [browCx - templateBrowCx, browCy - templateBrowCy];
-  }
-  
-
-
-  if (pick.partKey === "eyebrow") {
-    const browGroup = isLeft ? landmarks.slice(43, 52) : landmarks.slice(97, 106);
-    const browCanon = browGroup.map(toCanonical);
-    const browCx = browCanon.reduce((sum, p) => sum + p[0], 0) / browCanon.length;
-    const browCy = browCanon.reduce((sum, p) => sum + p[1], 0) / browCanon.length;
-    
-    // The canonical eyebrow centers for the biaozhunmei template
-    const templateBrowCx = isLeft ? 305 : 695;
-    const templateBrowCy = 475;
-    
-    return [browCx - templateBrowCx, browCy - templateBrowCy];
-  }
-
   return [0, 0];
 }
 
@@ -659,6 +628,7 @@ function compositeMakeup(
   let warpStageContext: CanvasRenderingContext2D | null = null;
 
   for (const pick of picks) {
+    const isEyelash = pick.partKey === "eyelash" || pick.partKey === "eyeliner" || pick.partKey === "eye";
     for (const layer of pick.layers ?? []) {
       // Never render a Kumo pupil layer without its paired eye mask. Path is
       // an opaque grayscale mask, not visible makeup; drawing it directly is
@@ -730,11 +700,12 @@ function compositeMakeup(
       const drawX = isPupil ? (pupilCenter?.[0] ?? x + width / 2) - drawWidth / 2 : x;
       let drawY = isPupil ? (pupilCenter?.[1] ?? y + height / 2) - drawHeight / 2 : y;
       
-      // If the part is an eye pupil, its canonical centre may be vertically offset.
-      drawY = isPupil
-        ? (pupilCenter?.[1] ?? y + height / 2) - drawHeight / 2
-        : drawY;
+      if (pick.partKey === "eyelash") {
+        drawY += 12;
+      }
+      
       const mirroredDrawX = canonical.axis * 2 - drawX - drawWidth;
+
       const drawPlaced = (targetX: number, flip: boolean) => {
         stageContext.setTransform(1, 0, 0, 1, 0, 0);
         if (flip) {
@@ -781,8 +752,10 @@ function compositeMakeup(
                 ? (activeColor || layer.tint || [72, 54, 42] as [number, number, number])
                 : null) ?? null;
 
+      // Eyelash/eyeliner textures contain semi-transparent strands that need
+      // a black tint (multiply) to render as visible dark lashes.
       if (!tint && (pick.partKey === "eyelash" || pick.partKey === "eyeliner")) {
-         tint = [0, 0, 0];
+        tint = [0, 0, 0];
       }
 
       console.log(`[KumoMakeup] CHI TIẾT lớp ${pick.partKey} - tint: ${tint}, activeColor: ${activeColor}, layer.mask: ${layer.mask}, ramp: ${layer.ramp}, shouldApplyRamp: ${shouldApplyRamp}`);
@@ -841,10 +814,7 @@ function resolveLayerBlend(layer: KumoMakeupLayer, pick: KumoMakeupPick): Global
   if (op === 12) return "color-burn";
   if (op === 13) return "overlay";
   if (op === 14) return "soft-light";
-  if (op === 15) {
-     if (pick.partKey === "eyelash" || pick.partKey === "eyeliner") return "multiply";
-     return "source-over";
-  }
+  if (op === 15) return "source-over";
   const orig = String(layer.originalBlendMode ?? "").toLowerCase();
   if (orig.includes("multiply") || orig === "10") return "multiply";
   if (orig.includes("screen") || orig === "11") return "screen";
@@ -854,17 +824,14 @@ function resolveLayerBlend(layer: KumoMakeupLayer, pick: KumoMakeupPick): Global
   return "source-over";
 }
 
-      context.save();
+context.save();
       context.globalAlpha = alpha;
       context.globalCompositeOperation = resolveLayerBlend(layer, pick);
 
       // Piecewise triangle mesh warping perfectly anchors eyelashes and eyeshadows
       // to the 106 facial landmarks, following eyelid curves and squints precisely.
-      // Piecewise triangle mesh warping perfectly anchors eyelashes and eyeshadows
-      // to the 106 facial landmarks, following eyelid curves and squints precisely.
-      const useMeshWarp = ["eyeshadow", "eyesocket", "blush", "feature", "makeup_highlight"].includes(pick.partKey ?? "");
-      const isEyelash = pick.partKey === "eyelash" || pick.partKey === "eyeliner";
-      console.log(`[KumoMakeup] WARP BRANCH: partKey="${pick.partKey}", useMeshWarp=${useMeshWarp}, isEyelash=${isEyelash}, rect=[${layer.rect}]`);
+      const useMeshWarp = ["eyeshadow", "eyesocket", "blush", "feature", "makeup_highlight", "eyebrow", "eyeliner", "eye"].includes(pick.partKey ?? "");
+
       // After drawing layers, apply mesh warp if needed
       if (useMeshWarp) {
         if (!warpStage) {
@@ -880,7 +847,9 @@ function resolveLayerBlend(layer: KumoMakeupLayer, pick: KumoMakeupPick): Global
 
         context.setTransform(1, 0, 0, 1, 0, 0);
         context.drawImage(warpStage, 0, 0);
-      } else if (pick.partKey !== "eyelash" && pick.partKey !== "eyeliner") {
+      } else {
+        // All other layers (mouth, eyebrow, blush without warp, etc.)
+        // use the global 3-point affine transform.
         context.setTransform(
           transform.a, transform.d,
           transform.b, transform.e,
@@ -888,51 +857,6 @@ function resolveLayerBlend(layer: KumoMakeupLayer, pick: KumoMakeupPick): Global
         );
         context.drawImage(stage, 0, 0);
         context.setTransform(1, 0, 0, 1, 0, 0);
-      } else {
-        // Eyelash/Eyeliner: Piecewise eyelid mesh warp (Kumoo Step 2)
-        // Uses a mini-mesh of 19 triangles around the eye to bend the
-        // eyelash texture along the exact upper eyelid contour.
-        const layerCenterX = layer.rect[0] + layer.rect[2] / 2;
-        const isLeft = layerCenterX < canonical.axis;
-        const tris = isLeft ? LEFT_EYELID_TRIS : RIGHT_EYELID_TRIS;
-
-        console.log(`[KumoMakeup] EYELID WARP: ${isLeft ? "LEFT" : "RIGHT"} eye, rect=[${layer.rect}], layerCenterX=${layerCenterX}, axis=${canonical.axis}, tris=${tris.length}`);
-
-        let triCount = 0;
-        for (const [i0, i1, i2] of tris) {
-          const p0 = CANONICAL_POINTS[i0];
-          const p1 = CANONICAL_POINTS[i1];
-          const p2 = CANONICAL_POINTS[i2];
-          const f0 = landmarks[i0];
-          const f1 = landmarks[i1];
-          const f2 = landmarks[i2];
-          if (!p0 || !p1 || !p2 || !f0 || !f1 || !f2) {
-            console.warn(`[KumoMakeup] EYELID WARP: skip tri [${i0},${i1},${i2}] — missing point`, { p0, p1, p2, f0, f1, f2 });
-            continue;
-          }
-
-          const mat = solveAffine(
-            [p0[0], p0[1]], [p1[0], p1[1]], [p2[0], p2[1]],
-            [f0[0], f0[1]], [f1[0], f1[1]], [f2[0], f2[1]],
-          );
-          if (!mat) {
-            console.warn(`[KumoMakeup] EYELID WARP: degenerate tri [${i0},${i1},${i2}]`);
-            continue;
-          }
-
-          context.save();
-          context.beginPath();
-          context.moveTo(f0[0], f0[1]);
-          context.lineTo(f1[0], f1[1]);
-          context.lineTo(f2[0], f2[1]);
-          context.closePath();
-          context.clip();
-          context.setTransform(mat.a, mat.d, mat.b, mat.e, mat.c, mat.f);
-          context.drawImage(stage, 0, 0);
-          context.restore();
-          triCount++;
-        }
-        console.log(`[KumoMakeup] EYELID WARP: drew ${triCount}/${tris.length} triangles`);
       }
       context.restore();
       painted = true;
@@ -988,6 +912,7 @@ export async function renderKumoMakeup(
         y * scaleY,
       ]);
       compositeMakeup(context, previewLandmarks, facePicks, library.canonical, assets);
+
     }
     return new Promise<Blob>((resolve) => {
       canvas.toBlob((blob) => resolve(blob ?? baseBlob), "image/jpeg", 0.95);

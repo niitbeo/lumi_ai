@@ -1,0 +1,102 @@
+@@ -53,3 +53,101 @@
+ 
+   return { a, b, c, d, e, f };
+ }
++
++/**
++ * Catmull-Rom spline interpolation for a set of points.
++ */
++function catmullRom(p0: number[], p1: number[], p2: number[], p3: number[], t: number): number[] {
++  const t2 = t * t;
++  const t3 = t2 * t;
++  const x = 0.5 * ((2 * p1[0]) + (-p0[0] + p2[0]) * t + (2 * p0[0] - 5 * p1[0] + 4 * p2[0] - p3[0]) * t2 + (-p0[0] + 3 * p1[0] - 3 * p2[0] + p3[0]) * t3);
++  const y = 0.5 * ((2 * p1[1]) + (-p0[1] + p2[1]) * t + (2 * p0[1] - 5 * p1[1] + 4 * p2[1] - p3[1]) * t2 + (-p0[1] + 3 * p1[1] - 3 * p2[1] + p3[1]) * t3);
++  return [x, y];
++}
++
++/**
++ * Interpolate 5 control points into N smooth points.
++ */
++function interpolateSpline(points: number[][], numSegments: number): number[][] {
++  const result: number[][] = [];
++  // Duplicate ends for Catmull-Rom
++  const pts = [points[0], ...points, points[points.length - 1]];
++  
++  for (let i = 0; i < points.length - 1; i++) {
++    const p0 = pts[i];
++    const p1 = pts[i + 1];
++    const p2 = pts[i + 2];
++    const p3 = pts[i + 3];
++    
++    const steps = (i === points.length - 2) ? numSegments : numSegments - 1;
++    for (let j = 0; j <= steps; j++) {
++      const t = j / numSegments;
++      result.push(catmullRom(p0, p1, p2, p3, t));
++    }
++  }
++  return result;
++}
++
++/**
++ * Approximates GPUImageUpperEyelidRadianSmoothFilter.
++ * Bends a texture along the 5 upper eyelid landmarks without using eyebrow points.
++ */
++export function drawEyelidStripWarp(
++  context: CanvasRenderingContext2D,
++  image: CanvasImageSource,
++  landmarks: number[][],
++  isLeft: boolean,
++  rect: [number, number, number, number]
++) {
++  // Upper eyelid points (inner to outer)
++  const lidIndices = isLeft ? [35, 41, 40, 42, 39] : [89, 95, 94, 96, 93];
++  const lidPts = lidIndices.map(i => landmarks[i]);
++  const lidCanonPts = lidIndices.map(i => CANONICAL_POINTS[i]);
++  
++  // Create smooth spline (e.g. 25 points = 6 segments per interval)
++  const SEGMENTS_PER_INTERVAL = 6;
++  const realSpline = interpolateSpline(lidPts, SEGMENTS_PER_INTERVAL);
++  const canonSpline = interpolateSpline(lidCanonPts, SEGMENTS_PER_INTERVAL);
++  
++  // Height of the texture
++  const [texX, texY, texW, texH] = rect;
++  
++  for (let i = 0; i < realSpline.length - 1; i++) {
++    const rc0 = canonSpline[i];
++    const rc1 = canonSpline[i + 1];
++    const rr0 = realSpline[i];
++    const rr1 = realSpline[i + 1];
++    
++    // Calculate normal (perpendicular to curve) in canonical space
++    const dxC = rc1[0] - rc0[0];
++    const dyC = rc1[1] - rc0[1];
++    const lenC = Math.hypot(dxC, dyC) || 1;
++    let nxC = -dyC / lenC;
++    let nyC = dxC / lenC;
++    if (nyC > 0) { nxC = -nxC; nyC = -nyC; } // Ensure normal points UP
++    
++    // Extrapolate top points based on texture height
++    // Distance from canonical lid apex to texture top
++    const apexCanon = CANONICAL_POINTS[isLeft ? 40 : 94];
++    const distTop = Math.abs(apexCanon[1] - texY) + 10; 
++    const distBot = Math.abs((texY + texH) - apexCanon[1]) + 10;
++
++    const tc0 = [rc0[0] + nxC * distTop, rc0[1] + nyC * distTop];
++    const bc0 = [rc0[0] - nxC * distBot, rc0[1] - nyC * distBot];
++    
++    // Do the same in real space
++    const dxR = rr1[0] - rr0[0];
++    const dyR = rr1[1] - rr0[1];
++    const lenR = Math.hypot(dxR, dyR) || 1;
++    let nxR = -dyR / lenR;
++    let nyR = dxR / lenR;
++    if (nyR > 0) { nxR = -nxR; nyR = -nyR; }
++    
++    const tr0 = [rr0[0] + nxR * distTop, rr0[1] + nyR * distTop];
++    const br0 = [rr0[0] - nxR * distBot, rr0[1] - nyR * distBot];
++    
++    const tc1 = [rc1[0] + nxC * distTop, rc1[1] + nyC * distTop];
++    const bc1 = [rc1[0] - nxC * distBot, rc1[1] - nyC * distBot];
++    
++    const tr1 = [rr1[0] + nxR * distTop, rr1[1] + nyR * distTop];
++    const br1 = [rr1[0] - nxR * distBot, rr1[1] - nyR * distBot];

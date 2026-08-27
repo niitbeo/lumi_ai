@@ -1,0 +1,1 @@
+varying highp vec2 textureCoordinateStd; uniform sampler2D faceNewTexture; uniform highp float blurAlpha; void main() { lowp vec2 teethMask = texture2D(faceNewTexture, textureCoordinateStd).gb; gl_FragColor = vec4(vec3(teethMask.r * teethMask.g), 1.0); }

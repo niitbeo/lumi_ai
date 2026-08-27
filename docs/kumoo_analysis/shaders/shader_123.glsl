@@ -1,0 +1,1 @@
+varying vec2 textureCoordinateMask; varying vec2 textureCoordinate; uniform sampler2D faceSkinMaskTexture; void main() { gl_FragColor = vec4(texture2D(faceSkinMaskTexture, textureCoordinateMask).rgb, 1.0); }

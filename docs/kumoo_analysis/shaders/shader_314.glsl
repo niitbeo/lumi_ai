@@ -1,0 +1,1 @@
+varying vec2 textureCoordinate; varying vec2 textureCoordinateFace; uniform sampler2D resTexture; uniform sampler2D oriTexture; void main() { lowp vec4 resColor = texture2D(resTexture, textureCoordinateFace); lowp vec3 oriColor = texture2D(oriTexture, textureCoordinateFace).rgb; gl_FragColor = vec4(resColor.rgb, 1.0); }

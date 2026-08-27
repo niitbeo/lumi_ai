@@ -1,0 +1,1 @@
+varying highp vec2 textureCoordinate; varying highp vec2 textureCoordinateStd; uniform sampler2D stdPupilMaskTexture; void main() { lowp vec3 iColor = texture2D(stdPupilMaskTexture, textureCoordinateStd).rgb; gl_FragColor = vec4(iColor, 1.0); }

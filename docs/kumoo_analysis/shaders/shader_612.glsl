@@ -1,0 +1,1 @@
+varying vec2 textureCoordinate; void main() { vec4 endcolor = vec4(0.0); vec2 offset = vec2(0.498); float x_tmp = floor(offset.x * 255.0); float y_tmp = floor(offset.y * 255.0); endcolor.r = x_tmp / 255.0; endcolor.g = offset.x * 255.0 - x_tmp; endcolor.b = y_tmp / 255.0; endcolor.a = offset.y * 255.0 - y_tmp; gl_FragColor = endcolor; }
