@@ -845,12 +845,19 @@ context.save();
         context.setTransform(1, 0, 0, 1, 0, 0);
         context.drawImage(warpStage, 0, 0);
       } else {
+        let activeTransform = transform;
+        if (pick.partKey === "eyelash") {
+          const isLeft = layer.rect[0] < 500;
+          const local = similarityEyeTransform(landmarks, isLeft);
+          if (local) activeTransform = local;
+        }
+
         // All other layers (mouth, eyebrow, blush without warp, etc.)
         // use the global 3-point affine transform.
         context.setTransform(
-          transform.a, transform.d,
-          transform.b, transform.e,
-          transform.c, transform.f,
+          activeTransform.a, activeTransform.d,
+          activeTransform.b, activeTransform.e,
+          activeTransform.c, activeTransform.f,
         );
         context.drawImage(stage, 0, 0);
         context.setTransform(1, 0, 0, 1, 0, 0);
@@ -918,4 +925,33 @@ export async function renderKumoMakeup(
     console.error("[KumoMakeup] LỖI TOÀN CỤC KHI VẼ MAKEUP:", err);
     return baseBlob;
   }
+}
+
+export function similarityEyeTransform(landmarks: number[][], isLeft: boolean) {
+  // cOuter: 35, cInner: 39 for left eye. 93, 89 for right eye.
+  const cOuter = isLeft ? [276.075, 554.636] : [736.892, 549.325];
+  const cInner = isLeft ? [415.129, 565.966] : [589.437, 563.292];
+  
+  const rOuter = landmarks[isLeft ? 35 : 93];
+  const rInner = landmarks[isLeft ? 39 : 89];
+  
+  if (!rOuter || !rInner) return null;
+  
+  const dxC = cInner[0] - cOuter[0]; const dyC = cInner[1] - cOuter[1];
+  const dxR = rInner[0] - rOuter[0]; const dyR = rInner[1] - rOuter[1];
+  
+  const scale = Math.sqrt(dxR*dxR + dyR*dyR) / Math.sqrt(dxC*dxC + dyC*dyC);
+  const angle = Math.atan2(dyR, dxR) - Math.atan2(dyC, dxC);
+  
+  const cos = Math.cos(angle) * scale;
+  const sin = Math.sin(angle) * scale;
+  
+  const tx = rOuter[0] - (cos * cOuter[0] - sin * cOuter[1]);
+  const ty = rOuter[1] - (sin * cOuter[0] + cos * cOuter[1]);
+  
+  // Return shape must match makeupTransform for context.setTransform
+  // kumoMakeup.ts passes: (transform.a, transform.d, transform.b, transform.e, transform.c, transform.f)
+  // We want to pass: (cos, sin, -sin, cos, tx, ty)
+  // So: a = cos, d = sin, b = -sin, e = cos, c = tx, f = ty
+  return { a: cos, b: -sin, c: tx, d: sin, e: cos, f: ty };
 }
