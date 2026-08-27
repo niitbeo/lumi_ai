@@ -928,9 +928,18 @@ export async function renderKumoMakeup(
 }
 
 export function similarityEyeTransform(landmarks: number[][], isLeft: boolean) {
-  // cOuter: 35, cInner: 39 for left eye. 93, 89 for right eye.
-  const cOuter = isLeft ? [276.075, 554.636] : [736.892, 549.325];
-  const cInner = isLeft ? [415.129, 565.966] : [589.437, 563.292];
+  // To get the true canonical coordinates, we MUST shift the meshData.ts CANONICAL_POINTS
+  // to align with the native Kumoo engine's [305, 550] and [695, 550] centroids.
+  // Left Eye Offset: X = 305 - 344.5 = -39.5, Y = 550 - 553.5 = -3.5
+  // Right Eye Offset: X = 695 - 665.0 = +30.0, Y = 550 - 548.8 = +1.2
+  
+  const cOuter = isLeft 
+    ? [276.075 - 39.5, 554.636 - 3.5]   // True Left Outer
+    : [736.892 + 30.0, 549.325 + 1.2];  // True Right Outer
+    
+  const cInner = isLeft 
+    ? [415.129 - 39.5, 565.966 - 3.5]   // True Left Inner
+    : [589.437 + 30.0, 563.292 + 1.2];  // True Right Inner
   
   const rOuter = landmarks[isLeft ? 35 : 93];
   const rInner = landmarks[isLeft ? 39 : 89];
@@ -949,9 +958,5 @@ export function similarityEyeTransform(landmarks: number[][], isLeft: boolean) {
   const tx = rOuter[0] - (cos * cOuter[0] - sin * cOuter[1]);
   const ty = rOuter[1] - (sin * cOuter[0] + cos * cOuter[1]);
   
-  // Return shape must match makeupTransform for context.setTransform
-  // kumoMakeup.ts passes: (transform.a, transform.d, transform.b, transform.e, transform.c, transform.f)
-  // We want to pass: (cos, sin, -sin, cos, tx, ty)
-  // So: a = cos, d = sin, b = -sin, e = cos, c = tx, f = ty
   return { a: cos, b: -sin, c: tx, d: sin, e: cos, f: ty };
 }
