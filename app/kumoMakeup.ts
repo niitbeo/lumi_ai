@@ -221,6 +221,32 @@ export function makeupTransform(landmarks: number[][], canonical: KumoMakeupLibr
   return { a, b, c, d, e, f };
 }
 
+export function similarityEyeTransform(landmarks: number[][], isLeft: boolean) {
+  // Use inner and outer eye corners to compute scale, rotation, and translation
+  const cOuter = isLeft ? [276.075, 554.636] : [736.892, 549.325]; // outer
+  const cInner = isLeft ? [415.129, 565.966] : [589.437, 563.292]; // inner
+  
+  const rOuter = landmarks[isLeft ? 35 : 93];
+  const rInner = landmarks[isLeft ? 39 : 89];
+  
+  if (!rOuter || !rInner) return null;
+  
+  const dxC = cInner[0] - cOuter[0]; const dyC = cInner[1] - cOuter[1];
+  const dxR = rInner[0] - rOuter[0]; const dyR = rInner[1] - rOuter[1];
+  
+  const scale = Math.sqrt(dxR*dxR + dyR*dyR) / Math.sqrt(dxC*dxC + dyC*dyC);
+  const angle = Math.atan2(dyR, dxR) - Math.atan2(dyC, dxC);
+  
+  const cos = Math.cos(angle) * scale;
+  const sin = Math.sin(angle) * scale;
+  
+  const tx = rOuter[0] - (cos * cOuter[0] - sin * cOuter[1]);
+  const ty = rOuter[1] - (sin * cOuter[0] + cos * cOuter[1]);
+  
+  return { a: cos, b: sin, c: -sin, d: cos, e: tx, f: ty };
+}
+
+
 export function localEyeTransform(landmarks: number[][], isLeft: boolean) {
   // 35: outer, 39: inner, 40: upper apex for left eye
   // 93: outer, 89: inner, 94: upper apex for right eye
@@ -700,9 +726,6 @@ function compositeMakeup(
       const drawX = isPupil ? (pupilCenter?.[0] ?? x + width / 2) - drawWidth / 2 : x;
       let drawY = isPupil ? (pupilCenter?.[1] ?? y + height / 2) - drawHeight / 2 : y;
       
-      if (pick.partKey === "eyelash") {
-        drawY += 12;
-      }
       
       const mirroredDrawX = canonical.axis * 2 - drawX - drawWidth;
 
@@ -848,12 +871,18 @@ context.save();
         context.setTransform(1, 0, 0, 1, 0, 0);
         context.drawImage(warpStage, 0, 0);
       } else {
+        let activeTransform = transform;
+        if (layer.locateMethod === 6 || layer.locateMethod === 7) {
+          const local = similarityEyeTransform(landmarks, layer.locateMethod === 6);
+          if (local) activeTransform = local;
+        }
+
         // All other layers (mouth, eyebrow, blush without warp, etc.)
         // use the global 3-point affine transform.
         context.setTransform(
-          transform.a, transform.d,
-          transform.b, transform.e,
-          transform.c, transform.f,
+          activeTransform.a, activeTransform.d,
+          activeTransform.b, activeTransform.e,
+          activeTransform.c, activeTransform.f,
         );
         context.drawImage(stage, 0, 0);
         context.setTransform(1, 0, 0, 1, 0, 0);
