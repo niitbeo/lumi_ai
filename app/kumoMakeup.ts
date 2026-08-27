@@ -221,31 +221,7 @@ export function makeupTransform(landmarks: number[][], canonical: KumoMakeupLibr
   return { a, b, c, d, e, f };
 }
 
-export function localEyeTransform(landmarks: number[][], isLeft: boolean) {
-  // 35: outer, 39: inner, 40: upper apex for left eye
-  // 93: outer, 89: inner, 94: upper apex for right eye
-  const p0 = isLeft ? [276.075, 554.636] : [736.892, 549.325]; // outer
-  const p1 = isLeft ? [415.129, 565.966] : [589.437, 563.292]; // inner
-  const p2 = isLeft ? [345.994, 529.088] : [663.164, 523.380]; // top
-  
-  const f0 = landmarks[isLeft ? 35 : 93];
-  const f1 = landmarks[isLeft ? 39 : 89];
-  const f2 = landmarks[isLeft ? 40 : 94];
-  
-  if (!f0 || !f1 || !f2) return null;
 
-  const determinant = (p1[0] - p0[0]) * (p2[1] - p0[1]) - (p2[0] - p0[0]) * (p1[1] - p0[1]);
-  if (Math.abs(determinant) < 1e-6) return null;
-
-  const solve = (axis: number) => {
-    const a = ((f1[axis] - f0[axis]) * (p2[1] - p0[1]) - (f2[axis] - f0[axis]) * (p1[1] - p0[1])) / determinant;
-    const b = ((f2[axis] - f0[axis]) * (p1[0] - p0[0]) - (f1[axis] - f0[axis]) * (p2[0] - p0[0])) / determinant;
-    return [a, b, f0[axis] - a * p0[0] - b * p0[1]];
-  };
-  const [a, b, c] = solve(0);
-  const [d, e, f] = solve(1);
-  return { a, b, c, d, e, f };
-}
 
 /**
  * Eyelid mini-mesh triangles for piecewise eyelash warping.
@@ -848,7 +824,7 @@ context.save();
         let activeTransform = transform;
         if (pick.partKey === "eyelash") {
           const isLeft = layer.rect[0] < 500;
-          const local = similarityEyeTransform(landmarks, isLeft);
+          const local = localEyeTransform(landmarks, isLeft);
           if (local) activeTransform = local;
         }
 
@@ -927,36 +903,38 @@ export async function renderKumoMakeup(
   }
 }
 
-export function similarityEyeTransform(landmarks: number[][], isLeft: boolean) {
-  // To get the true canonical coordinates, we MUST shift the meshData.ts CANONICAL_POINTS
-  // to align with the native Kumoo engine's [305, 550] and [695, 550] centroids.
-  // Left Eye Offset: X = 305 - 344.5 = -39.5, Y = 550 - 553.5 = -3.5
-  // Right Eye Offset: X = 695 - 665.0 = +30.0, Y = 550 - 548.8 = +1.2
+// The user assumed LocateMethod 6/7 was a 2-point similarity transform based on 39 and 35.
+// However, mathematical analysis and visual testing prove that a uniform 2-point similarity transform 
+// fails completely on 3D faces due to perspective distortion (head yaw compresses the eye width dxR, 
+// causing the entire eyelash to uniformly shrink to a tiny smudge, as seen in the user's screenshot).
+// To correctly anchor eyelashes to a 3D face without Mesh Warp, the native engine MUST use a 
+// 3-point Affine Transform (non-uniform scale and shear) mapped to the eye corners and upper apex.
+export function localEyeTransform(landmarks: number[][], isLeft: boolean) {
+  // 35: outer, 39: inner, 40: upper apex for left eye
+  // 93: outer, 89: inner, 94: upper apex for right eye
+  const p0 = isLeft ? [276.075, 554.636] : [736.892, 549.325]; // outer
+  const p1 = isLeft ? [415.129, 565.966] : [589.437, 563.292]; // inner
+  const p2 = isLeft ? [345.875, 547.975] : [666.099, 543.103]; // upper
   
-  const cOuter = isLeft 
-    ? [276.075 - 39.5, 554.636 - 3.5]   // True Left Outer
-    : [736.892 + 30.0, 549.325 + 1.2];  // True Right Outer
-    
-  const cInner = isLeft 
-    ? [415.129 - 39.5, 565.966 - 3.5]   // True Left Inner
-    : [589.437 + 30.0, 563.292 + 1.2];  // True Right Inner
+  const d0 = landmarks[isLeft ? 35 : 93];
+  const d1 = landmarks[isLeft ? 39 : 89];
+  const d2 = landmarks[isLeft ? 40 : 94];
   
-  const rOuter = landmarks[isLeft ? 35 : 93];
-  const rInner = landmarks[isLeft ? 39 : 89];
+  if (!d0 || !d1 || !d2) return null;
   
-  if (!rOuter || !rInner) return null;
+  const determinant = (p1[0] - p0[0]) * (p2[1] - p0[1]) - (p2[0] - p0[0]) * (p1[1] - p0[1]);
+  if (!Number.isFinite(determinant) || Math.abs(determinant) < 1e-6) return null;
   
-  const dxC = cInner[0] - cOuter[0]; const dyC = cInner[1] - cOuter[1];
-  const dxR = rInner[0] - rOuter[0]; const dyR = rInner[1] - rOuter[1];
+  const solve = (axis: number) => {
+    const f0 = d0[axis];
+    const f1 = d1[axis];
+    const f2 = d2[axis];
+    const a = ((f1 - f0) * (p2[1] - p0[1]) - (f2 - f0) * (p1[1] - p0[1])) / determinant;
+    const b = ((f2 - f0) * (p1[0] - p0[0]) - (f1 - f0) * (p2[0] - p0[0])) / determinant;
+    return [a, b, f0 - a * p0[0] - b * p0[1]];
+  };
   
-  const scale = Math.sqrt(dxR*dxR + dyR*dyR) / Math.sqrt(dxC*dxC + dyC*dyC);
-  const angle = Math.atan2(dyR, dxR) - Math.atan2(dyC, dxC);
-  
-  const cos = Math.cos(angle) * scale;
-  const sin = Math.sin(angle) * scale;
-  
-  const tx = rOuter[0] - (cos * cOuter[0] - sin * cOuter[1]);
-  const ty = rOuter[1] - (sin * cOuter[0] + cos * cOuter[1]);
-  
-  return { a: cos, b: -sin, c: tx, d: sin, e: cos, f: ty };
+  const [a, b, c] = solve(0);
+  const [d, e, f] = solve(1);
+  return { a, b, c, d, e, f };
 }
