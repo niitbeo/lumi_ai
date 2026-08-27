@@ -824,7 +824,7 @@ context.save();
         let activeTransform = transform;
         if (pick.partKey === "eyelash") {
           const isLeft = layer.rect[0] < 500;
-          const local = localEyeTransform(landmarks, isLeft);
+          const local = similarityEyeTransform(landmarks, isLeft, transform);
           if (local) activeTransform = local;
         }
 
@@ -909,32 +909,44 @@ export async function renderKumoMakeup(
 // causing the entire eyelash to uniformly shrink to a tiny smudge, as seen in the user's screenshot).
 // To correctly anchor eyelashes to a 3D face without Mesh Warp, the native engine MUST use a 
 // 3-point Affine Transform (non-uniform scale and shear) mapped to the eye corners and upper apex.
-export function localEyeTransform(landmarks: number[][], isLeft: boolean) {
-  // 35: outer, 39: inner, 40: upper apex for left eye
-  // 93: outer, 89: inner, 94: upper apex for right eye
-  const p0 = isLeft ? [276.075, 554.636] : [736.892, 549.325]; // outer
-  const p1 = isLeft ? [415.129, 565.966] : [589.437, 563.292]; // inner
-  const p2 = isLeft ? [345.875, 547.975] : [666.099, 543.103]; // upper
+export function similarityEyeTransform(landmarks: number[][], isLeft: boolean, globalTransform: any) {
+  // 35: outer, 39: inner
+  // 93: outer, 89: inner
+  const cOuter = isLeft ? [276.075, 554.636] : [736.892, 549.325]; // outer
+  const cInner = isLeft ? [415.129, 565.966] : [589.437, 563.292]; // inner
   
-  const d0 = landmarks[isLeft ? 35 : 93];
-  const d1 = landmarks[isLeft ? 39 : 89];
-  const d2 = landmarks[isLeft ? 40 : 94];
+  const rOuter = landmarks[isLeft ? 35 : 93];
+  const rInner = landmarks[isLeft ? 39 : 89];
   
-  if (!d0 || !d1 || !d2) return null;
+  if (!rOuter || !rInner || !globalTransform) return null;
   
-  const determinant = (p1[0] - p0[0]) * (p2[1] - p0[1]) - (p2[0] - p0[0]) * (p1[1] - p0[1]);
-  if (!Number.isFinite(determinant) || Math.abs(determinant) < 1e-6) return null;
+  const dxC = cInner[0] - cOuter[0]; const dyC = cInner[1] - cOuter[1];
+  const dxR = rInner[0] - rOuter[0]; const dyR = rInner[1] - rOuter[1];
   
-  const solve = (axis: number) => {
-    const f0 = d0[axis];
-    const f1 = d1[axis];
-    const f2 = d2[axis];
-    const a = ((f1 - f0) * (p2[1] - p0[1]) - (f2 - f0) * (p1[1] - p0[1])) / determinant;
-    const b = ((f2 - f0) * (p1[0] - p0[0]) - (f1 - f0) * (p2[0] - p0[0])) / determinant;
-    return [a, b, f0 - a * p0[0] - b * p0[1]];
-  };
+  // Calculate X-scale and rotation from the two eye corners (35 and 39)
+  const scaleX = Math.sqrt(dxR*dxR + dyR*dyR) / Math.sqrt(dxC*dxC + dyC*dyC);
+  const angle = Math.atan2(dyR, dxR) - Math.atan2(dyC, dxC);
   
-  const [a, b, c] = solve(0);
-  const [d, e, f] = solve(1);
-  return { a, b, c, d, e, f };
+  // The fatal flaw of a 2D similarity transform on a 3D face is that head yaw 
+  // compresses dxR, which shrinks both X and Y uniformly, turning eyelashes into tiny smudges.
+  // A 3-point affine transform on the eye corners (35, 39, 40) is too flat and explodes (spider legs).
+  // The mathematically perfect C++ LocateMethod 6/7 MUST calculate X-scale from the corners,
+  // but BORROW the Y-scale from the global face transform to prevent Y-collapse!
+  const scaleY = Math.sqrt(globalTransform.d * globalTransform.d + globalTransform.e * globalTransform.e);
+  
+  const cos = Math.cos(angle);
+  const sin = Math.sin(angle);
+  
+  const m11 = cos * scaleX;
+  const m12 = -sin * scaleY; // Canvas b (skew Y on X) - Wait!
+  const m21 = sin * scaleX;  // Canvas c (skew X on Y)
+  const m22 = cos * scaleY;
+  
+  // Translation guarantees exact alignment of cOuter to rOuter
+  const tx = rOuter[0] - (m11 * cOuter[0] + m12 * cOuter[1]);
+  const ty = rOuter[1] - (m21 * cOuter[0] + m22 * cOuter[1]);
+  
+  // Canvas setTransform expects (m11, m12, m21, m22, dx, dy) which maps to (a, d, b, e, c, f) in our object layout
+  // So a = m11, d = m12, b = m21, e = m22, c = tx, f = ty
+  return { a: m11, b: m21, c: tx, d: m12, e: m22, f: ty };
 }
