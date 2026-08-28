@@ -146,6 +146,20 @@ export function drawDenseEyelashWarp(
     }
   }
 
+
+  function expandTri(p0: [number, number], p1: [number, number], p2: [number, number], pad: number = 0.5): [[number, number], [number, number], [number, number]] {
+    const cx = (p0[0] + p1[0] + p2[0]) / 3;
+    const cy = (p0[1] + p1[1] + p2[1]) / 3;
+    const l0 = Math.hypot(p0[0] - cx, p0[1] - cy) || 1;
+    const l1 = Math.hypot(p1[0] - cx, p1[1] - cy) || 1;
+    const l2 = Math.hypot(p2[0] - cx, p2[1] - cy) || 1;
+    return [
+      [p0[0] + (p0[0] - cx) / l0 * pad, p0[1] + (p0[1] - cy) / l0 * pad],
+      [p1[0] + (p1[0] - cx) / l1 * pad, p1[1] + (p1[1] - cy) / l1 * pad],
+      [p2[0] + (p2[0] - cx) / l2 * pad, p2[1] + (p2[1] - cy) / l2 * pad]
+    ];
+  }
+
   // Draw each grid cell as 2 triangles
   for (let r = 0; r < ROWS; r++) {
     for (let c = 0; c < COLS; c++) {
@@ -165,10 +179,11 @@ export function drawDenseEyelashWarp(
         const m = solveAffine(cTL, cTR, cBL, tl, tr, bl);
         if (m) {
           context.save();
+          const [et0, et1, et2] = expandTri(tl, tr, bl, 0.5);
           context.beginPath();
-          context.moveTo(tl[0], tl[1]);
-          context.lineTo(tr[0], tr[1]);
-          context.lineTo(bl[0], bl[1]);
+          context.moveTo(et0[0], et0[1]);
+          context.lineTo(et1[0], et1[1]);
+          context.lineTo(et2[0], et2[1]);
           context.closePath();
           context.clip();
           context.setTransform(m.a, m.d, m.b, m.e, m.c, m.f);
@@ -182,10 +197,11 @@ export function drawDenseEyelashWarp(
         const m = solveAffine(cTR, cBR, cBL, tr, br, bl);
         if (m) {
           context.save();
+          const [et0, et1, et2] = expandTri(tr, br, bl, 0.5);
           context.beginPath();
-          context.moveTo(tr[0], tr[1]);
-          context.lineTo(br[0], br[1]);
-          context.lineTo(bl[0], bl[1]);
+          context.moveTo(et0[0], et0[1]);
+          context.lineTo(et1[0], et1[1]);
+          context.lineTo(et2[0], et2[1]);
           context.closePath();
           context.clip();
           context.setTransform(m.a, m.d, m.b, m.e, m.c, m.f);

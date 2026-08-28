@@ -1,5 +1,7 @@
 "use client";
 
+if (typeof window !== "undefined") { console.log("PAGE TSX LOADED"); }
+
 import {
   type PointerEvent as ReactPointerEvent,
   type WheelEvent as ReactWheelEvent,
@@ -79,6 +81,7 @@ type FaceAnalysis = {
   review_required: boolean;
   thumbnail: string;
   landmarks: number[][];
+  eye_segments?: any;
 };
 
 const SKIN_TONE_SWATCHES = [
@@ -308,6 +311,7 @@ function photoPresetMakeupSelection(
 }
 
 export default function Home() {
+  console.log("HOME COMPONENT RENDERED");
   const inputRef = useRef<HTMLInputElement>(null);
   const analysisRequest = useRef(0);
   const analysisAbort = useRef<AbortController | null>(null);
@@ -658,6 +662,7 @@ export default function Home() {
             `${API_URL}/api/assets/makeup/face_oval.png`,
             faceSelections,
             sourceImageSizeRef.current,
+            faces.map((face) => face.eye_segments)
           );
         }
         if (requestId !== makeupRenderRequest.current) return;
@@ -1006,7 +1011,7 @@ export default function Home() {
   const visiblePhotoPresets = photoLibrary?.presets.filter((preset) => preset.category_id === photoCategoryId) ?? [];
 
   return (
-    <main className="app-shell">
+    <main className="app-shell bust-cache-1">
       <header className="topbar">
         <div className="brand" aria-label="Lumi Portrait Lab">
           <span className="brand-mark">L</span>

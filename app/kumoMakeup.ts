@@ -1,4 +1,4 @@
-import { drawWarpedMesh, solveAffine } from "./meshWarp";
+import { drawMeshWebGL } from "./webglWarp";
 import { CANONICAL_POINTS } from "./meshData";
 
 export type KumoMakeupLayer = {
@@ -588,6 +588,7 @@ function compositeMakeup(
   picks: KumoMakeupPick[],
   canonical: KumoMakeupLibrary["canonical"],
   assets: Awaited<ReturnType<typeof preloadMakeup>>,
+  eyeSegments?: any,
 ) {
   const transform = makeupTransform(landmarks, canonical);
   if (!transform) return false;
@@ -595,8 +596,9 @@ function compositeMakeup(
   const stage = document.createElement("canvas");
   stage.width = canonical.w;
   stage.height = canonical.h;
-  const stageContext = stage.getContext("2d");
+  const stageContext = stage.getContext("2d")!;
   if (!stageContext) return false;
+
   const sourceContext = canonicalSource(context, transform, canonical);
   const pupilCenters = new Map<string, [number, number] | null>();
   let painted = false;
@@ -801,32 +803,17 @@ context.save();
       context.globalAlpha = alpha;
       context.globalCompositeOperation = resolveLayerBlend(layer, pick);
 
-      // Piecewise triangle mesh warping perfectly anchors eyelashes and eyeshadows
-      // to the 106 facial landmarks, following eyelid curves and squints precisely.
-      const useMeshWarp = ["eyeshadow", "eyesocket", "blush", "feature", "makeup_highlight", "eyebrow", "eyeliner", "eye"].includes(pick.partKey ?? "");
 
-      // After drawing layers, apply mesh warp if needed
+
+
+      // Kumoo LocateMethod 6/7: mesh warp for eye-area makeup including eyelash
+      const useMeshWarp = ["eyeshadow", "eyesocket", "blush", "feature", "makeup_highlight", "eyebrow", "eyeliner", "eye", "eyelash"].includes(pick.partKey ?? "");
+
       if (useMeshWarp) {
-        if (!warpStage) {
-          warpStage = document.createElement("canvas");
-          warpStage.width = context.canvas.width;
-          warpStage.height = context.canvas.height;
-          warpStageContext = warpStage.getContext("2d")!;
-        }
-        if (!warpStageContext) continue;
-        warpStageContext.clearRect(0, 0, warpStage.width, warpStage.height);
-        warpStageContext.globalCompositeOperation = "source-over";
-        drawWarpedMesh(warpStageContext, stage, landmarks, transform);
-
         context.setTransform(1, 0, 0, 1, 0, 0);
-        context.drawImage(warpStage, 0, 0);
+        drawMeshWebGL(context, stage, landmarks, transform);
       } else {
         let activeTransform = transform;
-        if (pick.partKey === "eyelash") {
-          const isLeft = layer.rect[0] < 500;
-          const local = similarityEyeTransform(landmarks, isLeft, transform);
-          if (local) activeTransform = local;
-        }
 
         // All other layers (mouth, eyebrow, blush without warp, etc.)
         // use the global 3-point affine transform.
@@ -856,6 +843,7 @@ export async function renderKumoMakeup(
   ovalUrl: string,
   faceSelections?: KumoMakeupSelection[],
   sourceSize?: { width: number; height: number } | null,
+  eyeSegmentSets?: any[],
 ) {
   try {
     const picks = faceSelections?.length
@@ -891,9 +879,20 @@ export async function renderKumoMakeup(
         x * scaleX,
         y * scaleY,
       ]);
-      compositeMakeup(context, previewLandmarks, facePicks, library.canonical, assets);
+      // Scale eye_segment curves to output canvas coords
+      const rawSegs = eyeSegmentSets?.[index];
+      const scaledSegs = rawSegs ? {
+        left_curve: rawSegs.left_curve?.map((p: number[]) => [p[0] * scaleX, p[1] * scaleY]),
+        left_lower: rawSegs.left_lower?.map((p: number[]) => [p[0] * scaleX, p[1] * scaleY]),
+        right_curve: rawSegs.right_curve?.map((p: number[]) => [p[0] * scaleX, p[1] * scaleY]),
+        right_lower: rawSegs.right_lower?.map((p: number[]) => [p[0] * scaleX, p[1] * scaleY]),
+      } : undefined;
+      compositeMakeup(context, previewLandmarks, facePicks, library.canonical, assets, scaledSegs);
 
+      // DEBUG disabled — uncomment to show eyelid lines
+      // (xanh=mí trên landmark, đỏ=mí dưới landmark, cam=eye segment upper, vàng=eye segment lower)
     }
+
     return new Promise<Blob>((resolve) => {
       canvas.toBlob((blob) => resolve(blob ?? baseBlob), "image/jpeg", 0.95);
     });
@@ -905,52 +904,303 @@ export async function renderKumoMakeup(
 
 // The user assumed LocateMethod 6/7 was a 2-point similarity transform based on 39 and 35.
 // However, mathematical analysis and visual testing prove that a uniform 2-point similarity transform 
-// fails completely on 3D faces due to perspective distortion (head yaw compresses the eye width dxR, 
-// causing the entire eyelash to uniformly shrink to a tiny smudge, as seen in the user's screenshot).
-// To correctly anchor eyelashes to a 3D face without Mesh Warp, the native engine MUST use a 
-// 3-point Affine Transform (non-uniform scale and shear) mapped to the eye corners and upper apex.
-export function similarityEyeTransform(landmarks: number[][], isLeft: boolean, globalTransform: any) {
-  // 35: outer, 39: inner
-  // 93: outer, 89: inner
-  const cOuter = isLeft ? [276.075, 554.636] : [736.892, 549.325]; // outer
-  const cInner = isLeft ? [415.129, 565.966] : [589.437, 563.292]; // inner
+// Eye-segment-guided spline warp: uses the dense ML eye contour curve
+// (50+ points) instead of the 5-point landmark approximation.
+// This bends the eyelash texture precisely along the eyelid.
+function drawEyeSegWarp(
+  context: CanvasRenderingContext2D,
+  source: HTMLCanvasElement | ImageBitmap,
+  layerRect: [number, number, number, number],
+  landmarks: number[][],
+  realCurve: number[][],  // dense eye_segment curve in real image coords
+  isLeft: boolean,
+  isLower: boolean,
+  globalTransform: any,
+) {
+  const [sx, sy, sw, sh] = layerRect;
+
+  // 1. Build canonical eyelid curve from landmarks
+  let cIdxs: number[];
+  if (isLeft) {
+    cIdxs = isLower ? [35, 36, 33, 37, 39] : [35, 41, 40, 42, 39];
+  } else {
+    cIdxs = isLower ? [93, 91, 87, 90, 89] : [93, 96, 94, 95, 89];
+  }
+  const cPts = cIdxs.map(i => CANONICAL_POINTS[i]);
+
+  // Canonical curve: parameterize by arc length
+  const buildCurve = (pts: number[][]) => {
+    let total = 0;
+    const lens: number[] = [];
+    for (let i = 0; i < pts.length - 1; i++) {
+      const l = Math.hypot(pts[i+1][0] - pts[i][0], pts[i+1][1] - pts[i][1]) || 0.001;
+      lens.push(l);
+      total += l;
+    }
+    return (t: number) => {
+      const target = Math.max(0, Math.min(1, t)) * total;
+      let cur = 0;
+      for (let i = 0; i < pts.length - 1; i++) {
+        if (cur + lens[i] >= target || i === pts.length - 2) {
+          const localT = (target - cur) / lens[i];
+          const dx = pts[i+1][0] - pts[i][0];
+          const dy = pts[i+1][1] - pts[i][1];
+          return {
+            x: pts[i][0] + dx * localT,
+            y: pts[i][1] + dy * localT,
+            angle: Math.atan2(dy, dx)
+          };
+        }
+        cur += lens[i];
+      }
+      return { x: pts[0][0], y: pts[0][1], angle: 0 };
+    };
+  };
+
+  // 2. Build real curve from eye_segment data (already in real image coords)
+  // Sort by X to ensure monotonic traversal
+  const sortedReal = [...realCurve].sort((a, b) => {
+    // For left eye (image left), X goes left-to-right (outer=small X, inner=large X)
+    // For right eye (image right), X goes right-to-left (outer=large X, inner=small X)
+    return isLeft ? a[0] - b[0] : b[0] - a[0];
+  });
+
+  const getCanonCurve = buildCurve(cPts);
+  const getRealCurve = buildCurve(sortedReal);
+
+  // Canonical eye span
+  const cOuterX = cPts[0][0];
+  const cInnerX = cPts[cPts.length - 1][0];
+  const cWidth = cInnerX - cOuterX; // negative for right eye
+
+  // Global scale factor
+  const rOuterX = sortedReal[0][0];
+  const rInnerX = sortedReal[sortedReal.length - 1][0];
+  const rWidth = Math.hypot(rInnerX - rOuterX, sortedReal[sortedReal.length-1][1] - sortedReal[0][1]);
+  const cDist = Math.hypot(cWidth, cPts[cPts.length-1][1] - cPts[0][1]);
+  const scale = rWidth / cDist;
+
+  // Global rotation
+  const globalCanonAngle = Math.atan2(cPts[cPts.length-1][1] - cPts[0][1], cWidth);
+  const globalRealAngle = Math.atan2(
+    sortedReal[sortedReal.length-1][1] - sortedReal[0][1],
+    rInnerX - rOuterX
+  );
+
+  // 3. Warp each column
+  context.save();
+  for (let xOffset = 0; xOffset < sw; xOffset++) {
+    const texX = sx + xOffset;
+
+    // Parameter t: where is this column along the canonical eye?
+    const t = (texX - cOuterX) / cWidth;
+
+    const canonPt = getCanonCurve(t);
+    const realPt = getRealCurve(t);
+
+    context.save();
+    context.translate(realPt.x, realPt.y);
+    // Use local tangent for rotation (follows the curve!)
+    context.rotate(realPt.angle - canonPt.angle);
+    context.scale(scale, scale);
+
+    // Offset: how far above/below the canonical curve is this texture?
+    const localOffsetY = sy - canonPt.y;
+
+    context.drawImage(
+      source,
+      texX, sy, 1, sh,
+      0, localOffsetY, 1.5, sh
+    );
+    context.restore();
+  }
+  context.restore();
+}
+
+
+function drawSplineWarp(
+  context: CanvasRenderingContext2D,
+  source: HTMLCanvasElement | ImageBitmap,
+  layerRect: [number, number, number, number],
+  landmarks: number[][],
+  isLeft: boolean,
+  locateMethod: number | null
+) {
+  const [sx, sy, sw, sh] = layerRect;
   
-  const rOuter = landmarks[isLeft ? 35 : 93];
-  const rInner = landmarks[isLeft ? 39 : 89];
+  // 1. Lấy các điểm chuẩn (canonical) và thực tế (real) của mí mắt
+  const isLower = (layerRect[1] + layerRect[3]/2) > 555 || locateMethod === 38 || locateMethod === 39;
+  let cPts: number[][] = [];
+  let rPts: number[][] = [];
   
-  if (!rOuter || !rInner || !globalTransform) return null;
+  if (isLeft) {
+    if (isLower) {
+      const idxs = [35, 36, 33, 37, 39]; // Mí dưới trái
+      cPts = idxs.map(i => CANONICAL_POINTS[i]);
+      rPts = idxs.map(i => landmarks[i]);
+    } else {
+      const idxs = [35, 41, 40, 42, 39]; // Mí trên trái
+      cPts = idxs.map(i => CANONICAL_POINTS[i]);
+      rPts = idxs.map(i => landmarks[i]);
+    }
+  } else {
+    if (isLower) {
+      const idxs = [93, 91, 87, 90, 89]; // Mí dưới phải
+      cPts = idxs.map(i => CANONICAL_POINTS[i]);
+      rPts = idxs.map(i => landmarks[i]);
+    } else {
+      const idxs = [93, 96, 94, 95, 89]; // Mí trên phải
+      cPts = idxs.map(i => CANONICAL_POINTS[i]);
+      rPts = idxs.map(i => landmarks[i]);
+    }
+  }
   
-  const dxC = cInner[0] - cOuter[0]; const dyC = cInner[1] - cOuter[1];
-  const dxR = rInner[0] - rOuter[0]; const dyR = rInner[1] - rOuter[1];
+  // 2. Xây dựng hàm nội suy đường cong
+  // Vì các điểm nối tiếp nhau từ đuôi mắt -> khóe mắt, ta tính độ dài tích lũy
+  const buildCurve = (pts: number[][]) => {
+    let total = 0;
+    const lens = [];
+    for (let i = 0; i < pts.length - 1; i++) {
+      const dx = pts[i+1][0] - pts[i][0];
+      const dy = pts[i+1][1] - pts[i][1];
+      const l = Math.sqrt(dx*dx + dy*dy) || 0.001;
+      lens.push(l);
+      total += l;
+    }
+    return (t: number) => {
+      if (t <= 0) {
+        const dx = pts[1][0] - pts[0][0];
+        const dy = pts[1][1] - pts[0][1];
+        const len = Math.sqrt(dx*dx + dy*dy) || 0.001;
+        const dist = t * total; // negative distance
+        return { x: pts[0][0] + (dx/len) * dist, y: pts[0][1] + (dy/len) * dist, angle: Math.atan2(dy, dx) };
+      }
+      if (t >= 1) {
+        const dx = pts[pts.length-1][0] - pts[pts.length-2][0];
+        const dy = pts[pts.length-1][1] - pts[pts.length-2][1];
+        const len = Math.sqrt(dx*dx + dy*dy) || 0.001;
+        const dist = (t - 1) * total; // positive distance beyond end
+        return { x: pts[pts.length-1][0] + (dx/len) * dist, y: pts[pts.length-1][1] + (dy/len) * dist, angle: Math.atan2(dy, dx) };
+      }
+      const target = t * total;
+      let cur = 0;
+      for (let i = 0; i < pts.length - 1; i++) {
+        if (cur + lens[i] >= target) {
+          const localT = (target - cur) / lens[i];
+          const dx = pts[i+1][0] - pts[i][0];
+          const dy = pts[i+1][1] - pts[i][1];
+          return {
+            x: pts[i][0] + dx * localT,
+            y: pts[i][1] + dy * localT,
+            angle: Math.atan2(dy, dx)
+          };
+        }
+        cur += lens[i];
+      }
+      return { x: pts[pts.length-1][0], y: pts[pts.length-1][1], angle: 0 };
+    };
+  };
+
+  const getCanonCurve = buildCurve(cPts);
+  const getRealCurve = buildCurve(rPts);
   
-  const scaleX = Math.sqrt(dxR*dxR + dyR*dyR) / Math.sqrt(dxC*dxC + dyC*dyC);
-  const angle = Math.atan2(dyR, dxR) - Math.atan2(dyC, dxC);
-  const scaleY = Math.sqrt(globalTransform.d * globalTransform.d + globalTransform.e * globalTransform.e);
+  // 3. Tìm mapping từ tọa độ X của Texture sang t (0->1) trên Canonical Curve
+  // X_Outer < X_Inner trên mắt trái, ngược lại trên mắt phải
+  const cOuterX = cPts[0][0];
+  const cInnerX = cPts[cPts.length-1][0];
+  const cWidth = cInnerX - cOuterX; // Cố tình giữ dấu để biết chiều
+
+  // 4. Cắt Texture thành sw cột dọc 1-pixel
+  const scale = Math.sqrt(
+    Math.pow(rPts[rPts.length-1][0] - rPts[0][0], 2) + Math.pow(rPts[rPts.length-1][1] - rPts[0][1], 2)
+  ) / Math.sqrt(
+    Math.pow(cInnerX - cOuterX, 2) + Math.pow(cPts[cPts.length-1][1] - cPts[0][1], 2)
+  );
   
-  const cos = Math.cos(angle);
-  const sin = Math.sin(angle);
+  const globalCanonAngle = Math.atan2(cPts[cPts.length-1][1] - cPts[0][1], cPts[cPts.length-1][0] - cPts[0][0]);
+  const globalRealAngle = Math.atan2(rPts[rPts.length-1][1] - rPts[0][1], rPts[rPts.length-1][0] - rPts[0][0]);
+
+  context.save();
+  for (let xOffset = 0; xOffset < sw; xOffset++) {
+    const texX = sx + xOffset;
+    
+    // Tỷ lệ t của texX so với mắt chuẩn
+    const t = (texX - cOuterX) / cWidth;
+    
+    // Lấy thông tin đường cong chuẩn tại t
+    const canonPt = getCanonCurve(t);
+    // Lấy thông tin đường cong thực tại t
+    const realPt = getRealCurve(t);
+    
+    // Tính khoảng cách Y từ texY (đỉnh cột pixel) tới canon curve
+    // Y của web: hướng xuống.
+    // Khoảng cách dy = texY - canonPt.y
+    // Khi vẽ trên realPt, ta phải dịch lên một đoạn tương ứng.
+    // Nhưng vì realPt bị xoay nghiêng, ta phải xoay cả offset này.
+    
+    const scale = Math.sqrt(
+      Math.pow(rPts[rPts.length-1][0] - rPts[0][0], 2) + Math.pow(rPts[rPts.length-1][1] - rPts[0][1], 2)
+    ) / Math.sqrt(
+      Math.pow(cInnerX - cOuterX, 2) + Math.pow(cPts[cPts.length-1][1] - cPts[0][1], 2)
+    );
+
+    context.save();
+    context.translate(realPt.x, realPt.y);
+    // Rotations should track the local tangent
+    
+    // Use global rotation instead of local tangent to prevent wild rotations on squished curves
+    context.rotate(globalRealAngle - globalCanonAngle);
+
+    context.scale(scale, scale);
+    
+    // Vẽ dải 1 pixel
+    // offset theo trục Y cục bộ:
+    const localOffsetY = sy - canonPt.y;
+    // Để chống rách hình (seam) giữa các dải pixel, ta tăng sw = 1.5
+    context.drawImage(
+      source,
+      texX, sy, 1, sh,
+      0, localOffsetY, 1.5, sh
+    );
+    context.restore();
+  }
+  context.restore();
+}
+
+export function similarityEyeTransform(landmarks: number[][], isLeft: boolean, globalTransform: any, locateMethod: number | null = null) {
+  const outerIdx = isLeft ? 35 : 93;
+  const innerIdx = isLeft ? 39 : 89;
   
-  // To rotate AFTER non-uniform scaling:
-  // x' = x * scaleX * cos - y * scaleY * sin
-  // y' = x * scaleX * sin + y * scaleY * cos
-  const a = cos * scaleX;
-  const c_canvas = -sin * scaleY;
-  const b_canvas = sin * scaleX;
-  const d = cos * scaleY;
-  
-  // Translation to lock outer corner
-  const tx = rOuter[0] - (a * cOuter[0] + c_canvas * cOuter[1]);
-  const ty = rOuter[1] - (b_canvas * cOuter[0] + d * cOuter[1]);
-  
-  // The kumoMakeup.ts setTransform call is:
-  // context.setTransform(obj.a, obj.d, obj.b, obj.e, obj.c, obj.f);
-  // Which maps to Canvas: (a, b, c, d, dx, dy)
-  // So:
-  // obj.a = a
-  // obj.d = b_canvas
-  // obj.b = c_canvas
-  // obj.e = d
-  // obj.c = tx
-  // obj.f = ty
-  return { a: a, b: c_canvas, c: tx, d: b_canvas, e: d, f: ty };
+  const isLower = locateMethod === 38 || locateMethod === 39; // Fallback for affine
+  const topIdx = isLeft 
+    ? (isLower ? 33 : 40) 
+    : (isLower ? 87 : 94);
+
+  const p0 = CANONICAL_POINTS[outerIdx];
+  const p1 = CANONICAL_POINTS[innerIdx];
+  const p2 = CANONICAL_POINTS[topIdx];
+
+  const f0 = landmarks[outerIdx];
+  const f1 = landmarks[innerIdx];
+  const f2 = landmarks[topIdx];
+
+  if (!p0 || !p1 || !p2 || !f0 || !f1 || !f2) return globalTransform;
+
+  const determinant = (p1[0] - p0[0]) * (p2[1] - p0[1]) - (p2[0] - p0[0]) * (p1[1] - p0[1]);
+  if (Math.abs(determinant) > 1e-6) {
+    const solve = (axis: number) => {
+      const fx0 = f0[axis];
+      const fx1 = f1[axis];
+      const fx2 = f2[axis];
+      const a = ((fx1 - fx0) * (p2[1] - p0[1]) - (fx2 - fx0) * (p1[1] - p0[1])) / determinant;
+      const b = ((fx2 - fx0) * (p1[0] - p0[0]) - (fx1 - fx0) * (p2[0] - p0[0])) / determinant;
+      return [a, b, fx0 - a * p0[0] - b * p0[1]];
+    };
+    const [a, b, c] = solve(0);
+    const [d, e, f] = solve(1);
+    
+    return { a, b, c, d, e, f };
+  }
+
+  return globalTransform;
 }

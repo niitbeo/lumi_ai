@@ -3498,9 +3498,13 @@ async def portrait_analyze(image: UploadFile = File(...)) -> dict[str, object]:
         face["landmarks"] = np.round(points, 3).tolist()
         if es:
             try:
+                left_segs = es.segment(rgb, points, True)
+                right_segs = es.segment(rgb, points, False)
                 face["eye_segments"] = {
-                    "left_curve": es.segment(rgb, points, True),
-                    "right_curve": es.segment(rgb, points, False)
+                    "left_curve": left_segs.get("upper", []),
+                    "left_lower": left_segs.get("lower", []),
+                    "right_curve": right_segs.get("upper", []),
+                    "right_lower": right_segs.get("lower", [])
                 }
             except Exception as e:
                 print("EyeSegmenter error:", e)

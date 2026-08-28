@@ -61,20 +61,25 @@ class EyeSegmenter:
         mask = out[0]
         mask_bin = (mask > 0.3).astype(np.uint8) * 255
         
-        # Extract the upper edge of the mask at every column to form a dense curve
-        curve_pts = []
+        # Extract BOTH upper and lower edges of the mask
+        upper_curve = []
+        lower_curve = []
         for x in range(0, 128, 2):
             col = mask_bin[:, x]
             y_indices = np.where(col > 0)[0]
             if len(y_indices) > 0:
-                y = y_indices[0]
-                curve_pts.append([float(x), float(y)])
+                upper_curve.append([float(x), float(y_indices[0])])
+                lower_curve.append([float(x), float(y_indices[-1])])
                 
-        if len(curve_pts) == 0:
-            return []
+        if len(upper_curve) == 0:
+            return {"upper": [], "lower": []}
             
-        curve_pts = np.array(curve_pts, dtype=np.float32)
-        curve_pts_pad = np.column_stack((curve_pts, np.ones(len(curve_pts))))
-        orig_pts = np.dot(M_inv, curve_pts_pad.T).T
-        
-        return orig_pts.tolist()
+        def transform_curve(curve):
+            c_arr = np.array(curve, dtype=np.float32)
+            c_pad = np.column_stack((c_arr, np.ones(len(c_arr))))
+            return np.dot(M_inv, c_pad.T).T.tolist()
+            
+        return {
+            "upper": transform_curve(upper_curve),
+            "lower": transform_curve(lower_curve)
+        }
